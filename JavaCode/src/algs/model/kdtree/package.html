@@ -1,0 +1,33 @@
+<html>
+<body>
+<!-- Completed Aug 20 -->
+Defines the K-dimensional Tree and the optimized TwoDTree variation.
+<p>
+<h1>KD tree</h1>
+
+A KD tree is a space-partitioning data structure to represent a collection of k-dimensional  
+points. The structure offers efficient implementations of the following operations:
+<ul>
+<li> Nearest Point Query -- Which point in the KD tree is closest to a target point
+<li> Range Query -- Which points in the KD tree are contained within an n-dimensional
+                    Hypercube region.
+</ul> 
+
+To provide optimal behavior the KD trees should be balanced, however there is no efficient
+means to rebalance trees. In fact, the KD tree implementation provided here offers no 
+ability to remove an IMultiPoint once it has been inserted (you can remove all IMultiPoint
+objects in the tree using the removeAll method). If you choose to dynamically add 
+IMultiPoint objects to the tree, then the standard approach (much like hash tables in fact)
+to rebalance the tree is to remove all IMultiPoints and insert them in an order that
+ensures the resulting KD tree is balanced. The KDFactory class offers a static method
+<code>public static synchronized KDTree generate (IMultiPoint []points)</code> to generate
+a balanced KD tree using an algorithm that recursively locates medians and inserts the 
+points "above" and "below" the median nodes as needed. The TwoDFactory class offers the
+same functionality for TwoDTree. 
+
+<h1>References</h1>
+
+Bentley, J. L., <a href="http://portal.acm.org/citation.cfm?id=361007">Multidimensional binary search trees used for associative searching</a>, Communications ACM 18(9), Sep. 1975, 509–517. 
+
+</body>
+</html>

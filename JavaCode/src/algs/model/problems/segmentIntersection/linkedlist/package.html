@@ -1,0 +1,16 @@
+<html>
+<body>
+Defines the classes needed to implement the LineSweep algorithm using 
+double-linked lists to store the LineState.
+<p>
+Following such an approach prevents LineSweep from achieve its O((n+k) log n)
+behavior because of the costs in updating the line state. One will not see
+the performance degradation until the size of the line state exceeds a lower
+threshold. This example is provided as a warning. Make sure that when choosing
+to implement an algorithm that you choose the proper data structures that will
+achieve that goal. No detail can be overlooked. In this case, the costs of
+maintaining the line state will force LineSweep (using these linked lists) to
+be O(n^2) at times.
+
+</body>
+</html>

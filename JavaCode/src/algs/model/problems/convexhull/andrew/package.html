@@ -1,0 +1,16 @@
+<html>
+<body>
+Defines solution to the Convex Hull problem proposed by Andrew, which is 
+a ConvexHullScan.
+
+Andrew's ConvexHullScan devises a novel approach towards computing the partial
+upper hull for a set of points by first sorting all points by their x coordinate
+(breaking ties by considering the y coordinate). The partial upper hull starts with 
+the leftmost two points in P. ConvexHullScan extends the partial upper hull by 
+finding the point in P whose x coordinate comes next in sorted order after the 
+partial upper hull's last point Li. Once computed, the lower partial hull is 
+similar computed (this time by processing points from right to left). The two
+partial hulls are merged to produce the final hull. 
+
+</body>
+</html>

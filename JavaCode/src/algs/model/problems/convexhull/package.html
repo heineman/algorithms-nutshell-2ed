@@ -1,0 +1,35 @@
+<html>
+<body>
+Defines core classes for the Convex Hull problem.
+
+Given a set of points P in a two-dimensional plane, the convex hull is 
+the smallest convex shape that fully encloses all points in P. The hull 
+is convex because a line between any 2 points within it lies totally 
+within the hull. 
+
+The convex hull computation is specified by the following API description:
+
+<pre>
+public interface IConvexHull {
+   /**
+    * Return the computed convex hull for the input set of IPoint objects.
+    * 
+    * Points must have at least three points to do anything meaningful. If
+    * it does not, then the sorted array is returned as the "hull".
+    * 
+    * Some implementations may be able to work if duplicate points are found,
+    * but the set should contain distinct IPoint objects.
+    *
+    * @param points     a set of (n &ge; 3) two dimensional points.
+    */
+    public IPoint[] compute (IPoint[] points);
+}
+</pre>
+
+The hull is formed by a clockwise ordering of h points L<sub>0</sub> … L<sub>h–1</sub>. The first point
+L<sub>0</sub> is typically the leftmost point in the set P (although any point can be the
+start). Each sequence of three hull points L<sub>i</sub>, L<sub>i+1</sub>, L<sub>i+2</sub> creates
+a right turn; note that this property holds for L<sub>h–2</sub>, L<sub>h–1</sub>, L<sub>0</sub> as well.
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Defines the classes needed to implement the event queue using a priority 
+queue that does not support searching. If used unwisely, the performance
+of the LineSweep algorithm would again fail to achieve its O((n+k) log n)
+as average case performance.
+<p>
+The problem with SlowEventQueue is that LineSweep requires no duplicate
+reporting of intersections. For this to work, you must be careful not to
+insert the same point multiple times into the event queue. This could 
+happen if there are numerous pairs of lines that intersect at the same
+intersection point (an easy case to construct). Thus the insert method 
+actually behaves more like merge. 
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+<body>
+<!-- Completed Aug. 14 -->
+Defines core abstractions for generating visualizations to track the progress of
+an algorithm.
+
+The debugging interface(s) in this package are used to generate many of the 
+images within the <i>Algorithms in a Nutshell</i> book published by
+<a href="http://www.oreilly.com">O'Reilly Publishers</a>.
+<p>
+We use the <a href="http://www.graphviz.org">GraphViz</a> visualization package 
+developed by AT&amp;T and freely released 
+under the <a href="http://www.graphviz.org/License.php">Common Public License Version 1.0</a>.
+This software provides a <a href="http://www.graphviz.org/doc/info/lang.html">DOT</a>
+language which can encode information about a graph to
+be viewed by a tool known as <b>dotty</b>. This software has been ported from Unix
+to Windows and many of the generated images in our book were produced by creating
+a DOT source file to be used as input to <b>dotty</b>. While <b>dotty</b> supports
+many forms of output, we chose to output postscript files which were then converted
+to PDF using the Adobe Distiller utility.
+
+<h1>DottyDebugger</h1>
+
+The primary entry point for debugging is the 
+<A HREF="../../algs/debug/DottyDebugger.html" title="class in algs.debug">DottyDebugger</A>
+class.  This class implements the <A HREF="../../algs/debug/IDebugSearch.html" title="interface in algs.debug">IDebugSearch</A>
+interface which powers the debugging.
+<p>
+We distribute the logic to the individual entities themselves, which simplifies
+the drawing of debugging information at the expense of adding this extra method
+to classes which otherwise should be unaware of the debugging infrastructure.
+For example, the 
+<A HREF="../../algs/model/problems/tictactoe/model/TicTacToeState.html" title="class in algs.model.problems.tictactoe.model">TicTacToeState</A>
+class implements <A HREF="../../algs/debug/IGraphEntity.html#nodeLabel()" title="method in algs.debug.IGraphEntity">nodeLabel()</A>
+as follows:
+<p>
+
+<pre>
+public String nodeLabel() {
+   // dotty requires column-ordered state, so we rotate information.
+   StringBuilder sb = new StringBuilder();
+   for (int c = 0; c &lt;= TicTacToeBoard.MaxC; c++) {
+      sb.append("{");
+      for (int r = 0; r &lt;= TicTacToeBoard.MaxR; r++) {
+         char val = board.get(c, r);
+         if (val == TicTacToeBoard.EMPTY) {
+            sb.append(" ");
+         } else {
+            sb.append (val);
+         }
+
+         if (r &lt;= TicTacToeBoard.MaxR-1) { sb.append ("|"); }
+      }
+      sb.append("}");
+      if (c &lt;= TicTacToeBoard.MaxC-1) { sb.append ("|"); }
+   }	
+   return sb.toString();
+}
+</pre>
+
+This method constructs a string of the form <code>"{O| |X}{ |X| }{O|X| }"</code> which
+represents the state of the board in column-oriented format. All elements of the 
+DOT language can be used within the implementation of nodeLabel(), which naturally
+couples these classes with the specifics of the debugging infrastructure. It was 
+decided to add this complication to each individual class since only the class knows
+the full information that is to be used when visually drawing the node representing
+that state within the debugging output.
+
+</body>
+</html>
