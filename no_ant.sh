@@ -13,7 +13,7 @@ VERSION=2.0
 
 # Adjust as needed to your JUnit location. If you prefer not to runt
 # JUnit test then comment out this line
-JUNIT=$PWD/JUnit/hamcrest-core-1.3.jar:$PWD/JUnit/junit-4.12.jar
+JUNIT=$PWD/../junit4.0/hamcrest-core-1.3.jar:$PWD/../junit4.0/junit-4.12.jar
 
 which javac > /dev/null
 if [ $? -eq 1 ]
