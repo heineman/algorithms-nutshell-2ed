@@ -1,0 +1,9 @@
+# Compare four different sort algorithms
+BINS=ValueBased/Qsort_straight ValueBased/Qsort_2_6_6 ValueBased/Qsort_2_6_11 ValueBased/Insertion
+
+# configure suite
+TRIALS=50
+LOW=1
+HIGH=512
+INCREMENT=+1
+

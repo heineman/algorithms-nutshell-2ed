@@ -1,0 +1,11 @@
+# Compare four different sort algorithms
+BINS=ValueBased/Qsort_straight ValueBased/Qsort_2_6_6 ValueBased/Qsort_2_6_11 ValueBased/Insertion
+
+# configure suite: 16 pairs out of order (total of 32)
+EXTRAS=-a -u 16,0
+TRIALS=50
+LOW=1
+HIGH=16384
+INCREMENT=*2
+
+

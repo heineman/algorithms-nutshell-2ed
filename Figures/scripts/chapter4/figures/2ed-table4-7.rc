@@ -1,0 +1,9 @@
+# Performance on killer-median-of-three data [ONLY TEN TRIALS]
+BINS=Strings/MergePtr Strings/BucketLinkedListSort17576Ptr Strings/StraightHeapSort Strings/QSortWorstCaseFour Strings/BaseQsortMedianOfThree 
+
+# configure suite
+TRIALS=10
+LOW=4096
+HIGH=131072
+INCREMENT=*2
+EXTRAS=-a -k

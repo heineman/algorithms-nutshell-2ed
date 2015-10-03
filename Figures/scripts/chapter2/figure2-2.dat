@@ -1,0 +1,36 @@
+# Top side of figure (sorted -O3 data)
+n	ValueBased/Qsort_straight	ValueBased/Qsort_2_6_6	ValueBased/Qsort_2_6_11	ValueBased/Insertion
+1	0	0	0	1	
+2	0	0	0	0	
+4	1	0	1	1	
+8	1	2	1	1	
+16	2	3	2	1	
+32	3	5	4	1	
+64	7	9	7	2	
+128	15	17	14	3	
+256	32	33	30	6	
+512	68	64	63	10	
+1024	147	127	137	20	
+2048	326	252	300	40	
+4096	709	503	648	81	
+8192	1400	1000	1300	160	
+16384	3000	2000	2800	319	
+
+
+# Bottom side of figure (nearly sorted, 20 out of order)
+n	ValueBased/Qsort_straight	ValueBased/Qsort_2_6_6	ValueBased/Qsort_2_6_11	ValueBased/Insertion
+1	0	0	0	1	
+2	0	1	0	3	
+4	0	1	1	4	
+8	1	2	2	5	
+16	2	4	5	7	
+32	5	8	9	11	
+64	11	17	14	17	
+128	23	31	24	31	
+256	47	59	39	62	
+512	94	110	71	115	
+1024	197	210	143	234	
+2048	416	407	298	466	
+4096	878	790	635	1000	
+8192	1900	1600	1300	1900	
+16384	3900	3100	2800	3600	
