@@ -1,0 +1,9 @@
+# Performance (in seconds) on swap n/4, 4
+BINS=../Doubles/BaseQsortMedianOfThree ../Doubles/MedianSort ../Doubles/InsertionPtr ../Doubles/BucketLinkedListSortPtr ../Doubles/StraightHeapSort ../Doubles/MedianSortWorstCase ../Doubles/SelectionSort
+
+# configure suite
+EXTRAS=-a -u 8192,4
+TRIALS=10
+LOW=32768
+HIGH=32768
+INCREMENT=*2

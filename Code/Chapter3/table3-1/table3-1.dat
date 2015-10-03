@@ -1,0 +1,11 @@
+32-bit integer comparison	0.0000010
+32-bit integer multiplication	0.0000000
+32-bit float multiplication	0.0298550
+64-bit double multiplication	0.0298680
+8-bit integer multiplication	0.0000000
+128-bit double multiplication	0.0243440
+32-bit integer division, 0.0000000
+32-bit float division	0.0298190
+64-bit double division	0.0297960
+32-bit double square root, 0.0525960
+64-bit double square root, 0.0803580

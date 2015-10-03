@@ -1,0 +1,11 @@
+# configure to use these BINS
+BINS=./BucketArraySort17576Ptr
+
+# configure suite
+TRIALS=100
+LOW=16384
+HIGH=524288
+INCREMENT=*2
+
+EXTRAS=-w
+

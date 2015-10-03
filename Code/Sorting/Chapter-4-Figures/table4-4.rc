@@ -1,0 +1,8 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../Strings/HeapSort ../Strings/StraightHeapSort
+
+# configure suite
+TRIALS=10
+LOW=16384
+HIGH=2097152
+INCREMENT=*2

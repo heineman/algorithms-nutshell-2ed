@@ -1,0 +1,9 @@
+# Performance on ordered random strings (fix for QsortWorstCase)
+BINS=../Strings/QSortWorstCase 
+
+# configure suite
+TRIALS=10
+LOW=16
+HIGH=131072
+INCREMENT=*2
+EXTRAS=-a

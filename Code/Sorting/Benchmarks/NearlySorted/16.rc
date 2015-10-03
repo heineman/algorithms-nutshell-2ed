@@ -1,0 +1,9 @@
+# configure to use these BINS
+BINS=../InsertionPtr ../HeapSort ../NonRecursiveQsort ../MedianMinSort* ../MedianSort ../BaseQsort ../StraightHeapSort ../BaseQSort ../QSortMin10Random ../RevisedBaseQSort ../DotBaseQsort ../BucketPtr ../MedianRecursiveSort ../QSortMin1Random ../QSortMin2Random ../QSortMin3Random ../QSortMin4Random ../QSortMin5Random ../QSortMin6Random ../QSortMin7Random ../QSortMin8Random ../QSortMin9Random ../QSortMin11Random ../QSortMin12Random ../QSortMin13Random ../QSortMin14Random ../QSortMin15Random ../QSortMin16Random ../QSortMin17Random ../QSortMin18Random ../QSortMin19Random ../QSortMin20Random 
+
+# configure suite
+EXTRAS=-a -u 4,4
+TRIALS=10
+LOW=16
+HIGH=16
+INCREMENT=*2

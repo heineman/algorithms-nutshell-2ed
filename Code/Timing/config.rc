@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./benchmark
+
+# configure suite
+TRIALS=30
+LOW=50
+HIGH=1000
+INCREMENT=+50

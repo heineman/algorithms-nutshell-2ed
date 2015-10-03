@@ -1,0 +1,8 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../Strings/BaseQsort ../Strings/QSortMin18Random ../Strings/BaseQsortMedianOfThree ../Strings/QSortMin19Random ../Strings/QSortMin1Random ../Strings/NonRecursiveQsort ../Strings/QSortMin20Random ../Strings/Qsort ../Strings/QSortMin2Random ../Strings/QSortMin10Random ../Strings/QSortMin3Random ../Strings/QSortMin11Random ../Strings/QSortMin4Random ../Strings/QSortMin12Random ../Strings/QSortMin5Random ../Strings/QSortMin13Random ../Strings/QSortMin6Random ../Strings/QSortMin14Random ../Strings/QSortMin7Random ../Strings/QSortMin15Random ../Strings/QSortMin8Random ../Strings/QSortMin16Random ../Strings/QSortMin9Random ../Strings/QSortMin17Random        ../Strings/RevisedBaseQsort
+
+# configure suite
+TRIALS=10
+LOW=1024
+HIGH=524288
+INCREMENT=*2

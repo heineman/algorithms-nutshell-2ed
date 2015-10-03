@@ -1,0 +1,9 @@
+# Performance (in seconds) on ordered doubles
+BINS=../Doubles/BaseQsortMedianOfThree ../Doubles/MedianSort ../Doubles/InsertionPtr ../Doubles/BucketLinkedListSortPtr ../Doubles/StraightHeapSort ../Doubles/MedianSortWorstCase ../Doubles/QSortWorstCaseFour ../Doubles/QSortWorstCaseFive
+
+# configure suite
+EXTRAS=-a
+TRIALS=100
+LOW=16
+HIGH=131072
+INCREMENT=*2

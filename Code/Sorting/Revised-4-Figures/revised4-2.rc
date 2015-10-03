@@ -1,0 +1,11 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../Strings/MedianSortWorstCaseIncorrect ../Strings/MedianSortWorstCaseThree ../Strings/MedianSortWorstCaseFour ../Strings/MedianSortWorstCaseFive ../Strings/MedianSortLeftPivot ../Strings/MedianSortMedianOfThree ../Strings/MedianSort
+
+
+
+# configure suite
+EXTRAS=-a
+TRIALS=10
+LOW=256
+HIGH=262144
+INCREMENT=*2

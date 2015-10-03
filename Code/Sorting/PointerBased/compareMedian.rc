@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./InsertionPtr ./MedianSort
+
+# configure suite
+TRIALS=10
+LOW=16384
+HIGH=2097152
+INCREMENT=*2

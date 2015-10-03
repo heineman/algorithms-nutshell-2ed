@@ -1,0 +1,8 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../Strings/BaseQsortMedianOfThree ../Strings/HeapSort ../Strings/InsertionPtr ../Strings/HashSortPtr ../Strings/NonRecursiveQsort ../Strings/Qsort ../Strings/StraightHeapSort ../Strings/MedianSort ../Strings/MedianSortWorstCase ../Strings/RevisedBaseQsort ../Strings/SelectionSort
+
+# configure suite
+TRIALS=10
+LOW=16
+HIGH=131072
+INCREMENT=*2

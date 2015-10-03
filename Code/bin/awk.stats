@@ -1,0 +1,8 @@
+BEGIN{MIN=0; MAX=0; SUM=0; CT=0; first=1;}
+  {CT++;}
+  {if (first || $0 < MIN) { MIN= $0; first=0; }}
+  {if (first || $0 > MAX) { MAX= $0; first=0; }}
+
+  {SUM = SUM + $0; }
+
+END{SUM = SUM-MIN; SUM = SUM-MAX; CT-= 2; SUM = SUM/CT; print SUM "[trials:" CT " min:" MIN " max:" MAX ;}

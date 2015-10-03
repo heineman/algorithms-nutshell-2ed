@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./Insertion ./Qsort_2_6_11 ./Qsort_2_6_6 ./Qsort_straight
+
+# configure suite
+TRIALS=10
+LOW=1
+HIGH=16384
+INCREMENT=*2

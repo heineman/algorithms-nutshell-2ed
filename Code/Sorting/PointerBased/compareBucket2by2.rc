@@ -1,0 +1,9 @@
+# configure to use these BINS
+# note that BucketPtr compiled to use first two chars as bucket id.
+BINS=./BaseQSort ./BucketPtr
+
+# configure suite
+TRIALS=10
+LOW=16384
+HIGH=16777216
+INCREMENT=*2

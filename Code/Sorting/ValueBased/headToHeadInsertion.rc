@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./Insertion ./InsertionAllCopy
+
+# configure suite
+TRIALS=10
+LOW=65536
+HIGH=131072
+INCREMENT=*2

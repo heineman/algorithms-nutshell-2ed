@@ -1,0 +1,7 @@
+BINS=../InsertionPtr ../HeapSort  ../MedianMinSort1 ../MedianMinSort10 ../MedianMinSort2 ../MedianMinSort20 ../MedianMinSort3 ../MedianMinSort30 ../MedianMinSort4 ../MedianMinSort5 ../MedianMinSort6 ../MedianMinSort7 ../MedianMinSort8 ../MedianMinSort9 ../MedianSort ../BaseQsort ../StraightHeapSort ../BaseQSort ../QSortMin10Random  ../BucketPtr ../MedianRecursiveSort ../QSortMin1Random ../QSortMin2Random ../QSortMin3Random ../QSortMin4Random ../QSortMin5Random ../QSortMin6Random ../QSortMin7Random ../QSortMin8Random ../QSortMin9Random ../QSortMin11Random ../QSortMin12Random ../QSortMin13Random ../QSortMin14Random ../QSortMin15Random ../QSortMin16Random ../QSortMin17Random ../QSortMin18Random ../QSortMin19Random ../QSortMin20Random
+
+EXTRAS=-a -u 2097152,4
+TRIALS=10
+LOW=8388608
+HIGH=8388608
+INCREMENT=*2

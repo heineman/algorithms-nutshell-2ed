@@ -1,0 +1,10 @@
+# remove min/max for both alloc and free and output average
+BEGIN{START=1;NUMT=0}
+{if (START) {MIN_A=$2; MAX_A=$2; MIN_F=$3; MAX_F=$3;}}
+{START=0}
+{TOT_A += $2; TOT_F += $3; NUMT++; }
+{if ($2 < MIN_A) { MIN_A=$2}}
+{if ($2 > MAX_A) { MAX_A=$2}}
+{if ($3 < MIN_F) { MIN_F=$3}}
+{if ($3 > MAX_F) { MIN_F=$3}}
+END{TOT_A = (TOT_A - MIN_A - MAX_A)/(NUMT-2);TOT_F = (TOT_F - MIN_F - MAX_F)/(NUMT-2);print TOT_A "," TOT_F}

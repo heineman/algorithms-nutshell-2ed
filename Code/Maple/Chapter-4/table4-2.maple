@@ -1,0 +1,69 @@
+# WORST CASE
+
+nvals:=[
+256,
+512,
+1024,
+2048,
+4096,
+8192,
+16384,
+32768,
+65536,
+131072
+];
+
+medianRandomized := [
+0.000088,
+0.000213,
+0.000543,
+0.0012,
+0.0032,
+0.0065,
+0.0069,
+0.0187,
+0.0743,
+0.0981
+];
+
+medianBFPRTCase := [
+0.00017,
+0.000436,
+0.0011,
+0.0029,
+0.0072,
+0.0156,
+0.0354,
+0.0388,
+0.1065,
+0.361
+];
+
+medianLeftCase := [
+0.000444,
+0.0024,
+0.0105,
+0.0414,
+0.19,
+0.716,
+1.882,
+9.0479,
+47.3768,
+236.629
+];
+
+makepoint := (x,y) -> [x,y];
+
+randomized_data := zip (makepoint, nvals, medianRandomized);
+
+bfprt_data := zip (makepoint, nvals, medianBFPRTCase);
+
+left_data := zip (makepoint, nvals, medianLeftCase);
+
+with(CurveFitting):
+randomized_eq:= LeastSquares(randomized_data,x,curve=A*x*log[2](x)+B);
+
+left_eq:= LeastSquares(left_data,x,curve=A*x*x+B*x+C);
+
+bfprt_eq:= LeastSquares(bfprt_data,x,curve=A*x*log[2](x)+B);
+

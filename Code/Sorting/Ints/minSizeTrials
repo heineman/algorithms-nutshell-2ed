@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Explore the way minSize affects performance for various |n| sizes
+
+FILE=/tmp/report.$$
+N=120
+while [ $N -lt 200 ]
+do
+  echo "working on $N..."
+  Q=`./timeSmallArrays -n $N -q | grep secs | sed 's/secs//g'`
+  I=`./timeSmallArrays -n $N -i | grep secs | sed 's/secs//g'`
+
+  echo -n "$N,$Q,$I," >> $FILE
+  M=1
+  while [ $M -lt 80 ]
+  do
+    QI=`./timeSmallArrays -n $N -q -m $M | grep secs | sed 's/secs//g'`
+    echo -n ",$QI" >> $FILE
+    M=$((M+1))
+  done
+
+  echo "" >> $FILE
+  N=$((N+20))
+done
+
+echo $FILE

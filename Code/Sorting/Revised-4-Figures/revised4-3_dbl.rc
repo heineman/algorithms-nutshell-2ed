@@ -1,0 +1,8 @@
+# 
+BINS=../Doubles/MedianSortWorstCaseIncorrect ../Doubles/MedianSortWorstCaseThree ../Doubles/MedianSortWorstCaseFour ../Doubles/MedianSortWorstCaseFive ../Doubles/MedianSortLeftPivot ../Doubles/MedianSortMedianOfThree ../Doubles/MedianSort
+
+# configure suite
+TRIALS=10
+LOW=256
+HIGH=262144
+INCREMENT=*2

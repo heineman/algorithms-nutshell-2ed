@@ -1,0 +1,8 @@
+# Performance (in seconds) on random strings (fix for QSortWorstCase)
+BINS=../Strings/QSortWorstCase 
+
+# configure suite
+TRIALS=10
+LOW=16
+HIGH=131072
+INCREMENT=*2

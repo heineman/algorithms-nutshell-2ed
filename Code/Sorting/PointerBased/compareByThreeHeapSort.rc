@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./HeapSort ./StraightHeapSort
+
+# configure suite
+TRIALS=10
+LOW=16384
+HIGH=2097152
+INCREMENT=*3

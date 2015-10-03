@@ -1,0 +1,9 @@
+# configure to use these BINS
+BINS=./BaseQSort ./QSortMin10Random
+
+# configure suite
+EXTRAS=-d
+TRIALS=10
+LOW=4096
+HIGH=65536
+INCREMENT=*2

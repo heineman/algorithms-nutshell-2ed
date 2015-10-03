@@ -1,0 +1,7 @@
+break f
+run
+print (unsigned int) &space
+clear
+continue
+print n
+print (unsigned int) &space

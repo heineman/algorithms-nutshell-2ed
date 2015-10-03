@@ -1,0 +1,10 @@
+# configure to use these BINS
+BINS=./search ./searchNull ./searchOrdered ./moveToEnd ./binarySearch ./moveToFront ./linkedList ./linkedListMoveToEnd
+
+# configure suite
+TRIALS=10
+LOW=2
+HIGH=1024
+INCREMENT=*2
+EXTRAS=-k 16 -p 1.0
+

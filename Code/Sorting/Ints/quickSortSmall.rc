@@ -1,0 +1,11 @@
+# configure to use these BINS
+BINS=./testSmallArrays
+
+# configure suite
+TRIALS=50
+LOW=1
+HIGH=15
+INCREMENT=+1
+
+# quickSort
+EXTRAS=-q

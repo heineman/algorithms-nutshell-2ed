@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./InsertionPtr ./HeapSort ./NonRecursiveQsort
+
+# configure suite
+TRIALS=10
+LOW=1
+HIGH=16384
+INCREMENT=*2

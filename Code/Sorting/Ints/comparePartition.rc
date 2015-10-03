@@ -1,0 +1,11 @@
+# configure to use these BINS
+BINS=./timeSmallArrays ./timeModifiedQsort 
+
+# configure suite
+TRIALS=100
+LOW=1
+HIGH=16384
+INCREMENT=*2
+
+# quickSort
+EXTRAS=-q

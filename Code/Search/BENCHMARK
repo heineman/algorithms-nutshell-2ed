@@ -1,0 +1,107 @@
+
+Benchmark for Searching:
+
+(0) Identify a search domain S from which strings of the same size are
+    drawn. These strings will form the target data structure as well as the
+    strings to be searched for.  The size of the search domain |S| = n =
+    2^k
+
+    For example, S4 could be the set of 4-character strings from the set
+    {a,b}. Note that |S4| = 2^4 = 16.
+
+(1) Construct a target instance of the data structure of size c*n where 
+    c is in the range [0.5, 1.0]. This instance is constructed by the
+    repeated application of the insert operation on the data structure. It
+    is guaranteed that no string appears multiple times in the target
+    instance.
+
+    c represents the ratio of available elements that will be in the target
+    search list. The target instance is constructed by the following 
+    algorithm:
+
+     Create array SA whose size is |S| and contains all elements of S.
+     idx = n;
+     ct = 0;
+     while (ct < c*n) {
+        select random index i from [0,idx)
+	DS.insert(s);
+	swap SA[i] with SA[idx-1];
+	idx--;
+	ct++;
+     }
+
+(2) Construct a SearchList of search strings to be searched for. The size
+    of SearchList is n/4.  This SearchList is constructed in two separate
+    ways:
+
+      (a) uniform distribution; as with step 1, each string in the
+      SearchList is drawn randomly from S and is never duplicated in
+      SearchList. 
+
+      (b) weighted distribution; given the original search domain S, assign
+      search probabilities to the individual strings in S. 
+
+         1 string  will never be searched
+	 1 string  will be searched 50% of the time
+	 2 strings will be searched 25% of the time
+	 4 strings will be searched 12.5% of the time
+	 8 strings will be searched 6.25% of the time
+	 ...
+	 2^(k-1) strings will be searched 1/(2^k-1) time
+
+       Given the set S4 above, the following could be the weighted search
+       probabilities.
+
+           String    Search-prob.
+           ------    ------------
+            aaaa           0
+            aaab	   8
+            aaba	   4
+            aabb	   4
+            abaa	   2
+            abab	   2
+            abba	   2
+            abbb	   2
+            baaa	   1
+            baab	   1
+            baba	   1
+            babb	   1
+            bbaa	   1
+            bbab	   1
+            bbba	   1
+            bbbb	   1
+
+(3) For each element in SearchList, search for the item. Measure the 
+    number of "probes", that is, inspections within the target data
+    structure for the given element. Also keep track of total time so you
+    can compute the average cost of a search.
+
+
+
+
+  This will ensure that DS contains no duplicates. For example, c could be
+  .5 and the DS could be a linear list:
+
+     aaab
+     baba
+     abaa
+     bbbb
+     baaa
+     aaaa
+     aaba
+     babb
+   
+  Note that here, the list is unordered.
+
+
+
+
+  The initial setup is to identify the following class of strings.
+
+      1 string will never be searched for
+      n/2 of these strings will be searched-for one time
+      n/4 of these strings will be searched-for two times
+      n/8 will be searched-for four times
+      n/16 will be searched-for eight times
+      n/32 will be searched-for sixteen times
+    

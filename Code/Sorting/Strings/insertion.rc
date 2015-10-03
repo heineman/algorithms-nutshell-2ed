@@ -1,0 +1,9 @@
+# configure to use these BINS 
+BINS=./BinaryInsertionPtr ./InsertionPtr ./BaseQsort
+
+# configure suite
+TRIALS=100
+LOW=32
+HIGH=16384
+INCREMENT=*2
+

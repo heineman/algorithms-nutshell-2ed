@@ -1,0 +1,9 @@
+# Performance on random strings
+BINS=../Strings/MedianSort ../Strings/BucketLinkedListSort17576Ptr ../Strings/StraightHeapSort ../Strings/QSortWorstCase ../Strings/QSortWorstCaseFour ../Strings/QSortWorstCaseFive
+
+# configure suite
+TRIALS=100
+LOW=16
+HIGH=131072
+INCREMENT=*2
+EXTRAS=-a -k

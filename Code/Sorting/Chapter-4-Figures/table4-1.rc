@@ -1,0 +1,8 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../Strings/InsertionPtr ../ValueBased/Insertion ../ValueBased/InsertionAllCopy
+
+# configure suite
+TRIALS=10
+LOW=1024
+HIGH=131072
+INCREMENT=*2

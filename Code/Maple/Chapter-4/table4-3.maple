@@ -1,0 +1,70 @@
+## average case
+
+nvals:=[
+256,
+512,
+1024,
+2048,
+4096,
+8192,
+16384,
+32768,
+65536,
+131072
+];
+
+
+medianBFPRTCase := [
+0.000245,
+0.000557,
+0.0019,
+0.0041,
+0.0128,
+0.0256,
+0.0547,
+0.4084,
+0.5186,
+3.9691
+];
+
+medianLeftCase := [
+0.000116,
+0.000299,
+0.0012,
+0.0035,
+0.0103,
+0.0294,
+0.0744,
+0.2213,
+0.459,
+1.8131
+];
+
+medianRandomized := [
+0.000072,
+0.000159,
+0.000467,
+0.001.
+0.0028,
+0.0062,
+0.0143,
+0.0375,
+0.0579,
+0.1325
+];
+
+makepoint := (x,y) -> [x,y];
+
+randomized_data := zip (makepoint, nvals, medianRandomized);
+
+bfprt_data := zip (makepoint, nvals, medianBFPRTCase);
+
+left_data := zip (makepoint, nvals, medianLeftCase);
+
+with(CurveFitting):
+randomized_eq:= LeastSquares(randomized_data,x,curve=A*x*log[2](x)+B);
+
+left_eq:= LeastSquares(left_data,x,curve=A*x*x+B*x+C);
+
+bfprt_eq:= LeastSquares(bfprt_data,x,curve=A*x*log[2](x)+B);
+

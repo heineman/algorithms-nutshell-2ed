@@ -1,0 +1,11 @@
+# configure to use these BINS
+BINS=./timeSmallArrays
+
+# configure suite
+TRIALS=200
+LOW=1
+HIGH=90
+INCREMENT=+1
+
+# insertionSort
+EXTRAS=-i

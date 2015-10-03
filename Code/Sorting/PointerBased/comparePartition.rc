@@ -1,0 +1,8 @@
+# configure to use these BINS
+BINS=./BaseQSort ./RevisedBaseQSort
+
+# configure suite
+TRIALS=30
+LOW=4096
+HIGH=1048576
+INCREMENT=*2

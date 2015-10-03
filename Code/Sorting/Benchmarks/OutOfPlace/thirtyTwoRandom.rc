@@ -1,0 +1,12 @@
+# swap just four random pairs
+
+# configure to use these BINS
+BINS=../../Strings/InsertionPtr ../../Strings/HeapSort  ../../Strings/MedianMinSort1 ../../Strings/MedianMinSort10 ../../Strings/MedianMinSort2 ../../Strings/MedianMinSort20 ../../Strings/MedianMinSort3 ../../Strings/MedianMinSort30 ../../Strings/MedianMinSort4 ../../Strings/MedianMinSort5 ../../Strings/MedianMinSort6 ../../Strings/MedianMinSort7 ../../Strings/MedianMinSort8 ../../Strings/MedianMinSort9 ../../Strings/MedianSort ../../Strings/BaseQsort ../../Strings/StraightHeapSort ../../Strings/QSortMin10Random  ../../Strings/BucketLinkedListSort17576Ptr ../../Strings/MedianRecursiveSort ../../Strings/QSortMin1Random ../../Strings/QSortMin2Random ../../Strings/QSortMin3Random ../../Strings/QSortMin4Random ../../Strings/QSortMin5Random ../../Strings/QSortMin6Random ../../Strings/QSortMin7Random ../../Strings/QSortMin8Random ../../Strings/QSortMin9Random ../../Strings/QSortMin11Random ../../Strings/QSortMin12Random ../../Strings/QSortMin13Random ../../Strings/QSortMin14Random ../../Strings/QSortMin15Random ../../Strings/QSortMin16Random ../../Strings/QSortMin17Random ../../Strings/QSortMin18Random ../../Strings/QSortMin19Random ../../Strings/QSortMin20Random
+
+
+# configure suite
+EXTRAS=-a -u 32,0
+TRIALS=10
+LOW=1
+HIGH=8388608
+INCREMENT=*2

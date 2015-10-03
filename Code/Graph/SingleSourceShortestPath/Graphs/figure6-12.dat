@@ -1,0 +1,10 @@
+Figure 6-12 in Dijkstra's algorithm
+6 8 directed
+0,1,6
+0,2,8
+0,3,18
+1,4,11
+4,5,3
+5,3,4
+2,3,9
+5,2,7

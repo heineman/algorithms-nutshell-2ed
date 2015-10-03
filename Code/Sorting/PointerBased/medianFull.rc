@@ -1,0 +1,9 @@
+# configure to use these BINS
+BINS=./MedianSort ./MedianRecursiveSort ./MedianMinSort1 ./MedianMinSort2 ./MedianMinSort3 ./MedianMinSort4 ./MedianMinSort5 ./MedianMinSort6 ./MedianMinSort7 ./MedianMinSort8 ./MedianMinSort9 
+
+
+# configure suite
+TRIALS=10
+LOW=1
+HIGH=2097152
+INCREMENT=*2

@@ -1,0 +1,9 @@
+# Performance (in seconds) on swap 16,8
+BINS=../Strings/BaseQsortMedianOfThree ../Strings/MedianSort ../Strings/InsertionPtr ../Strings/BucketLinkedListSortPtr ../Strings/StraightHeapSort ../Strings/QSortWorstCase ../Strings/SelectionSort
+
+# configure suite
+EXTRAS=-a -u 16,8
+TRIALS=10
+LOW=16
+HIGH=131072
+INCREMENT=*2

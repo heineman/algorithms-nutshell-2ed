@@ -1,0 +1,318 @@
+/**
+ * @file modifiedQsort.c
+ * @brief
+ *    Find crossover where InsertionSort is slower than FullQsort using
+ *    MedianOfThree as pivot
+ *
+ * @author George Heineman
+ * @date 4/15/09
+ */
+
+#include <getopt.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "problem.h"
+
+#undef VALIDATE
+
+int minSize = 30;
+
+void problemUsage () {
+  /* nothing special */
+}
+
+void postInputProcessing () {
+  /* nothing special */
+}
+
+long totalLow;
+long totalHigh;
+long countLow, countHigh;
+
+/**
+ * In linear time, group the sub-array ar[left, right) around a pivot
+ * element pivot=ar[pivotIndex] by storing pivot into its proper location,
+ * store, within the sub-array (whose location is returned by this
+ * function) and ensuring that all ar[left,store) <= pivot and all
+ * ar[store+1,right) > pivot.
+ * 
+ * @param ar           array of elements to be sorted.
+ * @param left         lower bound index position  (inclusive)    
+ * @param right        upper bound index position  (exclusive)
+ * @param pivotIndex   index around which the partition is being made.
+ * @return             location of the pivot index properly positioned.
+ */
+int partition (int *ar, int left, int right, int pivotIndex) {
+  int tmp, pivot;
+  int idx, store;
+  totalLow = totalHigh = countLow = countHigh = 0;
+  pivot = ar[pivotIndex];
+
+  /*  move pivot to the end of the array*/
+  tmp = ar[right];
+  ar[right] = ar[pivotIndex];
+  ar[pivotIndex] = tmp;
+  
+  /* all values <= pivot are moved to front of array and pivot inserted
+   * just after them. */
+  store = left;
+  for (idx = left; idx < right; idx++) {
+    if (ar[idx] <= pivot) {
+      totalLow += (tmp = ar[idx]);
+      countLow++;
+      ar[idx] = ar[store];
+      ar[store] = tmp;
+      store++;
+    } else {
+      totalHigh += ar[idx];
+      countHigh++;
+    }
+  }
+  
+  tmp = ar[right];
+  ar[right] = ar[store];
+  ar[store] = tmp;
+  return store;
+}
+
+/**
+ * Use val as the partitioning value, and use "collapsing walls" technique
+ * unfortunately, doesn't truly speed things up. Lots of wasted computation
+ * regarding computing averages.
+ */
+int partitionByVal (int *ar, int left, int right, int val) {
+  int tmp;
+  int ct = right-left+1;
+  int ct2 = ct;
+  totalLow = ar[left];   /* pick arbitrary spot. */
+  totalHigh = ar[right];
+  countLow = 1;
+  countHigh = 1;
+  do {
+    /**
+       while (ct-- >0 && ar[left] < val) { totalLow += ar[left++]; }
+       while (ct2-- >0 && val < ar[right]) { totalHigh += ar[right--]; }
+    **/
+    while (ct-- >0 && ar[left] < val) { left++; }
+    while (ct2-- >0 && val < ar[right]) { right--; }
+
+    if (left < right) {
+      tmp = ar[left];
+      /* sample only when swapping. will be an estimate, not accurate. */
+      totalLow += (ar[left] = ar[right]);
+      totalHigh += (ar[right] = tmp);
+      countLow++;
+      countHigh++;
+      left++;
+      right--;
+    } else if (left == right) {
+      break;
+    }
+  } while (left <= right);
+
+  /* All elements >= left are guaranteed to be > val. */
+  return left;
+}
+
+
+/**  proper insertion sort, optimized */
+void insertion (int *ar, int low, int high) {
+  int loc;
+  for (loc = low+1; loc <= high; loc++) {
+    int i = loc-1;
+    int value = ar[loc];
+    while (i >= 0 && ar[i] > value) {
+      ar[i+1] = ar[i];
+      i--;
+    } 
+
+  ar[i+1] = value;
+  }
+}
+
+
+/**
+ * Select pivot index to use in partition.
+ * 
+ * Inline code using macro to set value
+ * 
+ * \param vals    the array of elements.
+ * \param left    the left end of the subarray range
+ * \param right   the right end of the subarray range
+ * \return        int in the range [left, right] to use in partition.
+ */
+#define selectPivotIndex(vals,left,right,pivot)\
+{                                       \
+  int mid;                              \
+  int c0, c1, c2;                       \
+  c0 = vals[left];                      \
+  mid = (left+right+1)/2;               \
+  c1 = vals[mid];                       \
+  c2 = vals[right];                     \
+                                        \
+  if (c0 < c1) {                        \
+    if (c1 <= c2) {                     \
+      pivot = mid;                      \
+    } else if (c0 < c2) {               \
+      pivot = right;                    \
+    } else {                            \
+      pivot = left;                     \
+    }                                   \
+  } else if (c0 < c2) {                 \
+    pivot = left;                       \
+  } else if (c1 < c2) {                 \
+    pivot = right;                      \
+  } else {                              \
+    pivot = mid;                        \
+  }                                     \
+}
+
+
+/**
+ * Sort by partitioning by value
+ */
+void do_qsort0 (int *ar, int left, int right, int val) {
+  int pivotIndex, numToSort;
+  if (right <= left) { return; }
+  
+  pivotIndex = partitionByVal (ar, left, right, val);
+  
+  numToSort = pivotIndex - left;
+  if (numToSort < 2) {
+    /* DO NOTHING */
+  } else if (numToSort < minSize) {
+    insertion (ar, left, pivotIndex-1);
+  } else {
+    do_qsort0 (ar, left, pivotIndex-1, totalLow/countLow);
+  }
+
+  /* we can't assume anything, so we sort even if two. */
+  numToSort = right - pivotIndex;
+  if (numToSort < 1) {
+    /* DO NOTHING */
+  } else if (numToSort < minSize) {
+    /* must include pivotIndex in the sort! */
+    insertion (ar, pivotIndex, right);
+  } else {
+    /* must include pivotIndex in the sort! */
+    do_qsort0 (ar, pivotIndex, right, totalHigh/countHigh);
+  }
+}
+
+/**
+ * Sort array ar[left,right] using Quicksort method.
+ */
+void do_qsort (int *ar, int left, int right) {
+  int pivotIndex;
+  int numToSort;
+  if (right <= left) { return; }
+
+  
+  /* partition and compute avgLow & avgHigh. */
+  selectPivotIndex(ar,left,right,pivotIndex)
+  pivotIndex = partition (ar, left, right, pivotIndex);
+  
+  numToSort = pivotIndex - left;
+  if (numToSort < minSize) {
+    if (numToSort > 1) {
+      insertion (ar, left, pivotIndex-1);
+    }
+  } else {
+    do_qsort0 (ar, left, pivotIndex-1, totalLow/(pivotIndex-left));
+  }
+
+  numToSort = right - pivotIndex;
+  if (numToSort < minSize) {
+    if (numToSort >1) {
+      insertion (ar, pivotIndex+1, right);
+    }
+  } else {
+    do_qsort0 (ar, pivotIndex+1, right, totalHigh/(right-pivotIndex));
+  }
+}
+
+/** 1000 set of elements to be sorted (unless set). */
+int **vals;
+int numSets = 1000;
+
+/** sort method (0=quickSort, 1=insertionSort). */
+int sortMethod = -1;
+
+void prepareInput (int size, int argc, char **argv) {
+  int i, j;
+  char c;
+
+  while ((c = getopt(argc, argv, "qis:m:")) != -1) {
+    switch (c) {
+    case 'q':
+      sortMethod = 0;
+      break;
+
+    case 'i':
+      sortMethod = 1;
+      break;
+
+    case 'm':
+      minSize = atoi(optarg);
+      break;
+
+    case 's':
+      numSets = atoi(optarg);
+      break;
+
+    default:
+      break;
+    }
+  }
+  optind = 0;  /*  reset getopt for next time around. */
+
+  /** Make 1000 sample arrays. */
+  /* draw from 1..numElements^2 */
+  vals = (int **) calloc (numSets, sizeof (int *));
+  for (i = 0; i < numSets; i++) {
+    vals[i] = (int *) calloc (numElements, sizeof(int));
+    for (j = 0; j < numElements; j++) {
+      vals[i][j] = 1 + (int) (numElements * numElements *(rand()/(RAND_MAX + 1.0)));
+    }
+  }
+}
+
+void output (int *ar, int n) {
+  int i;
+  for (i = 0; i < n; i++) {
+    printf ("%d. %d\n", i, ar[i]);
+  }
+}
+
+/**
+ * numElements is there
+ */
+void execute() {
+  int i;
+#ifdef VALIDATE
+  int j;
+#endif
+  for (i = 0; i < numSets; i++) {
+    switch (sortMethod) {
+
+    case 0:
+      do_qsort (vals[i], 0, numElements-1); 
+      break;
+
+    case 1:
+      insertion (vals[i], 0, numElements-1); 
+      break;
+    }
+
+#ifdef VALIDATE
+    /* validate! */
+    for (j = 0; j < numElements-1; j++) {
+      if (vals[i][j] > vals[i][j+1]) {
+	printf ("failed on trial %d\n", j);
+	return;
+      }
+    }
+#endif
+
+  }
+}

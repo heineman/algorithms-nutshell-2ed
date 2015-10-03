@@ -1,0 +1,9 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../Strings/BucketLinkedListSort17576Ptr ../Strings/BaseQsortMedianOfThree
+
+
+# configure suite
+TRIALS=10
+LOW=131072
+HIGH=1048576
+INCREMENT=*2

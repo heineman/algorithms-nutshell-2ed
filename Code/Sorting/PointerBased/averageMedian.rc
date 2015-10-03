@@ -1,0 +1,9 @@
+# configure to use these BINS
+BINS=./MedianSort ./MedianSortLeftPivot ./MedianSortWorstCase ./MedianSortRecoverable
+
+# configure suite
+EXTRAS=
+TRIALS=10
+LOW=16
+HIGH=4194304
+INCREMENT=*2
