@@ -1,7 +1,7 @@
 package algs.model.search;
 
 /**
- * Binary Search in Java given a pre-sorted array of the parameterized type. 
+ * Binary Search in Java given a presorted array of the parameterized type. 
  *
  * @param T   elements of the collection being searched are of this type.
  *            The parameter T must implement Comparable.  
