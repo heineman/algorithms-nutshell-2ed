@@ -21,7 +21,7 @@ CP = "../dist/ADK-$(VERSION)-ExamplesAndFigures.jar"
 
 DATA = 2ed-table10-1.dat 2ed-table10-2.dat 2ed-table10-3.dat 2ed-table10-4567.dat 
 
-COMPUTED = 2ed-10-9.dat  2ed-10-12.dat  
+COMPUTED = 2ed-10-9.dat  2ed-10-12.dat figure10-7.dat
 FIGS = 2ed-10-7.ps 2ed-10-9.ps 2ed-10-11.ps 2ed-10-12.ps
 
 all: $(DATA) $(FIGS)

@@ -16,8 +16,9 @@ CP = "../dist/ADK-$(VERSION)-ExamplesAndFigures.jar"
 	@if [ -f $*.ps ]; then chmod 644 $*.ps ; fi
 	$(PLOT) < $*.plot
 
-DATA = 2ed-table11-1.dat 2ed-table11-2.dat 2ed-table11-3.dat 2ed-table11-4.dat
+DATA = 2ed-table11-1.dat 2ed-table11-2.dat 2ed-table11-3.dat 2ed-table11-4.dat 
 FIGS = 2ed-11-1.ps 2ed-11-2.ps
+OTHER_DATA = 2ed-11-1.dat
 THREADS = thread.11-1.1.dat thread.11-1.4.dat thread.11-1.8.dat
 
 all: $(DATA) $(FIGS)
@@ -37,10 +38,10 @@ figure: $(FIGS)
 
 # run this on quad computer and dual computer. Then name them appropriately
 # quad_table_nr.dat and dual_table_nr.dat. Then make '2ed-11-2.ps'
+# These cannot be removed during 'make clean'
 table_nr.dat:
 	@echo "generating data for figure 11-2 (2ed)..."
 	(cd $(BASE); java -cp $(CP) algs.chapter11.figure1.GenerateTable)>table_nr.dat
-
 
 thread.11-1.4.dat:
 	@echo "generating data for figure 11-1 (2ed)..."
@@ -64,4 +65,4 @@ thread.11-1.4.dat:
 	(cd $(BASE); java -cp $(CP) algs.chapter11.table4.Main) > 2ed-table11-4.dat
 
 clean:
-	rm -f $(DATA) *~ $(THREADS) $(FIGS)
+	rm -f $(DATA) *~ $(THREADS) $(FIGS) $(OTHER_DATA)
