@@ -13,7 +13,7 @@ PLOT = gnuplot
 RATIO = ../ratio.awk
 CP = "../dist/ADK-$(VERSION)-ExamplesAndFigures.jar"
 
-DATA = 2ed-table5-1.dat 2ed-table5-2.dat 2ed-table5-3.dat 2ed-table5-4.dat 2ed-table5-5.dat 2ed-table5-6.dat 2ed-table5-7.dat 
+DATA = 2ed-table5-1.dat 2ed-table5-2.dat 2ed-table5-3.dat 2ed-table5-4.dat 2ed-table5-5.dat 2ed-table5-6.dat 2ed-table5-7.dat 2ed-figure5-3.dat 2ed-figure5-5.dat
 
 FIGS = 2ed-figure5-3.ps 2ed-figure5-5.ps
 
