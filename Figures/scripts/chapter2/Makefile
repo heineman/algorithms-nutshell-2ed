@@ -24,8 +24,7 @@ MSCONV = ../msconv.awk
 
 # Figures to be built
 FIGS = 2ed-2-1.ps 2ed-2-2.ps 2ed-2-3.ps 2ed-2-4.ps 2ed-2-5.ps 2ed-2-6.ps 2ed-2-7.ps 
-
-DATA = 2ed-table2-2.dat 2ed-table2-3.dat 2ed-table2-4.dat 2ed-table2-5.dat
+DATA = 2ed-table2-2.dat 2ed-table2-3.dat 2ed-table2-4.dat 2ed-table2-5.dat 2ed-figure2-1.dat 2ed-figure2-2.dat 2ed-figure2-3.dat 2ed-table2-4.dat 2ed-table2-5.dat 2ed-figure2-6.dat 2ed-figure2-7.dat
 
 all: $(DATA) $(FIGS)
 
