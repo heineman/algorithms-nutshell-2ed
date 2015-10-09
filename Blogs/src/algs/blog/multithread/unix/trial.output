@@ -1,0 +1,400 @@
+T = 1
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0234
+131072 ,0.0535
+262144 ,0.1328
+524288 ,0.2822
+1048576 ,0.6495
+T = 2
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0181
+131072 ,0.0429
+262144 ,0.1011
+524288 ,0.2401
+1048576 ,0.5646
+T = 3
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0182
+131072 ,0.0444
+262144 ,0.1029
+524288 ,0.2435
+1048576 ,0.5629
+T = 4
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0185
+131072 ,0.0442
+262144 ,0.1030
+524288 ,0.2404
+1048576 ,0.5750
+T = 5
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0187
+131072 ,0.0445
+262144 ,0.1030
+524288 ,0.2400
+1048576 ,0.5822
+T = 6
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0191
+131072 ,0.0449
+262144 ,0.1046
+524288 ,0.2404
+1048576 ,0.5851
+T = 7
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0194
+131072 ,0.0453
+262144 ,0.1050
+524288 ,0.2417
+1048576 ,0.5871
+T = 8
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0198
+131072 ,0.0461
+262144 ,0.1060
+524288 ,0.2445
+1048576 ,0.5859
+T = 9
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0197
+131072 ,0.0463
+262144 ,0.1075
+524288 ,0.2443
+1048576 ,0.5887
+T = 10
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0198
+131072 ,0.0470
+262144 ,0.1080
+524288 ,0.2448
+1048576 ,0.5947
+T = 11
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0200
+131072 ,0.0472
+262144 ,0.1091
+524288 ,0.2464
+1048576 ,0.5988
+T = 12
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0201
+131072 ,0.0477
+262144 ,0.1101
+524288 ,0.2480
+1048576 ,0.5999
+T = 13
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0202
+131072 ,0.0482
+262144 ,0.1106
+524288 ,0.2492
+1048576 ,0.6096
+T = 14
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0202
+131072 ,0.0484
+262144 ,0.1118
+524288 ,0.2517
+1048576 ,0.6181
+T = 15
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0204
+131072 ,0.0488
+262144 ,0.1126
+524288 ,0.2527
+1048576 ,0.6222
+T = 16
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0204
+131072 ,0.0491
+262144 ,0.1138
+524288 ,0.2548
+1048576 ,0.6147
+T = 17
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0206
+131072 ,0.0494
+262144 ,0.1147
+524288 ,0.2566
+1048576 ,0.6209
+T = 18
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0207
+131072 ,0.0498
+262144 ,0.1153
+524288 ,0.2581
+1048576 ,0.6183
+T = 19
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0209
+131072 ,0.0504
+262144 ,0.1165
+524288 ,0.2615
+1048576 ,0.6289
+T = 20
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0217
+131072 ,0.0504
+262144 ,0.1170
+524288 ,0.2614
+1048576 ,0.6223
+T = 21
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0209
+131072 ,0.0507
+262144 ,0.1175
+524288 ,0.2628
+1048576 ,0.6310
+T = 22
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0210
+131072 ,0.0509
+262144 ,0.1184
+524288 ,0.2628
+1048576 ,0.6101
+T = 23
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0224
+131072 ,0.0524
+262144 ,0.1204
+524288 ,0.2627
+1048576 ,0.6260
+T = 24
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0211
+131072 ,0.0514
+262144 ,0.1195
+524288 ,0.2706
+1048576 ,0.6306
+T = 25
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0213
+131072 ,0.0515
+262144 ,0.1201
+524288 ,0.2660
+1048576 ,0.6423
+T = 26
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0212
+131072 ,0.0516
+262144 ,0.1203
+524288 ,0.2670
+1048576 ,0.6309
+T = 27
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0213
+131072 ,0.0517
+262144 ,0.1208
+524288 ,0.2675
+1048576 ,0.6322
+T = 28
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0214
+131072 ,0.0521
+262144 ,0.1209
+524288 ,0.2693
+1048576 ,0.6288
+T = 29
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0214
+131072 ,0.0519
+262144 ,0.1212
+524288 ,0.2697
+1048576 ,0.6361
+T = 30
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0215
+131072 ,0.0521
+262144 ,0.1214
+524288 ,0.2720
+1048576 ,0.6386
+T = 31
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0216
+131072 ,0.0524
+262144 ,0.1219
+524288 ,0.2732
+1048576 ,0.6438
+T = 32
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0215
+131072 ,0.0522
+262144 ,0.1220
+524288 ,0.2743
+1048576 ,0.6426
+T = 33
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0216
+131072 ,0.0524
+262144 ,0.1224
+524288 ,0.2757
+1048576 ,0.6466
+T = 34
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0217
+131072 ,0.0526
+262144 ,0.1229
+524288 ,0.2767
+1048576 ,0.6409
+T = 35
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0217
+131072 ,0.0528
+262144 ,0.1233
+524288 ,0.2776
+1048576 ,0.6412
+T = 36
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0217
+131072 ,0.0529
+262144 ,0.1236
+524288 ,0.2787
+1048576 ,0.6441
+T = 37
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0217
+131072 ,0.0528
+262144 ,0.1238
+524288 ,0.2785
+1048576 ,0.6458
+T = 38
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0218
+131072 ,0.0528
+262144 ,0.1240
+524288 ,0.2797
+1048576 ,0.6504
+T = 39
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0218
+131072 ,0.0529
+262144 ,0.1244
+524288 ,0.2797
+1048576 ,0.6523
+T = 40
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0219
+131072 ,0.0531
+262144 ,0.1246
+524288 ,0.2805
+1048576 ,0.6557
+T = 41
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0218
+131072 ,0.0532
+262144 ,0.1250
+524288 ,0.2812
+1048576 ,0.6500
+T = 42
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0219
+131072 ,0.0533
+262144 ,0.1253
+524288 ,0.2817
+1048576 ,0.6515
+T = 43
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0219
+131072 ,0.0533
+262144 ,0.1257
+524288 ,0.2830
+1048576 ,0.6541
+T = 44
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0220
+131072 ,0.0533
+262144 ,0.1256
+524288 ,0.2843
+1048576 ,0.6528
+T = 45
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0220
+131072 ,0.0534
+262144 ,0.1260
+524288 ,0.2840
+1048576 ,0.6598
+T = 46
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0221
+131072 ,0.0536
+262144 ,0.1262
+524288 ,0.2850
+1048576 ,0.6624
+T = 47
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0223
+131072 ,0.0537
+262144 ,0.1262
+524288 ,0.2862
+1048576 ,0.6583
+T = 48
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0221
+131072 ,0.0537
+262144 ,0.1264
+524288 ,0.2869
+1048576 ,0.6652
+T = 49
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0221
+131072 ,0.0539
+262144 ,0.1268
+524288 ,0.2876
+1048576 ,0.6671
+T = 2147483647
+Using configuration file trial.rc...
+n,./MultithreadQsort
+65536 ,0.0278
+131072 ,0.0708
+262144 ,0.1673
+524288 ,0.4256
+1048576 ,0.9875

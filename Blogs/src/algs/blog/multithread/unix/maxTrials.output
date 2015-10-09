@@ -1,0 +1,6 @@
+maxTrials.rc
+Using configuration file maxTrials.rc...
+n,./MultithreadQsort
+2097152 ,2.3489
+4194304 ,5.9653
+8388608 ,12.7216

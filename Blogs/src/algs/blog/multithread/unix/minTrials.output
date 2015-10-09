@@ -1,0 +1,5 @@
+Using configuration file minTrials.rc...
+n,./MultithreadQsort
+2097152 ,1.7233
+4194304 ,3.7152
+8388608 ,9.1879

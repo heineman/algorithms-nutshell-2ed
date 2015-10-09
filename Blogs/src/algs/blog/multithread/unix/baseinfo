@@ -1,0 +1,8 @@
+# configure to use these BINS 
+BINS=./MultithreadQsort
+
+# configure suite
+TRIALS=20
+LOW=65536
+HIGH=1048576
+INCREMENT=*2
