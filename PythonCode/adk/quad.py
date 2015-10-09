@@ -72,10 +72,10 @@ class QuadNode:
         """Yield points in leaf-node that intersect with point and square side r."""
         node = self
         while node:
-            # Not able to fit in this region
+            # Point must fit in this region
             if containsPoint(node.region, pt):
                 # if we have points, then we are leaf node. Check here
-                if node.points != None:
+                if node.points:
                     for p,d in zip(node.points,node.data):
                         if p[X] - r <= pt[X] <= p[X] + r and p[Y] - r <= pt[Y] <= p[Y] + r:
                             yield (p,d)
@@ -93,7 +93,7 @@ class QuadNode:
                 return False
         
             # if we have points, then we are leaf node. Check here
-            if node.points != None:
+            if node.points:
                 if pt in node.points:
                     return False
 
