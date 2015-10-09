@@ -47,7 +47,7 @@ def evalBloom(size, strings, missing):
     # Now that bloom filter is built, try the missing words
     numFalse = 0
     for s in missing:
-        if bloom.contains(s):
+        if s in bloom:
             numFalse += 1
         
     return numFalse
