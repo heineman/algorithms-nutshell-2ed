@@ -1,0 +1,10 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../search
+
+# configure suite
+TRIALS=30
+LOW=100
+HIGH=100
+INCREMENT=*2
+EXTRAS=-k 16 -c 1.0 -z 4096
+
