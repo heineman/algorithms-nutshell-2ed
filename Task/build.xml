@@ -1,0 +1,63 @@
+<!--
+
+  Just builds the runall task.
+
+-->
+
+<project name="RunAll" default="all" basedir="..">
+
+  <property file="build.properties"/>
+  <property file="${user.home}/build.properties"/>
+
+  <!-- Update to your installation of JUnit 4.0 (http://junit.org). -->
+  <property name="junit.home"     value="${basedir}/../junit4.0"/>
+
+  <property name="app.name"       value="ADK"/>
+  <property name="app.version"    value="1.1"/>
+
+  <property name="dist.home"      value="${basedir}/dist"/>
+  <property name="docs.home"      value="${basedir}/docs"/>
+  <property name="adk.home"       value="${basedir}/JavaCode"/>
+
+  <property name="adk.build"      value="${adk.home}/bin"/>
+
+  <property name="home.examples"  value="${basedir}/Examples"/>
+  <property name="build.examples" value="${home.examples}/bin"/>
+  <property name="home.figures"   value="${basedir}/Figures"/>
+  <property name="build.figures"  value="${home.figures}/bin"/>
+
+  <!-- Note that tests.core depends at times on examples.              -->
+  <property name="home.tests"    value="${basedir}/Tests"/>
+  <property name="build.tests"   value="${home.tests}/bin"/>
+
+  <!-- Report JUnit results here.                                      -->
+  <property name="tests.report"  value="${build.tests}/report"/>
+
+  <!-- While some of these classes are JUnit, they are only structured -->
+  <!-- in that way for ease of programming. Some of them might run for -->
+  <!-- a LONG time (especially random searches over search trees) which-->
+  <!-- is why they are separated from the home.tests set which are     -->
+  <!-- TRUE Junit tests cases.                                         -->
+  <property name="home.performance"    value="${basedir}/PerformanceTests"/>
+  <property name="build.performance"   value="${home.performance}/bin"/>
+  <property name="report.performance"  value="${build.performance}/report"/>
+
+  <property name="compile.debug"       value="true"/>
+  <property name="compile.deprecation" value="false"/>
+  <property name="compile.optimize"    value="true"/>
+
+  <target name="all" 
+   description="Build runall task">
+
+    <javac srcdir="Task/src"
+          destdir="Task/bin"
+            debug="${compile.debug}"
+        classpath="${ant.home}/lib/ant.jar"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+
+    </javac>
+  </target>
+
+</project>
