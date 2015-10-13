@@ -311,7 +311,7 @@ void quickSortEntry(void *arg) {
  *
  * @param arg    thread context
  */
-void quickSort1(void *arg) {
+void *quickSort1(void *arg) {
   THREAD_INFO *context = (THREAD_INFO *) arg;
 
   pthread_barrier_wait(&barrier);

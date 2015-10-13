@@ -1,0 +1,9 @@
+# InsertionSort bulk move vs. InsertionSort
+BINS=../binarySearch ../searchOrdered ../moveToEnd ../linkedList ../search ../moveUp ../searchNull ../moveToFront
+
+# configure suite
+TRIALS=10
+LOW=100000
+HIGH=100000
+INCREMENT=*2
+EXTRAS=-k 16 -p 1.0 -z 4096

@@ -36,7 +36,7 @@ figure: $(FIGS)
 	awk -f 2ed-table9-2.awk  2ed-table9-2.output > 2ed-table9-2.dat
 	@rm 2ed-table9-2.output
 
-2ed-table9-3.dat:
+2ed-table9-3.dat: 2ed-9-5.dat
 	@echo "generating data for table 9-3 (2ed)..."
 	head -4 2ed-9-5.dat > 2ed-table9-3.dat
 

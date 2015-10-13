@@ -1,0 +1,9 @@
+construct two priority queue implementations:
+
+  * one with arrays
+  * one with balanced binary trees (by priority)
+  
+Traces contain following commands:
+
+ins PRIORITY            -- insert value
+dmn                     -- delete minimum
