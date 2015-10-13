@@ -9,7 +9,6 @@ import algs.blog.graph.freeCell.Deal;
 import algs.blog.graph.freeCell.FreeCellEvaluator;
 import algs.blog.graph.freeCell.FreeCellNode;
 import algs.model.searchtree.AStarSearch;
-import algs.model.searchtree.ClosedHeuristic;
 import algs.model.searchtree.Solution;
 
 /**
@@ -28,10 +27,7 @@ public class StraightAStar {
 	public static void main (String[] args) throws IOException {
 		int dealNumber = Integer.valueOf(args[0]);
 		
-		File file = new File ("32000.txt");
-		if (!file.exists()) {
-			file = new File ("artifacts", "32000.txt");
-		}
+		File file = new File ("artifacts", "32000.txt");
 		
 		FreeCellNode fcn = Deal.initialize(file, dealNumber);
 		System.out.println(fcn.toString());

@@ -7,13 +7,11 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Stack;
 
-
-
-import algs.blog.improving.freeCell.BoardScorer;
-import algs.blog.improving.freeCell.Deal;
-import algs.blog.improving.freeCell.FreeCellNode;
-import algs.blog.improving.search.GoalDirectedStagedDeepening;
-import algs.blog.improving.search.Result;
+import algs.blog.graph.freeCell.BoardScorer;
+import algs.blog.graph.freeCell.Deal;
+import algs.blog.graph.freeCell.FreeCellNode;
+import algs.blog.graph.search.GoalDirectedStagedDeepening;
+import algs.blog.graph.search.Result;
 import algs.model.searchtree.IMove;
 import algs.model.searchtree.IScore;
 
@@ -55,7 +53,7 @@ public class AttackUnsolvedBoards {
 			int dealNumber = sc.nextInt();
 			
 			System.out.println("Searching board:" + dealNumber);
-			FreeCellNode fc = Deal.initialize(new File ("32000.txt"), dealNumber);
+			FreeCellNode fc = Deal.initialize(new File ("artifacts", "32000.txt"), dealNumber);
 			System.out.println(fc.toString());
 			
 			// prepare the initial board. Skip those boards we don't want.
@@ -86,5 +84,6 @@ public class AttackUnsolvedBoards {
 			// store all results found...
 			pw.flush();
 		}
+		sc.close();
 	}
 }

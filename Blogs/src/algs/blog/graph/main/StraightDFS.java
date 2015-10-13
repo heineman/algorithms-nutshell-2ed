@@ -28,7 +28,7 @@ public class StraightDFS {
 			depthBound = Integer.valueOf(args[1]);
 		}
 		
-		File inputFile = new File ("artifacts" + File.separator + "graph" + File.separator + "32000.txt");
+		File inputFile = new File ("artifacts", "32000.txt");
 		FreeCellNode fcn = Deal.initialize(inputFile, dealNumber);
 		
 		System.out.println(fcn.toString());

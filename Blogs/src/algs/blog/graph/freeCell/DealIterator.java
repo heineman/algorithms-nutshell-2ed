@@ -38,6 +38,9 @@ public class DealIterator implements Iterator<FreeCellNode> {
 	 * If the deal has more deals, this returns true; false otherwise.
 	 */
 	public boolean hasNext() {
+		if (deal > 32000) {
+			sc.close();
+		}
 		return (deal <= 32000);
 	}
 

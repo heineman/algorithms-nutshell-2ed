@@ -6,13 +6,12 @@ import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.Stack;
 
-
-import algs.blog.improving.freeCell.Deal;
-import algs.blog.improving.freeCell.DealIterator;
-import algs.blog.improving.freeCell.FreeCellNode;
-import algs.blog.improving.search.AnalyzeState;
-import algs.blog.improving.search.DFS;
-import algs.blog.improving.search.Result;
+import algs.blog.graph.freeCell.Deal;
+import algs.blog.graph.freeCell.DealIterator;
+import algs.blog.graph.freeCell.FreeCellNode;
+import algs.blog.graph.search.AnalyzeState;
+import algs.blog.graph.search.DFS;
+import algs.blog.graph.search.Result;
 import algs.model.searchtree.IMove;
 
 
@@ -39,12 +38,10 @@ public class BoardDFSExploration {
 		PrintWriter pw = new PrintWriter ("DFS-exploration.txt");
 		
 		// iterate over all deals in this file.
-		for (DealIterator di = Deal.iterator(new File ("32000.txt")); di.hasNext(); ) {
+		for (DealIterator di = Deal.iterator(new File ("artifacts", "32000.txt")); di.hasNext(); ) {
 
 			// prepare the initial board. Skip those boards we don't want.
 			// Take care that board has already been advanced by iterator.
-		
-
 			FreeCellNode fc = di.next();
 			pw.println(fc);
 			pw.flush();
@@ -60,5 +57,6 @@ public class BoardDFSExploration {
 			System.out.println("   Total number of states: " + dfs.getCounter());
 			st.report();
 		}
+		pw.close();
 	}
 }

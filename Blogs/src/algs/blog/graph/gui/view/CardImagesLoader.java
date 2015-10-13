@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
  */
 public class CardImagesLoader implements Runnable {
 	/** Where images will be stored */
-	protected static final String imageDirectory = "images/";
+	protected static final String imageDirectory = "artifacts" + java.io.File.separatorChar + "images" + java.io.File.separatorChar;
 
 	/** Loaded object containing images. This is set by thread.*/
 	protected static CardImages loadedImages = null;

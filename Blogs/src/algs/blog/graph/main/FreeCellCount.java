@@ -23,7 +23,7 @@ public class FreeCellCount {
 	 */
 	public static void main (String []args) throws IOException {
 
-		FreeCellNode fcn = Deal.initialize(new File("32000.txt"), Integer.valueOf(args[0]));
+		FreeCellNode fcn = Deal.initialize(new File("artifacts", "32000.txt"), Integer.valueOf(args[0]));
 		System.out.println("Game Number:" + args[0]);
 		System.out.println(fcn);
 		for (short s : (short[])fcn.key()) {

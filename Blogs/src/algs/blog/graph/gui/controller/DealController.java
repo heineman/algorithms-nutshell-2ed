@@ -34,12 +34,12 @@ public class DealController implements ActionListener {
 	final FreeCellDrawing drawer;
 	
 	/** List containing moves. */
-	final JList list;
+	final JList<IMove> list;
 	
 	/** Last listener (so we can delete with each redeal). */
 	StateModifier listener;
 	
-	public DealController (JFrame frame, FreeCellDrawing drawer, JList list) {
+	public DealController (JFrame frame, FreeCellDrawing drawer, JList<IMove> list) {
 		this.frame = frame;
 		this.drawer = drawer;
 		this.list = list;
@@ -71,7 +71,7 @@ public class DealController implements ActionListener {
 		// start from initial state (and make copy for later). 
 		FreeCellNode fcn;
 		try {
-			fcn = Deal.initialize(new File ("32000.txt"), dealNumber);
+			fcn = Deal.initialize(new File ("artifacts", "32000.txt"), dealNumber);
 		} catch (IOException e1) {
 			frame.setTitle ("Unable to find file \"32000.txt\"");
 			return;
@@ -88,7 +88,7 @@ public class DealController implements ActionListener {
 		}
 		
 		
-		DefaultListModel dlm = new DefaultListModel();
+		DefaultListModel<IMove> dlm = new DefaultListModel<IMove>();
 		while (!st.isEmpty()) {
 			dlm.add(0, st.pop());
 		}

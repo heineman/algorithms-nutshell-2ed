@@ -2,6 +2,9 @@ package algs.blog.graph.main;
 
 /**
  * In default Java Virtual machine, stops after depth of 6,408. 
+ * 
+ * Be Careful Executing this function on a shared machine!
+ * 
  * @author George Heineman
  */
 public class InfiniteRecursion {

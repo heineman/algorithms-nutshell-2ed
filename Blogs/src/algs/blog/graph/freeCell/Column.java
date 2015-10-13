@@ -12,7 +12,7 @@ public class Column {
 	// BE CAREFUL!
 	public int num = 0;
 	
-	short[] cards = new short[20];    // maximum size
+	public short[] cards = new short[20];    // maximum size
 
 	// cache value for speedy access
 	String cached = null;

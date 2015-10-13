@@ -6,9 +6,9 @@ import junit.framework.TestCase;
 
 
 import algs.blog.graph.freeCell.Column;
-import algs.blog.graph.freeCell.ColumnToColumnMove;
-import algs.blog.graph.freeCell.ColumnToFreeMove;
 import algs.blog.graph.freeCell.FreeCellNode;
+import algs.blog.graph.freeCell.moves.ColumnToColumnMove;
+import algs.blog.graph.freeCell.moves.ColumnToFreeMove;
 import algs.model.list.DoubleLinkedList;
 import algs.model.searchtree.IMove;
 
