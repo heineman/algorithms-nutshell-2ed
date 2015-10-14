@@ -40,6 +40,7 @@ public class QuickSortExternalTest extends TestCase {
 		assertEquals (2, (int)data[3]);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testBasic() {
 		int  numTrials = 10;
@@ -55,6 +56,7 @@ public class QuickSortExternalTest extends TestCase {
 				
 				QuickSortExternal<Integer> qs = new QuickSortExternal<Integer>(copy, cmpInt);
 				
+				@SuppressWarnings("rawtypes")
 				QuickSortExternal.PivotIndex[] selectors = new QuickSortExternal.PivotIndex[] {
 					qs.firstSelector(),
 					qs.lastSelector(),
