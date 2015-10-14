@@ -89,10 +89,12 @@ public class Deal {
 			}
 
 			// prepare the initial board.
+			sc.close();
 			return initialize(deals);
 		}
 		
 		// not found!
+		sc.close();
 		return null;
 	}
 }

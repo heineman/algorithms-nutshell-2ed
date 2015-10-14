@@ -191,11 +191,8 @@ public abstract class StagedDeepening<K> {
 		// start is zero
 		allIDS.insert((K)node.key(), 0);
 		
-		int passNumber = 0;
 		int lastID;
 		while (S.size() > 0) {
-			passNumber++;
-
 			// invariant: every node that was put into S has a valid ID in allIDs.
 			node = S.minimum();
 			

@@ -22,7 +22,7 @@ import algs.model.searchtree.IMove;
 public class StateModifier implements ListSelectionListener {
 
 	/** Controlled JList. */
-	JList list;
+	JList<IMove> list;
 	
 	/** Current board state. */
 	FreeCellNode initial;
@@ -30,14 +30,13 @@ public class StateModifier implements ListSelectionListener {
 	/** FreeCellDrawing entity. */
 	FreeCellDrawing drawer;
 	
-	public StateModifier (JList list, FreeCellNode node, FreeCellDrawing drawer) {
+	public StateModifier (JList<IMove> list, FreeCellNode node, FreeCellDrawing drawer) {
 		this.list = list;
 		
 		// initial state
 		this.initial = (FreeCellNode) node.copy();
 		this.drawer = drawer;
 	}
-	
 
 	public void setNode(FreeCellNode fcn) {
 		initial = fcn;
@@ -47,7 +46,7 @@ public class StateModifier implements ListSelectionListener {
 	public void valueChanged(ListSelectionEvent e) {
 		// must find the one that is selected
 		int idx = list.getSelectedIndex();
-		DefaultListModel dlm = (DefaultListModel) list.getModel();
+		DefaultListModel<IMove> dlm = (DefaultListModel<IMove>) list.getModel();
 		FreeCellNode node = (FreeCellNode) initial.copy();
 		for (int i = 0; i < idx; i++) {
 			IMove move = (IMove) dlm.get(i);
@@ -60,8 +59,5 @@ public class StateModifier implements ListSelectionListener {
 		
 		drawer.setNode(node);
 		drawer.repaint();
-
 	}
-
-
 }

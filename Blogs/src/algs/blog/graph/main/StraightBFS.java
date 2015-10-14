@@ -20,7 +20,7 @@ public class StraightBFS  {
 	public static void main(String[] args) throws IOException {
 		int dealNumber = Integer.valueOf(args[0]);
 		
-		File inputFile = new File ("artifacts" + File.separator + "graph" + File.separator + "32000.txt");
+		File inputFile = new File ("artifacts", "32000.txt");
 		FreeCellNode fcn = Deal.initialize(inputFile, dealNumber);
 		
 		System.out.println(fcn.toString());

@@ -6,14 +6,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Stack;
 
-
-
-import algs.blog.improving.freeCell.BoardScorer;
-import algs.blog.improving.freeCell.Deal;
-import algs.blog.improving.freeCell.DealIterator;
-import algs.blog.improving.freeCell.FreeCellNode;
-import algs.blog.improving.search.GoalDirectedStagedDeepening;
-import algs.blog.improving.search.Result;
+import algs.blog.graph.freeCell.BoardScorer;
+import algs.blog.graph.freeCell.Deal;
+import algs.blog.graph.freeCell.DealIterator;
+import algs.blog.graph.freeCell.FreeCellNode;
+import algs.blog.graph.search.GoalDirectedStagedDeepening;
+import algs.blog.graph.search.Result;
 import algs.model.searchtree.IMove;
 import algs.model.searchtree.INode;
 import algs.model.searchtree.IScore;
@@ -53,13 +51,10 @@ public class FreeCellExploration {
 			low = Integer.valueOf(args[0]);
 			high = Integer.valueOf(args[1]);
 			if (args.length > 2) {
-				System.err.println("Ignoring all command arguments but " + 
-								   args[0] + " and " + args[1]); 
+				System.err.println("Ignoring all command arguments but " + args[0] + " and " + args[1]); 
 			}
 		}
 
-		low = 208;
-		high = 215;
 		// all output to this file.
 		File f = new File ("Output.report.txt");
 		FileWriter fw = new FileWriter (f);
@@ -69,7 +64,7 @@ public class FreeCellExploration {
 		
 		// iterate over all deals in this file.
 		System.out.println("Processing boards [" + low + "," + high + "] to " + f);
-		for (DealIterator di = Deal.iterator(new File ("32000.txt")); di.hasNext(); ) {
+		for (DealIterator di = Deal.iterator(new File ("artifacts", "32000.txt")); di.hasNext(); ) {
 
 			// prepare the initial board. Skip those boards we don't want.
 			// Take care that board has already been advanced by iterator.
@@ -87,8 +82,9 @@ public class FreeCellExploration {
 			GoalDirectedStagedDeepening<short[]> gdsd =
 				new GoalDirectedStagedDeepening<short[]>(goal, eval);
 			
-				
+			// default is 6
 			gdsd.setLookAhead(7);
+			
 			Result res = gdsd.fullSearch(fc, eval, FreeCellNode.comparator());
 			Stack<IMove> st = res.solution();
 			if (res.success) {

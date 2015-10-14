@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Stack;
 
+import algs.blog.graph.search.Chain;
+import algs.blog.graph.search.IVisitor;
+import algs.blog.graph.search.Result;
 import algs.model.list.DoubleLinkedList;
 import algs.model.list.DoubleNode;
 import algs.model.searchtree.IMove;
@@ -183,11 +186,9 @@ public abstract class StagedDeepening<K> {
 		T = new BalancedTree<Integer,INode>();
 		S.insert(eval.eval(node), node.copy());
 		
-		int passNumber = 0;
 		int lastID;
 		while (S.size() > 0) {
-			passNumber++;
-
+			
 			node = S.minimum();
 			
 			// last must be set PRIOR to invoking search, since it is used for

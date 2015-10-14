@@ -68,7 +68,7 @@ public class FreeCellExploration {
 		
 		// iterate over all deals in this file.
 		System.out.println("Processing boards [" + low + "," + high + "] to " + f);
-		File inputFile = new File ("artifacts" + File.separator + "graph" + File.separator + "32000.txt");
+		File inputFile = new File ("artifacts", "32000.txt");
 		for (DealIterator di = Deal.iterator(inputFile); di.hasNext(); ) {
 
 			// prepare the initial board. Skip those boards we don't want.

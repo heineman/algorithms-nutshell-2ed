@@ -15,6 +15,7 @@ import algs.blog.graph.gui.controller.DealController;
 import algs.blog.graph.gui.view.CardImages;
 import algs.blog.graph.gui.view.CardImagesLoader;
 import algs.blog.graph.gui.view.FreeCellDrawing;
+import algs.model.searchtree.IMove;
 
 /**
  * Show a full solution to a board graphically.
@@ -39,12 +40,10 @@ public class Solver {
 				System.out.println("Loading card images...");
 				cardImages = CardImagesLoader.getDeck(e.getWindow());
 			}
-			
 		});
 		
 		frame.setSize(808,350);
-		JList list = new JList();
-		
+		JList<IMove> list = new JList<IMove>();
 		
 	    // add widgets at proper location
 	    frame.setLayout(null);

@@ -6,11 +6,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Hashtable;
 
-
-import algs.blog.improving.freeCell.Deal;
-import algs.blog.improving.freeCell.FreeCellNode;
+import algs.blog.graph.freeCell.Deal;
+import algs.blog.graph.freeCell.FreeCellNode;
+import algs.blog.graph.search.DFS;
+import algs.blog.graph.search.IVisitor;
+import algs.blog.graph.search.Result;
 import algs.model.searchtree.INode;
-
 
 /**
  * Generate ncol formatted file for the given graph.
@@ -51,7 +52,7 @@ public class DFSGraph implements IVisitor {
 	public static void main(String[] args) throws IOException {
 		FreeCellNode fcn;
 		int dealNumber = 16;
-		fcn = Deal.initialize(new File ("32000.txt"), dealNumber);
+		fcn = Deal.initialize(new File ("artifacts", "32000.txt"), dealNumber);
 		System.out.println(fcn.toString());
 			
 		DFSGraph dg = new DFSGraph(new File ("output_" + dealNumber + ".ncol"));

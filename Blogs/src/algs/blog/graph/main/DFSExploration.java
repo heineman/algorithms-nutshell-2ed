@@ -41,7 +41,7 @@ public class DFSExploration {
 			int dealNumber = sc.nextInt();
 			
 			System.out.println("Searching board:" + dealNumber);
-			FreeCellNode fcn = Deal.initialize(new File ("32000.txt"), dealNumber);
+			FreeCellNode fcn = Deal.initialize(new File ("artifacts", "32000.txt"), dealNumber);
 			System.out.println(fcn.toString());
 			
 			AnalyzeState st = new AnalyzeState();
@@ -54,5 +54,6 @@ public class DFSExploration {
 			System.out.println("   Total number of states: " + dfs.getCounter());
 			st.report();
 		}
+		sc.close();
 	}
 }

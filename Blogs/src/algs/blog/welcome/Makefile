@@ -1,5 +1,5 @@
-# Set this to the location of ADK
-ADKHOME = ../ADK/Deployment
+# Set this to the location of ADK, which should be reached relatively in this way.
+ADKHOME = ../../../../..
 
 # Should we count comparisons and swaps?
 #COUNTCOMPARE = -DCOUNT
