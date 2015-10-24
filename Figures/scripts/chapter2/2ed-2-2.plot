@@ -22,7 +22,7 @@ set yrange [ 0 : 4000 ] noreverse nowriteback
 set xtics 5000.00
 
 
-plot '2ed-figure2-2.dat' using 1:5 index 0 title "Sort1" with linespoints,'2ed-figure2-2.dat' using 1:3 index 0 title "Sort2" with linespoints,'2ed-figure2-2.dat' using 1:4 index 0 title "Sort3" with linespoints,'2ed-figure2-2.dat' using 1:2 index 0 title "Sort4" with linespoints
+plot '2ed-figure2-2.dat' using 1:2 index 0 title "Sort1" with linespoints,'2ed-figure2-2.dat' using 1:3 index 0 title "Sort2" with linespoints,'2ed-figure2-2.dat' using 1:4 index 0 title "Sort3" with linespoints,'2ed-figure2-2.dat' using 1:5 index 0 title "Sort4" with linespoints
 
 # bottom one second
 set size 1, .5
@@ -37,5 +37,5 @@ set yrange [ 0 : 4000 ] noreverse nowriteback
 set xtics 5000.00
 
 
-plot '2ed-figure2-2.dat' using 1:5 index 1 title "Sort1" with linespoints,'2ed-figure2-2.dat' using 1:3 index 1 title "Sort2" with linespoints,'2ed-figure2-2.dat' using 1:4 index 1 title "Sort3" with linespoints,'2ed-figure2-2.dat' using 1:2 index 1 title "Sort4" with linespoints
+plot '2ed-figure2-2.dat' using 1:2 index 1 title "Sort1" with linespoints,'2ed-figure2-2.dat' using 1:3 index 1 title "Sort2" with linespoints,'2ed-figure2-2.dat' using 1:4 index 1 title "Sort3" with linespoints,'2ed-figure2-2.dat' using 1:5 index 1 title "Sort4" with linespoints
 #    EOF
