@@ -38,4 +38,5 @@ set xtics 5000.00
 
 
 plot '2ed-figure2-2.dat' using 1:2 index 1 title "Sort-1" with linespoints,'2ed-figure2-2.dat' using 1:3 index 1 title "Sort-2" with linespoints,'2ed-figure2-2.dat' using 1:4 index 1 title "Sort-3" with linespoints,'2ed-figure2-2.dat' using 1:5 index 1 title "Sort-4" with linespoints
+>>>>>>> df91f79ea9304f39ca230703d7518eb616e3e4fd
 #    EOF
