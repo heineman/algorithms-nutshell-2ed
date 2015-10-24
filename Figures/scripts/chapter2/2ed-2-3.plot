@@ -16,5 +16,5 @@ set ytics 1.0
 
 set xlabel "Size of input set n"
 
-plot '2ed-figure2-3.dat' using 1:2 title "Sort1" with linespoints,'2ed-figure2-3.dat' using 1:3 title "Sort2" with linespoints,'2ed-figure2-3.dat' using 1:4 title "Sort3" with linespoints,'2ed-figure2-3.dat' using 1:5 title "Sort4" with linespoints
+plot '2ed-figure2-3.dat' using 1:2 title "Sort-1" with linespoints,'2ed-figure2-3.dat' using 1:3 title "Sort-2" with linespoints,'2ed-figure2-3.dat' using 1:4 title "Sort-3" with linespoints,'2ed-figure2-3.dat' using 1:5 title "Sort-4" with linespoints
 #    EOF
