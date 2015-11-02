@@ -33,7 +33,7 @@ rm -f Sep.java Sep.class
 
 # all compilation within the 'src' directories
 # --------------------------------------------
-DIRS=`echo JavaCode Examples Figures`
+DIRS=`echo JavaCode Examples Figures PerformanceTests`
 CLASSPATH=.
 for i in $DIRS
 do
@@ -66,6 +66,9 @@ cp dist/ADK-$VERSION.jar dist/ADK-$VERSION-ExamplesAndFigures.jar
 (cd Examples/src; jar uf ../../dist/ADK-$VERSION-ExamplesAndFigures.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
 
 (cd Figures/src; jar uf ../../dist/ADK-$VERSION-ExamplesAndFigures.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
+
+(cd PerformanceTests/src; jar cf ../../dist/ADK-$VERSION-PerformanceTests.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
+
 
 # Compile and Run JUnit test cases (if allowed)
 # --------------------------------------------
