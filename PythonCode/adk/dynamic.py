@@ -29,9 +29,6 @@ def minEditDistance(s1, s2):
             insertCost  = m[i][j-1] + 1
             m[i][j]     = min(replaceCost,removeCost,insertCost)
 
-    # generate matrix for debug
-    for r in m:
-        print (r)
     return m[len1][len2]
 
 if __name__ == '__main__':

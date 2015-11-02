@@ -8,18 +8,18 @@ def contains(collection, target):
     return target in collection
 
 def bs_contains(ordered, target):
-    """Use binary search to return index position of target in collection."""
+    """Return index of target in ordered or -(p+1) where to insert it."""
 
     low = 0
     high = len(ordered)-1
     while low <= high:
         mid = (low + high) // 2
-        if target == ordered[mid]:
-            return mid
-        elif target < ordered[mid]:
+        if target < ordered[mid]:
             high = mid-1
-        else:
+        elif target > ordered[mid]:
             low = mid+1
+        else:
+            return mid
 
     return -(low + 1)
 

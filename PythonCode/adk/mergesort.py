@@ -5,7 +5,6 @@
 def sort(A):
     """merge sort A in place."""
     copy = list(A)
-
     mergesort_array(copy, A, 0, len(A))
 
 
