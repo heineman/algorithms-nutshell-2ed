@@ -16,8 +16,8 @@
  * \param pred     array of previous vertices in the depth-first search tree.
  * \param color    array of vertex colors in the depth-first search tree.
  */
-void dfsVisit (Graph const &graph, int u,               /* in */
-      vector<int> &pred, vector<vertexColor> &color) {  /* out */
+void dfsVisit (Graph const &graph, int u,                  /* in */
+         vector<int> &pred, vector<vertexColor> &color) {  /* out */
   color[u] = Gray;
 
   // process all neighbors of u.
@@ -56,6 +56,9 @@ void dfsSearch (Graph const &graph, int s,      /* in */
   // Search starting at the source vertex; when done, visit any
   // vertices that remain unvisited.
   dfsVisit (graph, s, pred, color);
+
+  // These are optional operations that complete the search on other
+  // unvisited vertices. These are omitted from the description in the book.
   for (int u = 0; u < n; u++) {
     if (color[u] == White) {
       dfsVisit (graph, u, pred, color);
