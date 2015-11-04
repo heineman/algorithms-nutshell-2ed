@@ -69,7 +69,7 @@ class EdgeLabel {
  * \param s        the source vertex from which to commence search.
  * \param pred     array of previous vertices in the depth-first search tree.
  */
-void dfs_search (Graph const &graph, int s,      /* in */
-	 vector<int> &pred);                     /* out */
+void dfsSearch (Graph const &graph, int s,      /* in */
+	vector<int> &pred);                     /* out */
 
 #endif  /* _DFS_H_ */

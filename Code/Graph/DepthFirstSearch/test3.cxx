@@ -54,7 +54,7 @@ int main (int argc, char **argv) {
 
   vector<int> pred(g.numVertices());
 
-  dfs_search (g, 0, pred);
+  dfsSearch (g, 0, pred);
 
   for (i = 0; i < n; i++) {
     cout << i << ": " << pred[i] << "\n";

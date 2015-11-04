@@ -16,8 +16,8 @@
  * \param pred     array of previous vertices in the depth-first search tree.
  * \param color    array of vertex colors in the depth-first search tree.
  */
-void dfs_visit (Graph const &graph, int u,               /* in */
-       vector<int> &pred, vector<vertexColor> &color) {  /* out */
+void dfsVisit (Graph const &graph, int u,               /* in */
+      vector<int> &pred, vector<vertexColor> &color) {  /* out */
   color[u] = Gray;
 
   // process all neighbors of u.
@@ -29,7 +29,7 @@ void dfs_visit (Graph const &graph, int u,               /* in */
     // Once recursive call ends, backtrack to adjacent vertices.
     if (color[v] == White) {
       pred[v] = u;
-      dfs_visit (graph, v, pred, color);
+      dfsVisit (graph, v, pred, color);
     }
   }
 
@@ -44,8 +44,8 @@ void dfs_visit (Graph const &graph, int u,               /* in */
  * \param s        the vertex to use as the source vertex.
  * \param pred     array of previous vertices in the depth-first search tree.
  */
-void dfs_search (Graph const &graph, int s,      /* in */
-		 vector<int> &pred)              /* out */
+void dfsSearch (Graph const &graph, int s,      /* in */
+                vector<int> &pred)              /* out */
 {
   // initialize pred[] array and mark all vertices White
   // to signify unvisited.
@@ -55,10 +55,10 @@ void dfs_search (Graph const &graph, int s,      /* in */
 
   // Search starting at the source vertex; when done, visit any
   // vertices that remain unvisited.
-  dfs_visit (graph, s, pred, color);
+  dfsVisit (graph, s, pred, color);
   for (int u = 0; u < n; u++) {
     if (color[u] == White) {
-      dfs_visit (graph, u, pred, color);
+      dfsVisit (graph, u, pred, color);
     }
   }
 }
