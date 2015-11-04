@@ -13,8 +13,8 @@
  * Perform breadth-first search on graph from vertex s, and compute BFS
  * distance and pred vertex for all vertices in the graph.
  */
-void bfs_search (Graph const &graph, int s,             /* in */
-		 vector<int> &dist, vector<int> &pred)  /* out */
+void bfsSearch (Graph const &graph, int s,             /* in */
+	        vector<int> &dist, vector<int> &pred)  /* out */
 {
   // initialize dist and pred to mark vertices as unvisited. Begin at s
   // and mark as Gray since we haven't yet visited its neighbors.

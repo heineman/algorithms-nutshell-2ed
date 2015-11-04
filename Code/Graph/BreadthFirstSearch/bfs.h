@@ -22,8 +22,8 @@
  * \param dist     the computed dist[] array for each vertex from s.
  * \param pred     the computed pred[] array to be able to recover path.
  */
-void bfs_search (const Graph &graph, int s,             /* in */
-		 vector<int> &dist, vector<int> &pred); /* out */
+void bfsSearch (const Graph &graph, int s,             /* in */
+                vector<int> &dist, vector<int> &pred); /* out */
 
 
 #endif  /* _BFS_H_ */
