@@ -28,13 +28,13 @@ Figure 7-2: Core concepts for game tree algorithms
      algs.model.gametree.IPlayer
      algs.model.gametree.IGameMove
      
-Example 7-1: Common interface for game tree path finding
+Example 7-1: Common interface for game-tree path finding
 
   Find class in algs.model.gametree.IEvaluation
   
 Figure 7-3: Minimax sample game tree
 
-Example 7-2: Minimax Java implementation
+Example 7-2: Minimax implementation
 
   find in algs.model.gametree.MinimaxEvaluation
   
@@ -53,19 +53,20 @@ Example 7-3: NegMax implementation
 
   find in algs.model.gametree.NegMaxEvaluation
   
-Figure 7-7: Sample Negmax exploration [Makefile]
+Figure 7-7: Sample NegMax exploration [Makefile]
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
   hand. 
   
-Figure 7-8: AlphaBeta two-ply search [Makefile]
+Figure 7-8: AlphaBeta sample game tree
+
+Figure 7-9: AlphaBeta two-ply search
 
   java algs.chapter7.figure21.Main           # produce DOTTY output
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
   hand. 
 
-Figure 7-9: AlphaBeta sample game tree
 
 Figure 7-10: AlphaBeta three-ply search [Makefile]
 

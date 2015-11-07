@@ -1,4 +1,4 @@
-package algs.chapter7.figure8;
+package algs.chapter7.figure9;
 
 import algs.model.gametree.IGameMove;
 import algs.model.problems.tictactoe.debug.TicTacToeDebugger;
