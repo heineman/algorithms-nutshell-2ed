@@ -1,4 +1,4 @@
-package algs.chapter7.figure28;
+package algs.chapter7.figure26;
 
 import algs.debug.DottyDebugger;
 import algs.model.problems.fifteenpuzzle.GoodEvaluator;

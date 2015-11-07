@@ -7,15 +7,9 @@ we show where in the code repository to locate the code.
 
 In numerous of the figures in this chapter, we use the freely available
 DOTTY program (www.graphviz.org) to produce high quality images for the
-expanded game and search trees. In general, there are programs for each
-figure that produce text suitable for input to DOTTY. We execute the
-conversion manually using the PC version of the software, though I expect
-that a batch-oriented Linux version would have worked as well. Using the
-graphical interface provided by GraphViz we converted the DOTTY input into
-postscript format. Then we ran Adobe Distiller (again on a PC) to convert
-the Postscript into high quality PDF documents with embedded fonts (the
-specific font was TimesNewRomanPSMT). For the final book production, it is
-expected that the font will be converted into 'Myriad Pro Condensed'. 
+expanded game and search trees. For the final book production, we
+used a professional artist to reconstruct images that were too big
+to view on a single page.
 
 Finally, there are parallel debugging classes for the major search classes
 which can be found in packages algs.model.searchtree.debug and
@@ -55,7 +49,7 @@ Figure 7-5: Sample Minimax exploration [Makefile]]
     
 Figure 7-6: NegMax sample game tree
 
-Example 7-3: Negmax implementation
+Example 7-3: NegMax implementation
 
   find in algs.model.gametree.NegMaxEvaluation
   
