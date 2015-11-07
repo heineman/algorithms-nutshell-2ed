@@ -1,8 +1,8 @@
-package algs.chapter7.figure23;
+package algs.chapter7.figure22;
 
 import algs.debug.DottyDebugger;
 import algs.model.problems.eightpuzzle.EightPuzzleNode;
-import algs.model.problems.eightpuzzle.GoodEvaluator;
+import algs.model.problems.eightpuzzle.WeakEvaluator;
 import algs.model.searchtree.Solution;
 import algs.model.searchtree.debug.AStarSearch;
 
@@ -19,15 +19,15 @@ public class Main {
 				{1,2,3},{8,0,4},{7,6,5}
 		});
 		
+		WeakEvaluator we = new WeakEvaluator();
 		DottyDebugger std = new DottyDebugger();
-		GoodEvaluator ge = new GoodEvaluator();
-		AStarSearch as = new AStarSearch(ge);
+		AStarSearch as = new AStarSearch(we);
 		as.debug(std);
 		
 		Solution sol = as.search(start, goal);
 		System.out.println (std.getInputString());
 		
-		// show moves on stderr
+		// output moves to stderr
 		System.err.println ("Moves:");
 		System.err.println (sol.toString());
 	}

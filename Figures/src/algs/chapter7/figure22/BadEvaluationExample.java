@@ -1,12 +1,12 @@
-package algs.chapter7.figure24;
+package algs.chapter7.figure22;
 
 import algs.debug.DottyDebugger;
 import algs.model.problems.eightpuzzle.EightPuzzleNode;
-import algs.model.problems.eightpuzzle.WeakEvaluator;
+import algs.model.problems.eightpuzzle.BadEvaluator;
 import algs.model.searchtree.Solution;
 import algs.model.searchtree.debug.AStarSearch;
 
-public class Main {
+public class BadEvaluationExample {
 	public static void main(String[] args) {
 		// A bit of a hack. NOW show the Scores in the generated nodes.
 		EightPuzzleNode.debug = true;
@@ -19,16 +19,13 @@ public class Main {
 				{1,2,3},{8,0,4},{7,6,5}
 		});
 		
-		WeakEvaluator we = new WeakEvaluator();
+		BadEvaluator we = new BadEvaluator();
 		DottyDebugger std = new DottyDebugger();
 		AStarSearch as = new AStarSearch(we);
 		as.debug(std);
 		
 		Solution sol = as.search(start, goal);
 		System.out.println (std.getInputString());
-		
-		// output moves to stderr
-		System.err.println ("Moves:");
-		System.err.println (sol.toString());
+		System.out.println (sol.toString());
 	}
 }

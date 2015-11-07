@@ -1,4 +1,4 @@
-package algs.chapter7.figure23;
+package algs.chapter7.figure21;
 
 import algs.debug.DottyDebugger;
 import algs.model.problems.eightpuzzle.EightPuzzleNode;
