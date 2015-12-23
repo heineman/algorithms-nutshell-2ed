@@ -1,4 +1,0 @@
-"""
-    Oct Tree implementation
-"""
-

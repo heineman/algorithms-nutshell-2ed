@@ -44,7 +44,7 @@ def knapsack_approximate (items, W):
     for idx in range(n):
         approxItems.append(ApproximateItem(items[idx], idx))
 
-    approxItems.sort(key=lambda x:x.normalizedValue, reverse=True)
+    approxItems.sort (key=lambda x:x.normalizedValue, reverse=True)
     
     selections = [0] * n
     w = W
@@ -116,7 +116,8 @@ def knapsack_01 (items, W):
     for i in range(1,n+1):
         for j in range(W+1):
             if items[i-1].weight <= j:
-                m[i][j] = max(m[i-1][j], m[i-1][j-items[i-1].weight] + items[i-1].value)
+                valueWithItem = m[i-1][j-items[i-1].weight] + items[i-1].value
+                m[i][j] = max(m[i-1][j], valueWithItem)
             else:
                 m[i][j] = m[i-1][j]
 

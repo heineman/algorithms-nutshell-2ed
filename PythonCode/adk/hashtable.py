@@ -14,15 +14,15 @@ class Hashtable:
         self.bins = [None] * b
         self.deleted = [False] * b
         
-        if probeFunction:
-            self.probeFunction = probeFunction
-        else:
-            self.probeFunction = lambda hk, size, i : (hk + 37) % size 
-        
         if hashFunction:
             self.hashFunction = hashFunction
         else:
             self.hashFunction = defaultHash
+        
+        if probeFunction:
+            self.probeFunction = probeFunction
+        else:
+            self.probeFunction = lambda hk, size, i : (hk + 37) % size 
         
     def add(self, value):
         """

@@ -69,19 +69,19 @@ class QuadNode:
             self.data = []
     
     def collide (self, pt, r):
-        """Yield points in leaf-node that intersect with point and square side r."""
+        """Yield points in leaf that intersect with point and square side r."""
         node = self
         while node:
             # Point must fit in this region
-            if containsPoint(node.region, pt):
+            if containsPoint (node.region, pt):
                 # if we have points, then we are leaf node. Check here
-                if node.points:
-                    for p,d in zip(node.points,node.data):
+                if node.points != None:
+                    for p,d in zip(node.points, node.data):
                         if p[X] - r <= pt[X] <= p[X] + r and p[Y] - r <= pt[Y] <= p[Y] + r:
                             yield (p,d)
                 
                 # Find quadrant into which to check further
-                q = node.quadrant(pt)
+                q = node.quadrant (pt)
                 node = node.children[q]
      
     def add (self, pt, data):
@@ -89,25 +89,24 @@ class QuadNode:
         node = self
         while node:
             # Not able to fit in this region
-            if not containsPoint(node.region, pt):
+            if not containsPoint (node.region, pt):
                 return False
         
             # if we have points, then we are leaf node. Check here
-            if node.points:
+            if node.points != None:
                 if pt in node.points:
                     return False
 
                 # Add if room                
                 if len(node.points) < 4:
-                    node.points.append(pt)
-                    node.data.append(data)
+                    node.points.append (pt)
+                    node.data.append (data)
                     return True
             
             # Find quadrant into which to add
-            q = node.quadrant(pt)
+            q = node.quadrant (pt)
             if node.children[q] is None:
                 # subdivide and reassign points to each quadrant. Then add point
-                #node.subdivide(node.points, node.data)
                 node.subdivide()
             node = node.children[q]
             
@@ -171,18 +170,18 @@ class QuadNode:
         Yield (node,status) in Quad Tree contained within region. When status is True, then all descendant
         nodes are part of the region, otherwise just the selected point.
         """
-        if region.containsRegion(self.region):
+        if region.containsRegion (self.region):
             yield (self, True)
         else:
             # if we have points, then we are leaf node. Check here
             if self.points != None:
                 for i in range(len(self.points)):
-                    if containsPoint(region, self.points[i]):
+                    if containsPoint (region, self.points[i]):
                         yield ((self.points[i], self.data[i]), False)
             else:
                 for child in self.children:
-                    if child.region.overlap(region):
-                        for pair in child.range(region):
+                    if child.region.overlap (region):
+                        for pair in child.range (region):
                             yield pair
      
     def preorder(self):
@@ -202,17 +201,20 @@ class QuadTree:
 
     def __init__(self, region):
         """
-        Create empty Quad Tree defined over existing rectangular region. Assume that (0,0) is the center
+        Create Quad Tree defined over existing rectangular region. Assume that (0,0) is the center
         and half-length side of any square in quadtree is power of 2. If incoming region is too small, then
         this expands accordingly.    
         """
         self.root = None
         self.region = region.copy()
         
-        minPower = min(smaller2k(self.region.x_min), smaller2k(self.region.y_min))
-        self.region.x_min = self.region.y_min = minPower
-        maxPower = max(larger2k(self.region.x_max), larger2k(self.region.y_max))
-        self.region.x_max = self.region.y_max = maxPower
+        xmin2k = smaller2k(self.region.x_min)
+        ymin2k = smaller2k(self.region.y_min)
+        xmax2k = larger2k(self.region.x_max)
+        ymax2k = larger2k(self.region.y_max)
+        
+        self.region.x_min = self.region.y_min = min(xmin2k, ymin2k)
+        self.region.x_max = self.region.y_max = max(xmax2k, ymax2k)
         
     def add(self, pt, data = None):
         """Add point to Quad Tree."""
@@ -220,14 +222,14 @@ class QuadTree:
             self.root = QuadNode(self.region, pt, data)
             return True
         
-        return self.root.add(pt, data)
+        return self.root.add (pt, data)
     
     def collide(self, pt, r):
         """Return collisions to point within Quad Tree."""
         if self.root is None:
             return None
         
-        return self.root.collide(pt, r)
+        return self.root.collide (pt, r)
     
     def range(self, region):
         """Yield (node,status) in Quad Tree contained within region."""

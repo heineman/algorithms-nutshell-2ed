@@ -4,48 +4,14 @@ from adk.region import maxValue, X, Y
 # Still occasional errors as size of P increases when running live application.
 # Naturally these are hard to track down and seem related to floating
 # point errors in the computations.
+#
+# Here are a bunch of resources I found online:
+#   http://www.cs.sfu.ca/~binay/813.2011/Fortune.pdf
+#   http://cgm.cs.mcgill.ca/~mcleish/644/Projects/DerekJohns/Sweep.htm
+#   http://www.ams.org/samplings/feature-column/fcarc-voronoi
+#   http://www.ambrsoft.com/TrigoCalc/Circle3D.htm
 
-# http://www.cs.sfu.ca/~binay/813.2011/Fortune.pdf
-# http://cgm.cs.mcgill.ca/~mcleish/644/Projects/DerekJohns/Sweep.htm
 
-# useful resource
-# http://www.ambrsoft.com/TrigoCalc/Circle3D.htm
-
-class DCEL:
-    """
-    Represents doubly-connected edge-list (DCEL) for planar embedding of a planar 
-    graph G=(V,E). Main component is the edge node, which is uniquely represented.
-    Edge node contains four fields Vsrc, Vend, FaceLeft, FaceRight, NextEdgeSrc, 
-    NextEdgeEnd.
-    
-    Faces are based around the original points in the collection for which the
-    Voronoi diagram is computed.
-    
-    Each edgeNode retains link to the VoronoiEdge computed during FortuneSweep.
-    
-    Each face is indexed using the same index as the original points in the 
-    collection processed by FortuneSweep.
-    """
-    def __init__(self):
-        self.edgeNodes = {}
-        
-#         points = voronoi.points
-#         diagramPoints = [None]
-#         for e in voronoi.edges:
-#             left = e.left
-#             right = e.right
-#             
-#             if e.start not in diagramPoints and e.start is not None:
-#                 diagramPoints.append(e.start)
-#             if e.end not in diagramPoints and e.end is not None:
-#                 diagramPoints.append(e.end)
-#             
-#             Vsrc = diagramPoints.index(e.start)
-#             Vend = diagramPoints.index(e.end)
-#             pair = (Vsrc, Vend)
-#             self.edgeNodes[pair] = [left.idx, right.idx, None, None]
-        
-# http://www.ams.org/samplings/feature-column/fcarc-voronoi
 class VoronoiPolygon:
     """
     Represents a polygon in the Voronoi Diagram around a point.
@@ -370,20 +336,19 @@ class Voronoi:
         self.height = height
         
     def process(self, points):
-        """Process given points, represented as tuple (x,y) to return edge collection and DCEL.""" 
+        """Process given points, represented as tuple (x,y) to return edge collection.""" 
         self.pq = []
         self.edges = []
         self.tree = None
-        self.firstPoint = None     # tie breakers with first point have to be handled
+        self.firstPoint = None     # handle tie breakers with first 
         self.stillOnFirstRow = True
         self.points = []
-        self.dcel = DCEL()
         
-        # Every Arc has a point. 
+        # Each point has unique identifier
         for idx in range(len(points)):
             pt = Point(points[idx], idx)
             self.points.append(pt)
-            event = Event(pt, site=True)
+            event = Event(pt, site=pt)
             heappush(self.pq, event)
             
         while self.pq:
@@ -550,28 +515,26 @@ class Voronoi:
         
         # Voronoi edges discovered between two sites. Leaf.site is higher
         # giving orientation to these edges.
-        start = leaf.pointOnBisectionLine(event.p.x, self.sweepPt.y)
+        start = leaf.pointOnBisectionLine (event.p.x, self.sweepPt.y)
         negRay = VoronoiEdge(start, leaf.site, event.p)
         posRay = VoronoiEdge(start, event.p, leaf.site)
         negRay.partner = posRay
-        self.edges.append(negRay)
+        self.edges.append (negRay)
         
         # old leaf becomes root of two nodes, and grandparent of two
         leaf.edge = posRay
         leaf.isLeaf = False
         
-        ##print (posRay, posRay.left.idx, posRay.right.idx, "***")
-        
         left = Arc()      
         left.edge = negRay
-        left.setLeft(Arc(leaf.site))
-        left.setRight(Arc(event.p))
+        left.setLeft (Arc(leaf.site))
+        left.setRight (Arc(event.p))
         
-        leaf.setLeft(left)
-        leaf.setRight(Arc(leaf.site)) 
+        leaf.setLeft (left)
+        leaf.setRight (Arc(leaf.site)) 
          
-        self.generateCircleEvent(left.left)
-        self.generateCircleEvent(leaf.right)
+        self.generateCircleEvent (left.left)
+        self.generateCircleEvent (leaf.right)
 
     def finishEdges(self, n):
         """
@@ -589,17 +552,16 @@ class Voronoi:
 
     def generateCircleEvent(self, node):
         """
-        With new node, there is possibility of a circle event with this node being the
-        middle of three consecutive nodes. If this is the case, then add new circle 
+        There is possibility of a circle event with this new node being the
+        middle of three consecutive nodes. If so, then add new circle 
         event to the priority queue for further processing.
         """
-        # Find neighbor on the left.
+        # Find neighbor on the left and right, should they exist.
         leftA = node.getLeftAncestor()
         if leftA is None:
             return
         left = leftA.getLargestLeftDescendant()
         
-        # Find neighbor on the right. 
         rightA = node.getRightAncestor()
         if rightA is None:
             return
@@ -610,7 +572,7 @@ class Voronoi:
             return
         
         # If two edges have no intersection, leave now
-        p = leftA.edge.intersect(rightA.edge)
+        p = leftA.edge.intersect (rightA.edge)
         if p is None:
             return
         
@@ -623,26 +585,25 @@ class Voronoi:
             
         node.circleEvent = circleEvent
         circleEvent.node = node
-        heappush(self.pq, circleEvent)
+        heappush (self.pq, circleEvent)
 
     def processCircle(self, event):
         """Process circle event."""
         node = event.node
         
-        # Find neighbor on the left and right
+        # Find neighbor on the left and right.
         leftA  = node.getLeftAncestor()
         left   = leftA.getLargestLeftDescendant()
         rightA = node.getRightAncestor()
         right  = rightA.getSmallestRightDescendant()
         
-        # remove old circle events if they exist
+        # Eliminate old circle events if they exist.
         if left.circleEvent:
             left.circleEvent.deleted = True
         if right.circleEvent:
             right.circleEvent.deleted = True
             
-        # Circle defined by left - node - right and we
-        # now need to delete 'node'
+        # Circle defined by left - node - right. Terminate Voronoi rays
         p = node.pointOnBisectionLine(event.p.x, self.sweepPt.y)
 
         # this is a real Voronoi point! Add to appropriate polygons
@@ -674,8 +635,8 @@ class Voronoi:
             elif t == rightA:
                 ancestor = rightA
             
-        ancestor.edge = VoronoiEdge(p, left.site, right.site)
-        self.edges.append(ancestor.edge)
+        ancestor.edge = VoronoiEdge (p, left.site, right.site)
+        self.edges.append (ancestor.edge)
         
         # eliminate middle arc (leaf node) from beach line tree
         node.remove()

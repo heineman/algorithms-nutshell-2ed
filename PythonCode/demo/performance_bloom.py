@@ -17,9 +17,9 @@ def jenkins_one_at_a_time_hash(s, size):
         h += (h << 10)
         h ^= (h >> 6)
     h += (h << 3);
-    h ^= (h >> 11);
-    h += (h << 15);
-    return h % size;
+    h ^= (h >> 11)
+    h += (h << 15)
+    return h % size
 
 def hf3(s, size):
     """Hashcode implementation from Java String class."""
@@ -47,7 +47,7 @@ def evalBloom(size, strings, missing):
     # Now that bloom filter is built, try the missing words
     numFalse = 0
     for s in missing:
-        if bloom.contains(s):
+        if s in bloom:
             numFalse += 1
         
     return numFalse

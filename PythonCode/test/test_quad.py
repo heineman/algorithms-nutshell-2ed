@@ -34,8 +34,13 @@ class TestQuadMethods(unittest.TestCase):
         return expanded
     
     def test_adding(self):
-        for _ in range(500):
+        print ("Starting generation.");
+        for _ in range(25):
+            print ("Added " + str(_))
             self.quad.add((random.randint(25,225), random.randint(25,225)))
+            
+            
+        print ("Done with generation.");
         
         # make sure not to overlap!
         q_ne = self.expand(Region(128, 128, 256, 256))

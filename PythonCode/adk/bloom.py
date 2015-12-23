@@ -22,7 +22,7 @@ class bloomFilter:
     def add(self, value):
         """Insert value into the bloom filter."""
         for hf in self.hashFunctions:
-            self.bits |= 1<<hf(value, self.size)
+            self.bits |= 1 << hf (value, self.size)
             
     def countbits(self):
         """Count the number of bits set in the bloom filter."""

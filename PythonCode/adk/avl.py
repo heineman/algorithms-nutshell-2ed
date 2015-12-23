@@ -11,14 +11,14 @@
 
 class BinaryNode:
 
-    def __init__(self, value = None):
+    def __init__ (self, value = None):
         """Create binary node."""
         self.value  = value
         self.left   = None
         self.right  = None
         self.height = 0
 
-    def computeHeight(self):
+    def computeHeight (self):
         """Compute height of node in BST."""
         height = -1
         if self.left:
@@ -28,7 +28,7 @@ class BinaryNode:
             
         self.height = height + 1
 
-    def dynamicHeight(self):
+    def dynamicHeight (self):
         """Compute height of node in BST."""
         height = -1
         if self.left:
@@ -38,7 +38,7 @@ class BinaryNode:
             
         return height + 1
 
-    def dynamicHeightDifference(self):
+    def dynamicHeightDifference (self):
         """Compute height difference of node's children in BST."""
         leftTarget = 0
         rightTarget = 0
@@ -49,7 +49,7 @@ class BinaryNode:
             
         return leftTarget - rightTarget
 
-    def heightDifference(self):
+    def heightDifference (self):
         """Compute height difference of node's children in BST."""
         leftTarget = 0
         rightTarget = 0
@@ -60,7 +60,7 @@ class BinaryNode:
             
         return leftTarget - rightTarget
 
-    def assertAVLProperty(self):
+    def assertAVLProperty (self):
         """Validate AVL property for BST node."""
         if abs(self.dynamicHeightDifference()) > 1:
             return False
@@ -73,7 +73,7 @@ class BinaryNode:
 
         return True
 
-    def rotateRight(self):
+    def rotateRight (self):
         """Perform right rotation around given node."""
         newRoot = self.left
         grandson = newRoot.right
@@ -83,7 +83,7 @@ class BinaryNode:
         self.computeHeight()
         return newRoot
 
-    def rotateLeft(self):
+    def rotateLeft (self):
         """Perform left rotation around given node."""
         newRoot = self.right
         grandson = newRoot.left
@@ -93,7 +93,7 @@ class BinaryNode:
         self.computeHeight()
         return newRoot
 
-    def rotateLeftRight(self):
+    def rotateLeftRight (self):
         """Perform left, then right rotation around given node."""
         child = self.left
         newRoot = child.right
@@ -109,7 +109,7 @@ class BinaryNode:
         self.computeHeight()
         return newRoot
 
-    def rotateRightLeft(self):
+    def rotateRightLeft (self):
         """Perform right, then left rotation around given node."""
         child = self.right
         newRoot = child.left
@@ -125,7 +125,7 @@ class BinaryNode:
         self.computeHeight()
         return newRoot
 
-    def compareTo(self, value):
+    def compareTo (self, value):
         """
         Returns 0 if equal, negative if smaller and positive if greater.
         Suitable for overriding.
@@ -136,13 +136,13 @@ class BinaryNode:
             return -1
         return +1
         
-    def add(self, val):
+    def add (self, val):
         """Adds a new node to the tree with value and rebalance as needed."""
         newRoot = self
         
 #        if val <= self.value:
         if self.compareTo(val) >= 0:
-            self.left = self.addToSubTree(self.left, val)
+            self.left = self.addToSubTree (self.left, val)
             if self.heightDifference() == 2:
                 #if val <= self.left.value:
                 if self.left.compareTo(val) >= 0:
@@ -150,7 +150,7 @@ class BinaryNode:
                 else:
                     newRoot = self.rotateLeftRight()
         else:
-            self.right = self.addToSubTree(self.right, val)
+            self.right = self.addToSubTree (self.right, val)
             if self.heightDifference() == -2:
                 #if val > self.right.value:
                 if self.right.compareTo(val) < 0:
@@ -161,26 +161,26 @@ class BinaryNode:
         newRoot.computeHeight()
         return newRoot
 
-    def newNode(self, val):
+    def newNode (self, val):
         """Return new Binary Node, amenable to subclassing."""
         return BinaryNode(val)
 
-    def addToSubTree(self, parent, val):
-        """Add val to parent subtree (if exists) and return root of that subtree."""
+    def addToSubTree (self, parent, val):
+        """Add val to parent subtree (if exists) and return root in case it has changed because of rotation."""
         if parent is None:
             return self.newNode(val)
 
         parent = parent.add(val)
         return parent
            
-    def removeFromParent(self, parent, val):
+    def removeFromParent (self, parent, val):
         """Helper method for remove. Ensures proper behavior when removing node that 
         has children."""
         if parent:
             return parent.remove(val)
         return None
 
-    def remove(self, val):
+    def remove (self, val):
         """
          Remove val of self from BinaryTree. Works in conjunction with remove
          method in BinaryTree.
@@ -222,7 +222,7 @@ class BinaryNode:
         newRoot.computeHeight()
         return newRoot
 
-    def __repr__(self):
+    def __repr__ (self):
         """Useful debugging function to produce linear tree representation."""
         leftS = ''
         rightS = ''
@@ -232,7 +232,7 @@ class BinaryNode:
             rightS = str(self.right)
         return "(L:" + leftS + " " + str(self.value) + " R:" + rightS + ")"
 
-    def inorder(self):
+    def inorder (self):
         """In order traversal generator of tree rooted at given node."""
         if self.left:
             for n in self.left.inorder():
@@ -246,52 +246,52 @@ class BinaryNode:
 
 class BinaryTree:
 
-    def __init__(self):
+    def __init__ (self):
         """Create empty binary tree."""
         self.root = None
 
-    def __repr__(self):
+    def __repr__ (self):
         if self.root is None:
             return "avl:()"
         return "avl:" + str(self.root)
                 
-    def newNode(self, value):
+    def newNode (self, value):
         """Return new BinaryNode object. Suitable for overriding."""
         return BinaryNode(value)
     
-    def add(self, value):
+    def add (self, value):
         """Insert value into proper location in Binary Tree."""
         if self.root is None:
             self.root = self.newNode(value)
         else:
             self.root = self.root.add(value)
 
-    def __contains__(self, target):
+    def __contains__ (self, target):
         """Check whether BST contains target value."""
         node = self.root
         while node:
             rc = node.compareTo(target)
-            if rc == 0:
-                return True
             if rc > 0:
                 node = node.left
-            else:
+            elif rc < 0:
                 node = node.right
+            else:
+                return True
+            
                 
         return False
 
-    def remove(self, val):
+    def remove (self, val):
         """Remove value from tree."""
         if self.root:
             self.root = self.root.remove(val)
 
-    def __iter__(self):
+    def __iter__ (self):
         """In order traversal of elements in the tree."""
         if self.root:
-            for e in self.root.inorder():
-                yield e
-                
-    def assertAVLProperty(self):
+            return self.root.inorder()
+                        
+    def assertAVLProperty (self):
         """Validate AVL property for BST Tree."""
         if self.root:
             return self.root.assertAVLProperty()

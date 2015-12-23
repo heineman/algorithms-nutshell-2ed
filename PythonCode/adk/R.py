@@ -86,11 +86,11 @@ class RNode:
             # check leaves and recurse
             if self.level == 0:
                 for idx in range(self.count):
-                    if target.overlaps(self.children[idx].region):
+                    if target.overlaps (self.children[idx].region):
                         yield (self.children[idx].region, self.children[idx].id, False)
             else:    
                 for idx in range(self.count):
-                    if self.children[idx].region.overlaps(target):
+                    if self.children[idx].region.overlaps (target):
                         for triple in self.children[idx].range(target):
                             yield triple
 
@@ -372,11 +372,11 @@ class RTree:
         """Insert rectangle into proper location with given (optional) identifier."""
         if self.root is None:
             self.root = RNode(self.M, rectangle, None)
-            self.root.addEntry(self.M, rectangle, ident)
+            self.root.addEntry (self.M, rectangle, ident)
         else:
             # I1 [Find position for new record] Invoke ChooseLeaf to select a
             # leaf node n in which to place R. Path to leaf returned
-            path = self.root.chooseLeaf(rectangle, [self.root]);
+            path = self.root.chooseLeaf (rectangle, [self.root]);
             n = path[-1]
             del path[-1]
             
@@ -385,20 +385,20 @@ class RTree:
             # containing R and all the old entries of n
             newLeaf = None
             if n.count < self.M:
-                n.addEntry(self.M, rectangle, ident)
+                n.addEntry (self.M, rectangle, ident)
             else:
-                newLeaf = n.split(RNode(self.M, rectangle, ident, 0), self.m, self.M)
+                newLeaf = n.split (RNode(self.M, rectangle, ident, 0), self.m, self.M)
 
             # I3 [Propagate changes upwards] Invoke AdjustTree on n, also 
             # passing newLeaf if a split was performed
-            newNode = self.adjustTree(n, newLeaf, path)
+            newNode = self.adjustTree (n, newLeaf, path)
                 
             # I4 [Grow tree taller] If node split propagation caused the root to
             # split, create a new root whose children are the two resulting nodes.
             if newNode:
                 newRoot = RNode(self.M, level = newNode.level + 1)
-                newRoot.addRNode(newNode)
-                newRoot.addRNode(self.root)
+                newRoot.addRNode (newNode)
+                newRoot.addRNode (self.root)
                 self.root = newRoot
 
     def adjustTree(self, n, sibling, path):
@@ -467,7 +467,7 @@ class RTree:
         
         # D1 [Find node containing record] Invoke FindLeaf to locate 
         # the leaf node n containing R. Stop if record not found.
-        path = self.root.findLeaf(rectangle, [self.root]);
+        path = self.root.findLeaf (rectangle, [self.root]);
         if path is None:
             return False
             
@@ -477,7 +477,7 @@ class RTree:
         del path[-1]
         
         # D2 [Delete record.] Remove E from n
-        parent.removeRNode(leaf)
+        parent.removeRNode (leaf)
                 
         # D3 [Propagate changes] Invoke condenseTree on parent
         if parent == self.root:
@@ -489,51 +489,12 @@ class RTree:
             parent,Q = parent.condenseTree(path, self.m, self.M)
             self.root.adjustRegion()
             
+            # CT6 [Reinsert orphaned entries] Reinsert all entries 
+            # of nodes in set Q. 
             for n in Q:
                 for rect,ident in n.leafOrder():
                     self.add(rect, ident)
                     
-#             if len(Q) == 0:
-#                 return
-#             
-#             # CT6 [Reinsert orphaned entries] Reinsert all entries of nodes in set Q.
-#             # Entries from eliminated leaf nodes are re-inserted in tree leaves as in
-#             # Insert(), but entries from higher-level nodes must be placed higher in
-#             # the tree, so that leaves of their dependent subtrees will be on the same
-#             # level as leaves of the main tree
-#             count = 0
-#             for n in Q:
-#                 for rect,ident in n.leafOrder():
-#                     count += 1
-#             
-#             if count > 50:
-#                 print ("LOTS")
-#             
-#             if parent is None:
-#                 # find first non-full child of root
-#                 for idx in range(self.root.count):
-#                     if self.root.children[idx].count < self.M:
-#                         parent = self.root.children[idx]
-#                         break
-# 
-#             # Graft these all back in. Note they are all under-full which means
-#             # they can each be added to a non-full node           
-#             idx = 0
-#             while idx < len(Q):
-#                 for idx in range(Q[idx].count):
-#                     parent.addRNode(Q[idx].children[idx])
-#                 parent = Q[idx].children[idx]
-#                 idx += 1
-# 
-#             while idx > 0:
-#                 idx -= 1
-#                 Q[idx].adjustRegion()
-#                 
-#             parent.adjustRegion()
-            #for n in Q:
-            #    for rect,ident in n.leafOrder():
-            #        self.add(rect, ident)
-                
         # D4 [Shorten tree.] If the root node has only one child after
         # the tree has been adjusted, make the child the new root
         while self.root.count == 1 and self.root.level > 0:
