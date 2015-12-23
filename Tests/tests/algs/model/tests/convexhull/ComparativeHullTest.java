@@ -57,13 +57,14 @@ public class ComparativeHullTest extends TestCase {
 			points[i] = new TwoDPoint(master[i]);
 			points2[i] = new TwoDPoint(master[i]);
 		}
+		
 		// compute heuristic (single thread)
 		IPoint[] reduced = algs.model.problems.convexhull.AklToussaint.reduce(points);
 		
 		// compute multithread.
 		IPoint[] reduced2 = algs.model.problems.convexhull.parallel.AklToussaint.reduce(points2);
 
-
+		// fix this!
 		assertEquals (reduced2.length, reduced.length);
 	}		
 }
