@@ -104,18 +104,20 @@ public class FairEvaluator implements IScore {
 			}
 		}
 		
-		
 		// compute g(n)
 		int gn = 0;
 		String eval = "";
 		DepthTransition t = (DepthTransition) state.storedData();
+		
 		if (t != null) { 
 			if (t.depth != 0) {  // protect against zero depth
 				gn = t.depth;
-				eval = eval + gn + "+";
+				eval = eval + gn + "+" + Pn + "=" + (gn+Pn);
 			}
+		} else {
+			eval = eval + Pn;
 		}
 		
-		return eval + (gn+Pn);
+		return eval;
 	}
 }

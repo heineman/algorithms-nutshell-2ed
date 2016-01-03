@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import algs.model.problems.eightpuzzle.BadEvaluator;
 import algs.model.problems.eightpuzzle.EightPuzzleNode;
+import algs.model.problems.eightpuzzle.FairEvaluator;
 import algs.model.problems.eightpuzzle.GoodEvaluator;
 import algs.model.problems.eightpuzzle.WeakEvaluator;
 import algs.model.searchtree.DepthTransition;
-
 import junit.framework.TestCase;
 
 public class EvaluationTest extends TestCase {
@@ -24,6 +24,7 @@ public class EvaluationTest extends TestCase {
 		GoodEvaluator eval = new GoodEvaluator();
 		BadEvaluator bad = new BadEvaluator();
 		WeakEvaluator weak = new WeakEvaluator();
+		FairEvaluator fair = new FairEvaluator();
 		
 		int rc;
 		
@@ -33,6 +34,8 @@ public class EvaluationTest extends TestCase {
 		bad.score(state);
 		assertEquals (14, state.score());
 		weak.score(state);
+		assertEquals (3, state.score());
+		fair.score(state);
 		assertEquals (3, state.score());
 		
 		// go through eval method
@@ -48,6 +51,11 @@ public class EvaluationTest extends TestCase {
 		assertEquals (3, rc);
 		assertEquals ("3", weak.evalString(state));
 		
+		rc = fair.eval(state);
+		assertEquals (3, rc);
+		assertEquals ("3", fair.evalString(state));
+		
+		
 		// try second one
 		rc = eval.eval(two);
 		assertEquals (17, rc);
@@ -55,6 +63,9 @@ public class EvaluationTest extends TestCase {
 		assertEquals (2, rc);
 		rc = weak.eval(two);
 		assertEquals (2, rc);
+		rc = fair.eval(two);
+		assertEquals (2, rc);
+		
 		
 		// deal with depth first evaluation
 		int depth = 17;
@@ -68,6 +79,9 @@ public class EvaluationTest extends TestCase {
 		
 		bad.score(state);
 		assertEquals ("(0-4)+(7-3)+(6-1)+(5-8)=2=|16-2|=14", bad.evalString(state));
+		
+		fair.score(state);
+		assertEquals ("17+3=20", fair.evalString(state));
 		
 		// deal with zero first evaluation
 		depth = 0;
