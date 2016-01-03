@@ -12,14 +12,18 @@ import algs.model.problems.convexhull.graham.GrahamScan.PolarSorter;
  * 
  * Attribute angle is computed and set externally, thus its field is not final; it remains package private to 
  * ensure integrity. It is set in lazy fashion from within {@link PolarSorter}.
+ * 
+ * The compareTo method is not invoked directly because GrahamScan algorithm uses {@link PolarSorter} as the 
+ * comparator, which overrides the default {@link #compareTo(PolarAnglePoint)} method; however, it needs to be
+ * here so the code properly compiles. Thus it never executes in the Graham Scan context.
  */
 public class PolarAnglePoint implements Comparable<PolarAnglePoint>{
 	public final double x;
 	public final double y;
 	public final IPoint original;
 	
-	/** Uncomputed angles are set to maximum value. */
-	double angle = Double.MAX_VALUE;
+	/** Uncomputed angles are set to maximum value. Making public to allow external comparisons with compareTo. */
+	public double angle = Double.MAX_VALUE;
 	
 	/**
 	 * Construct PolarAnglePoint by extracting (x,y) coordinates from {@link IPoint} object.

@@ -103,17 +103,20 @@ public class FordFulkerson {
 			// Over a forward edge, 
 			int flow;
 			if (vertices[v].forward) {
+				// Forward edges can be adjusted by remaining capacity on edge
 				flow = network.edge(u, v).capacity - network.edge(u, v).flow;
 			} else {
+				// Backward edges can be reduced only by their existing flow
 				flow = network.edge(v, u).flow;
 			}
 			
+			// have found a smaller candidate flow.
 			if (flow < delta) { delta = flow; }
 			
 			v = u;  // follow reverse path to source
 		}
 		
-		// push minimal increment over the path
+		// Adjust path (forward is added, backward is reduced) with delta
 		v = network.sinkIndex;
 		while (v != network.sourceIndex) {
 			int u = vertices[v].previous;

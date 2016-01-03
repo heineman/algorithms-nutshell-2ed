@@ -57,12 +57,12 @@ public class AlphaBetaEvaluation implements IEvaluation {
 	 * @param opponent           The player's opponent.
 	 */
 	public IGameMove bestMove (IGameState s, IPlayer player, IPlayer opponent) {
-		this.state = s.copy();
+		state = s.copy();
 		numStates++; /* STATS */
-		MoveEvaluation move = alphabeta(ply, player, opponent, 
+		MoveEvaluation me = alphabeta(ply, player, opponent, 
 				MoveEvaluation.minimum(), MoveEvaluation.maximum());
 		
-		return move.move;
+		return me.move;
 	}
 	
 	/**
@@ -87,9 +87,9 @@ public class AlphaBetaEvaluation implements IEvaluation {
 	 */
 	private MoveEvaluation alphabeta (int ply, IPlayer player, IPlayer opponent, int alpha, int beta) {
 		// If no moves at all, return evaluation of board from player's perspective.
-		Iterator<IGameMove> it = player.validMoves(state).iterator();
+		Iterator<IGameMove> it = player.validMoves (state).iterator();
 		if (ply == 0 || !it.hasNext()) {
-			return new MoveEvaluation (player.eval(state));
+			return new MoveEvaluation (player.eval (state));
 		}
 		
 		// Select "maximum of negative value of children" that improves alpha
@@ -97,10 +97,10 @@ public class AlphaBetaEvaluation implements IEvaluation {
 		while (it.hasNext()) {
 			IGameMove move = it.next();
 			
-			move.execute(state);
+			move.execute (state);
 			numStates++; /* STATS */
 			MoveEvaluation me = alphabeta (ply-1, opponent, player, -beta, -alpha);
-			move.undo(state);
+			move.undo (state);
 			
 		    // If improved upon alpha, keep track of this move.
 			if (-me.score > alpha) { 

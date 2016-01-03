@@ -24,15 +24,15 @@ public class BinarySearch<T extends Comparable<T>> {
 
 		int low = 0, high = collection.length - 1;
 		while (low <= high) {
-			int ix = (low + high)/2;
-			int rc = target.compareTo(collection[ix]);
+			int mid = (low + high)/2;
+			int rc = target.compareTo(collection[mid]);
 
 			if (rc < 0) {
 				// target is less than collection[i]
-				high = ix - 1;
+				high = mid - 1;
 			} else if (rc > 0) {
 				// target is greater than collection[i]
-				low = ix + 1;
+				low = mid + 1;
 			} else {
 				// found the item.
 				return true;

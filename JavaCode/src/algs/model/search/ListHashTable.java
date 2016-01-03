@@ -53,7 +53,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 	 * otherwise.
 	 */
 	public boolean search(V v) {
-		int h = hashMethod.hash(v);
+		int h = hashMethod.hash (v);
 		LinkedList<V> list = (LinkedList<V>) table[h];
 		if (list == null) { return false; }
 			

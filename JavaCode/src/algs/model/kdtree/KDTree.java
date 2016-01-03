@@ -236,14 +236,13 @@ public class KDTree {
 	public IMultiPoint nearest (IMultiPoint target) {
 		if (root == null || target == null) return null;
 	
-		// find parent node to which target would have been inserted. This is our
-	    // best shot at locating closest point; compute best distance guess so far
+		// find parent node to which target would have been inserted. 
+	    // Best shot at finding closest point.
 		DimensionalNode parent = parent(target);
 		IMultiPoint result = parent.point;
 		double smallest = target.distance(result);
 		
-		// now start back at the root, and check all rectangles that potentially
-		// overlap this smallest distance. If better one is found, return it.
+		// Start back at the root to try to find closer one.
 		numRecursion=0;        /* STATS */
 		numDoubleRecursion=0;  /* STATS */
 		double best[] = new double[] { smallest };  // computed best distance.

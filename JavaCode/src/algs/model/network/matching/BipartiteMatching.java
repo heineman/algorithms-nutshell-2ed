@@ -55,14 +55,14 @@ public class BipartiteMatching {
 	 * 
 	 * @throws RuntimeException    if an error in input occurs.
 	 */
-	public BipartiteMatching (Object[] setS, Object[] setT, Object[][] pairs) { 
+	public BipartiteMatching (Object[] S, Object[] T, Object[][] pairs) { 
 
 		// ensure that S and T are disjoint
-		for (Object o : setS) {
-			if (contains(setT, o)) { throw new RuntimeException  ("Matching sets must be disjoint."); }
+		for (Object o : S) {
+			if (contains(T, o)) { throw new RuntimeException  ("Matching sets must be disjoint."); }
 		}
-		for (Object o : setT) {
-			if (contains(setS, o)) { throw new RuntimeException  ("Matching sets must be disjoint."); }
+		for (Object o : T) {
+			if (contains(S, o)) { throw new RuntimeException  ("Matching sets must be disjoint."); }
 		}
 
 		edges = new ArrayList<EdgeInfo>();
@@ -72,7 +72,7 @@ public class BipartiteMatching {
 				throw new RuntimeException  ("Edge information not in pairs (s,t)");
 			}
 
-			if (!contains(setS, pairs[i][0]) || !contains(setT, pairs[i][1])) {
+			if (!contains(S, pairs[i][0]) || !contains(T, pairs[i][1])) {
 				throw new RuntimeException  ("Invalid Edge:" + i);
 			}
 
@@ -86,12 +86,12 @@ public class BipartiteMatching {
 
 		// add extra "source" and "target" vertices.
 		srcIndex = 0;
-		tgtIndex = setS.length + setT.length+1;
+		tgtIndex = S.length + T.length+1;
 		numVertices = tgtIndex+1;
-		for (Object o : setS) {
+		for (Object o : S) {
 			this.edges.add(new EdgeInfo(srcIndex, map.get(o), 1));
 		}
-		for (Object o : setT) {
+		for (Object o : T) {
 			this.edges.add(new EdgeInfo(map.get(o), tgtIndex, 1));
 		}
 	}

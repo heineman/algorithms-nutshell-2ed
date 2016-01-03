@@ -47,13 +47,13 @@ public class AStarSearch implements ISearch {
 	 */
 	public Solution search(INode initial, INode goal) {
 		// Start from the initial state
-		INodeSet open = StateStorageFactory.create(StateStorageFactory.PRIORITY_RETRIEVAL);
+		INodeSet open = StateStorageFactory.create (StateStorageFactory.PRIORITY_RETRIEVAL);
 		INode copy = initial.copy();
-		scoringFunction.score(copy);
-		open.insert(copy); 
+		scoringFunction.score (copy);
+		open.insert (copy); 
 
-		// states we have already visited.
-		INodeSet closed = StateStorageFactory.create(closedStorage);
+		// Use hashtable to store states we have already visited.
+		INodeSet closed = StateStorageFactory.create (closedStorage);
 		while (!open.isEmpty()) {
 		    // Remove node with smallest evaluation function and mark closed.
 			INode best = open.remove();
@@ -74,7 +74,7 @@ public class AStarSearch implements ISearch {
 				
 				// Make move and score the new board state.
 				INode successor = best.copy();
-				move.execute(successor);
+				move.execute (successor);
 				numMoves++; /* STATS */
 
 				if (closed.contains(successor) != null) {
@@ -83,8 +83,8 @@ public class AStarSearch implements ISearch {
 				
 			    // Record previous move for solution trace and compute
 			    // evaluation function to see if we have improved
-				successor.storedData(new DepthTransition(move, best, depth));
-				scoringFunction.score(successor);
+				successor.storedData (new DepthTransition (move, best, depth));
+				scoringFunction.score (successor);
 
 				// If not yet visited, or it has better score
 				INode exist = open.contains(successor);
@@ -92,9 +92,9 @@ public class AStarSearch implements ISearch {
 					
 					// remove old one, if one had existed, and insert better one
 					if (exist != null) {
-						open.remove(exist);
+						open.remove (exist);
 					}
-					open.insert(successor);
+					open.insert (successor);
 				}
 			}
 		}

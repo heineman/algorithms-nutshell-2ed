@@ -90,16 +90,16 @@ public class KDFactory {
 	}
 	
 	
-	/** Helper method for IMultiPoint. */
+	/** Generate node for d-th dimension (1 <= d <= maxD) for points[left, right]. */
 	private static DimensionalNode generate (int d, int maxD, IMultiPoint points[], int left, int right) {
 		
 		// Handle the easy cases first
 		if (right < left) { return null; }
 		if (right == left) { return new DimensionalNode (d, points[left]); }
 		
-        // Order the array[left,right] so the mth element will be the median
-        // and the elements prior to it will all be <=, though they won't 
-		// t necessarily be sorted; similarly, elements after will all be >= 
+        // Order the array[left,right] so mth element will be the median and
+        // elements prior to it will be <= median, though not sorted; 
+		// similarly, elements after will be >= median, though not sorted
 		int m = 1+(right-left)/2;
 		Selection.select(points, m, left, right, comparators[d]);
 		

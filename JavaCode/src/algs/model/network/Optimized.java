@@ -110,7 +110,8 @@ public class Optimized extends FlowNetwork<Object> {
 			// add to queue unvisited neighboring vertices of u with enough capacity.
 			for (int v = 0; v < numVertices; v++) {
 				if (visited[v] == 0 && capacity[u][v] > flow[u][v]) {
-					queue[tail] = v;  tail = (tail + 1) % QUEUE_SIZE;
+					queue[tail] = v;  
+					tail = (tail + 1) % QUEUE_SIZE;
 					visited[v] = 1;     // actively in queue   
 					previous[v] = u;
 				}

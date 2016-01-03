@@ -90,6 +90,7 @@ public class LineSweep extends IntersectionDetection {
 				handleEventPoint(p);
 			} catch (NullPointerException npe) {
 				// Because floating point calculations may lead to inconsistent state
+				// in smaller number of cases, especially with lots of random points, 
 				// we alert user about situation and recover; only show	first error
 				if (++errorCount == 1) {
 					System.err.println("  LineSweep produced invalid computation for:" + p);
@@ -99,7 +100,7 @@ public class LineSweep extends IntersectionDetection {
 
 		computeTime();
 		if (errorCount > 1) {
-			System.err.println("  LineSweep had problems with:" + errorCount + " point.");
+			System.err.println("  LineSweep had problems with:" + errorCount + " point(s).");
 		}
 		return report;
 	}
@@ -117,25 +118,25 @@ public class LineSweep extends IntersectionDetection {
 		// Intersections can only happen between neighboring segments. We start
 		// with nearest ones because as line sweeps down we will eventually find
 		// any other intersections that (for now) we put off.
-		AugmentedNode<ILineSegment> left = lineState.leftNeighbor(ep);
-		AugmentedNode<ILineSegment> right = lineState.rightNeighbor(ep);
+		AugmentedNode<ILineSegment> left = lineState.leftNeighbor (ep);
+		AugmentedNode<ILineSegment> right = lineState.rightNeighbor (ep);
 
 		// determine intersections 'ints' from neighboring line segments and 
 		// get upper segments 'ups' and lower segments 'lows' for this event point.
 		// An intersection exists if > 1 segment associated with event point
-		lineState.determineIntersecting(ep, left, right);
+		lineState.determineIntersecting (ep, left, right);
 		List<ILineSegment> ints = ep.intersectingSegments();
-		List<ILineSegment> ups = ep.upperEndpointSegments();
+		List<ILineSegment> ups  = ep.upperEndpointSegments();
 		List<ILineSegment> lows = ep.lowerEndpointSegments();
 		if (lows.size() + ups.size() + ints.size() > 1) {
 			record (ep.point, lows, ups, ints);
 		}
 
-		// Remove segments after left until left's successor is right. Then
+		// Delete everything after left until left's successor is right. Then
 		// update the sweep point, so insertions will properly be ordered. Only
 		// ups and ints are inserted because they are still active.
-		lineState.deleteRange(left, right);
-		lineState.setSweepPoint(ep.point);
+		lineState.deleteRange (left, right);
+		lineState.setSweepPoint (ep.point);
 		boolean update = false;
 		if (!ups.isEmpty()) {
 			lineState.insertSegments (ups);
@@ -154,8 +155,8 @@ public class LineSweep extends IntersectionDetection {
 		if (!update) {
 			if (left != null && right != null) { updateQueue (left, right); }
 		} else {
-			if (left != null) { updateQueue (left, lineState.successor(left));	}
-			if (right != null) { updateQueue (lineState.pred(right), right); }
+			if (left != null) { updateQueue (left, lineState.successor (left));	}
+			if (right != null) { updateQueue (lineState.pred (right), right); }
 		}
 	}
 
@@ -171,11 +172,11 @@ public class LineSweep extends IntersectionDetection {
 			                 AugmentedNode<ILineSegment> right) {
         // Determine if the two neighboring line segments intersect. Make sure that 
         // new intersection point is *below* the sweep line and not added twice.
-        IPoint p = left.key().intersection(right.key());
+        IPoint p = left.key().intersection (right.key());
         if (p == null) { return; }
-        if (EventPoint.pointSorter.compare(p,lineState.sweepPt) > 0) {
+        if (EventPoint.pointSorter.compare (p, lineState.sweepPt) > 0) {
             EventPoint new_ep = new EventPoint(p);
-            if (!eq.contains(new_ep)) { eq.insert(new_ep); }
+            if (!eq.contains (new_ep)) { eq.insert(new_ep); }
         }
 	}
 }

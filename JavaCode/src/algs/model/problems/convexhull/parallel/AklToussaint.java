@@ -42,7 +42,7 @@ public class AklToussaint {
 	 * @param y4    segment s2 end
 	 * @return      1 if there is an intersection, 0 otherwise
 	 */
-	public static int intersect (double x1, double y1, double x2, double y2,
+	public static synchronized int intersect (double x1, double y1, double x2, double y2,
 			double x3, double y3, double x4, double y4) {
 		double denom = (y4 - y3)*(x2 - x1)-(x4 - x3)*(y2 - y1);
 		
@@ -120,9 +120,9 @@ public class AklToussaint {
 		
 		// need for thread access.
 		final double fminX = minX;
-		final double fmaxX = minX;
+		final double fmaxX = maxX;
 		final double fminY = minY;
-		final double fmaxY = minY;
+		final double fmaxY = maxY;
 		final int fleft=left, fright=right, ftop=top, fdown=down;
 		
 		// split into two sets.
@@ -205,7 +205,7 @@ public class AklToussaint {
 			}
 		};
 		
-		// start both threads and wait until they are done.
+		// start both threads and wait until they are both done.
 		one.start();
 		two.start();
 		try {

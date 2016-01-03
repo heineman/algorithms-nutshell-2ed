@@ -66,13 +66,13 @@ public class DepthFirstSearch implements ISearch {
 		if (initial.equals(goal)) { return new Solution (initial, goal); }
 		
 		INodeSet open = StateStorageFactory.create(StateStorageFactory.STACK);
-		open.insert(initial.copy()); 
+		open.insert (initial.copy()); 
 		
 		// states we have already visited.
-		INodeSet closed = StateStorageFactory.create(closedStorage);
+		INodeSet closed = StateStorageFactory.create (closedStorage);
 		while (!open.isEmpty()) {
 			INode n = open.remove();
-			closed.insert(n);
+			closed.insert (n);
 						
 			// Prepare for computations
 			DepthTransition trans = (DepthTransition) n.storedData();
@@ -84,11 +84,11 @@ public class DepthFirstSearch implements ISearch {
 				
 				// Execute move on a copy since we maintain sets of board states
 				INode successor = n.copy();
-				move.execute(successor);
+				move.execute (successor);
 				numMoves++; /* STATS */
 					
 				// If already visited, try another state
-				if (closed.contains(successor) != null) { continue;	}
+				if (closed.contains (successor) != null) { continue; }
 
 				int depth = 1;
 				if (trans != null) { depth = trans.depth+1; }

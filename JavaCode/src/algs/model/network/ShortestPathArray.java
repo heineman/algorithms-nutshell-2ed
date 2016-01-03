@@ -55,7 +55,7 @@ public class ShortestPathArray extends Search {
 		// Construct queue using BinaryHeap. The inqueue[] array avoids
 		// an O(n) search to determine if an element is in the queue. 
 		int n = vertices.length;
-		BinaryHeap<Integer> pq = new BinaryHeap<Integer>(n); 
+		BinaryHeap<Integer> pq = new BinaryHeap<Integer> (n); 
 		boolean inqueue[] = new boolean [n];
 		
 		// initialize dist[] array. Use INT_MAX when edge doesn't exist.

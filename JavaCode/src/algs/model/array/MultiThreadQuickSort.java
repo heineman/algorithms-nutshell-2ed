@@ -168,7 +168,7 @@ public class MultiThreadQuickSort<E extends Comparable<E>> {
 			qsort2 (left, right);
 		} else {
 			// otherwise, complete in separate thread
-			synchronized(helpRequestedMutex) {
+			synchronized (helpRequestedMutex) {
 				helpersWorking++;
 			}
 			
@@ -177,7 +177,7 @@ public class MultiThreadQuickSort<E extends Comparable<E>> {
 					// invoke single-thread qsort
 					qsortSingle (left, right);
 
-					synchronized(helpRequestedMutex) {
+					synchronized (helpRequestedMutex) {
 						helpersWorking--;
 					}
 				}
@@ -198,8 +198,8 @@ public class MultiThreadQuickSort<E extends Comparable<E>> {
 		int pivotIndex = pi.selectPivotIndex (ar, left, right);
 		pivotIndex = partition (left, right, pivotIndex);
 		
-		qsortThread(left, pivotIndex-1);
-		qsortThread(pivotIndex+1,right);
+		qsortThread (left, pivotIndex-1);
+		qsortThread (pivotIndex+1,right);
 	}
 
 }

@@ -321,19 +321,19 @@ public class DimensionalNode {
 			return;
 		}
 	
-		// OK. Is our point, at least contained?
+		// Is our point at least contained?
 		if (space.intersects (cached)) {
 			results.add(point);
 		}
 
-		// recursively progress along both ancestral trees, if demanded. Note that
-		// the cost in manipulating space to be "cropped" to the proper structure
-		// is excessive and leaving it alone has no bearing on the computation.
+		// Recursively progress along both ancestral trees, if demanded. 
+		// The cost in manipulating space to be "cropped" to the proper 
+		// structure is excessive, so leave alone and is still correct.
 		if (space.getLeft(dimension) < coord) {
-			if (below != null) { below.range(space, results); }
+			if (below != null) { below.range (space, results); }
 		}
 		if (coord < space.getRight(dimension)) {
-			if (above != null) { above.range(space, results); }
+			if (above != null) { above.range (space, results); }
 		}
 	}
 

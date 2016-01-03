@@ -46,7 +46,7 @@ public class MinimaxEvaluation implements IEvaluation {
 		this.state = s.copy();
 		numStates++; /* STATS */
 
-		MoveEvaluation move = minimax(ply, IComparator.MAX, player, opponent);
+		MoveEvaluation move = minimax (ply, IComparator.MAX, player, opponent);
 		return move.move;
 	}
 	
@@ -67,9 +67,9 @@ public class MinimaxEvaluation implements IEvaluation {
 			IPlayer player, IPlayer opponent) {
 
 		// If no allowed moves or a leaf node, return game state score.
-		Iterator<IGameMove> it = player.validMoves(state).iterator();
+		Iterator<IGameMove> it = player.validMoves (state).iterator();
 		if (ply == 0 || !it.hasNext()) {
-			return new MoveEvaluation (original.eval(state)); 
+			return new MoveEvaluation (original.eval (state)); 
 		}
 
 		// Try to improve on this lower-bound (based on selector). Reflects no move possible.
@@ -79,17 +79,17 @@ public class MinimaxEvaluation implements IEvaluation {
 		while (it.hasNext()) {
 			IGameMove move = it.next();
 			
-			move.execute(state);
+			move.execute (state);
 			numStates++; /* STATS */
 
 			// Recursively evaluate position. Compute MiniMax and swap
 			// player and opponent, together with MIN and MAX.
 			MoveEvaluation me = minimax (ply-1, comp.opposite(), opponent, player);
 			
-			move.undo(state);
+			move.undo (state);
 			
 			// Select maximum (minimum) of children if we are MAX (MIN)
-			if (comp.compare(best.score, me.score) < 0) {
+			if (comp.compare (best.score, me.score) < 0) {
 				best = new MoveEvaluation (move, me.score); 
 			}
 		}

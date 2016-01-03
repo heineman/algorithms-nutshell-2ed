@@ -40,20 +40,20 @@ public class MergeSortFileMapped {
 	
 	public static void mergesort (File A) throws IOException {
 		File copy = File.createTempFile("Mergesort", ".bin");
-		copyFile(A, copy);
+		copyFile (A, copy);
 
 		RandomAccessFile src = new RandomAccessFile(A, "rw");
 		RandomAccessFile dest = new RandomAccessFile(copy, "rw");
 		FileChannel srcC = src.getChannel();
 		FileChannel destC = dest.getChannel();
-		MappedByteBuffer srcMap = srcC.map(FileChannel.MapMode.READ_WRITE, 0, src.length());
-		MappedByteBuffer destMap = destC.map(FileChannel.MapMode.READ_WRITE, 0, dest.length());
+		MappedByteBuffer srcMap = srcC.map (FileChannel.MapMode.READ_WRITE, 0, src.length());
+		MappedByteBuffer destMap = destC.map (FileChannel.MapMode.READ_WRITE, 0, dest.length());
 
 		mergesort (destMap, srcMap, 0, (int) A.length());
 		
-		// These invocations are needed only on Windows Platform
-		closeDirectBuffer(srcMap);
-		closeDirectBuffer(destMap);
+		// The following two invocations are needed only on Windows Platform:
+		closeDirectBuffer (srcMap);
+		closeDirectBuffer (destMap);
 		src.close();
 		dest.close();
 		copy.deleteOnExit();
@@ -71,27 +71,27 @@ public class MergeSortFileMapped {
 			int left = result.getInt();
 			int right = result.getInt();
 			if (left > right) {
-				result.position(start);
-				result.putInt(right);
-				result.putInt(left);
+				result.position (start);
+				result.putInt (right);
+				result.putInt (left);
 			}
 			return;
 		}
 
 		int mid = (end + start)/8*4;
-		mergesort(result, A, start, mid);
-		mergesort(result, A, mid, end);
+		mergesort (result, A, start, mid);
+		mergesort (result, A, mid, end);
 
 		result.position(start);
-		for (int i = start, j = mid, idx=start; idx<end; idx += 4) {
-			int Ai = A.getInt(i);
+		for (int i = start, j = mid, idx=start; idx < end; idx += 4) {
+			int Ai = A.getInt (i);
 			int Aj = 0;
-			if (j<end) { Aj = A.getInt(j); }
+			if (j < end) { Aj = A.getInt (j); }
 			if (j >= end || (i < mid && Ai < Aj)) { 
-				result.putInt(Ai);
+				result.putInt (Ai);
 				i += 4;
 			} else {
-				result.putInt(Aj);
+				result.putInt (Aj);
 				j += 4;
 			}
 		}

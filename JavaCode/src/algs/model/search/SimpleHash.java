@@ -41,7 +41,7 @@ public class SimpleHash implements IHash<String> {
 			h = (h << 1) + s.charAt(i);
 		}
 		
-		if (h < 0) h = 0 - h;
+		if (h < 0) { h = 0 - h; }
 		return h % tableSize;
 	}
 

@@ -69,10 +69,10 @@ public class NegMaxEvaluation implements IEvaluation {
 	 * @param opponent           The player's opponent
 	 */
 	public IGameMove bestMove (IGameState s, IPlayer player, IPlayer opponent) {
-		this.state = s.copy();
-		MoveEvaluation move = negmax(ply, player, opponent);
+		state = s.copy();
+		MoveEvaluation me = negmax (ply, player, opponent);
 		
-		return move.move;
+		return me.move;
 	}
 	
 	/**
@@ -89,13 +89,12 @@ public class NegMaxEvaluation implements IEvaluation {
 	 * @param opponent   the opponent.
 	 * @return           best {@link MoveEvaluation} as determined by algorithm
 	 */
-	public MoveEvaluation negmax (int ply, 
-			IPlayer player, IPlayer opponent) {
+	public MoveEvaluation negmax (int ply, IPlayer player, IPlayer opponent) {
 		
 		// If no allowed moves or a leaf node, return board state score.
-		Iterator<IGameMove> it = player.validMoves(state).iterator();
+		Iterator<IGameMove> it = player.validMoves (state).iterator();
 		if (ply == 0 || !it.hasNext()) {
-			return new MoveEvaluation(player.eval(state)); 
+			return new MoveEvaluation (player.eval (state)); 
 		}
 		
 		// Try to improve on this lower-bound move.
@@ -105,12 +104,12 @@ public class NegMaxEvaluation implements IEvaluation {
 		// making these moves. Select maximum of the negative scores of children.
 		while (it.hasNext()) {
 			IGameMove move = it.next();
-			move.execute(state);
+			move.execute (state);
 
 			// Recursively evaluate position using consistent negmax. Treat
 			// score as negative value.
 			MoveEvaluation me = negmax (ply-1, opponent, player);
-			move.undo(state);
+			move.undo (state);
 			
 			if (-me.score > best.score) {
 				best = new MoveEvaluation (move, -me.score);
