@@ -17,7 +17,7 @@ import algs.model.search.StringFileIterator;
  *
  * Sample:
  *
- *   java ConstructThree $ADKHOME/Figures/resources/algs/chapter5/words.english.txt
+ *   java ConstructThree $ADKHOME/Blogs/artifacts/searching/words.english.txt
  *
  * If all letters [a-z] are allowed, then this program will locate 11,097
  * words, but this amounts to just about 63% of the available 17576 spots.
