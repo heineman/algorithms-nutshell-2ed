@@ -206,11 +206,9 @@ public class DoubleLinkedList<E> implements Iterable<E> {
 		}
 			
 		// If we get here, then we must drop after the last one.
-		if (last != null) {
-			last.next = newNode;
-			newNode.prev = last;
-			last = newNode;
-		}
+		last.next = newNode;
+		newNode.prev = last;
+		last = newNode;
 	}
 
 	/** 
@@ -219,7 +217,7 @@ public class DoubleLinkedList<E> implements Iterable<E> {
 	 * Check for membership using E.equals(E) rather than the default == method. Note, however, 
 	 * the the remove(E) method removes solely based on ==.
 	 * 
-	 * By definition, contains(null) is false.
+	 * By definition, contains(null) is null.
 	 * 
 	 * @param e     element to be sought
 	 * @return      element in list matching e.
@@ -302,8 +300,11 @@ public class DoubleLinkedList<E> implements Iterable<E> {
 	 * <p>
 	 * Sanity Check: Make sure that you remove a node that already exists within
 	 * the list! No check is made to ensure that the given node already exists
-	 * within the list. 
+	 * within the list. If this happens, may throw
+	 * {@link NullPointerException}NullPointerException or create a list whose
+	 * size is negative.
 	 *
+	 * @exception NullPointerException if node doesn't already belong to the list.
 	 * @param  node    the node to be snipped out of the list.
 	 * @return         true if node is in the list; false otherwise
 	 */
@@ -339,6 +340,7 @@ public class DoubleLinkedList<E> implements Iterable<E> {
 	 */
 	public boolean remove (E e) {
 		if (e == null) { return false; }
+		if (head == null) { return false; }   // sanity check.
 		
 		if (head.value == e) {
 			removeFirst();
