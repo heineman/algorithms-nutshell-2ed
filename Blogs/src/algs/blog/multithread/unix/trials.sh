@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Point to existing ADK installation. FIX ME!
-ADK_ROOT=
+ADK_ROOT=../../../../../..
 
 T=1
 while [ $T -lt 50 ]

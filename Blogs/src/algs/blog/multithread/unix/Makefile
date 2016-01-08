@@ -5,7 +5,7 @@
 # that ADK_ROOT is properly set if the directory $(ADK_ROOT)/Code exists.
 
 # Point to existing ADK installation. FIX ME!
-ADK_ROOT=
+ADK_ROOT=../../../../../..
 
 
 # Bring in timing code

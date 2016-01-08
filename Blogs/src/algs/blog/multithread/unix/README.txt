@@ -1,5 +1,8 @@
-Once you download this month's code, you will need to modify the Makefile
-to properly set ADK_ROOT to the directory where you have installed the
+If this directory is properly placed relative to the ADK installation, then
+you should be able to build without any changes.
+
+However, if you have the ADK code in a different directory, then you will
+need to properly set ADK_ROOT to the directory where you have installed the
 ADK. To run the trials in trials.sh you will need to also set the ADK_ROOT
 appropriately.
 
