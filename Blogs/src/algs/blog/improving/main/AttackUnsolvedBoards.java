@@ -16,11 +16,8 @@ import algs.model.searchtree.IMove;
 import algs.model.searchtree.IScore;
 
 /**
- * Explore all 32,000 boards from the classic FreeCell implementation and 
- * see which ones can be solved using the StagedDeepening algorithm.
- * <p>
- * This execution may take several days! You can easily restart the computation
- * from a specific spot using command line arguments.
+ * Apply FreeCellExploration to a specific set of board numbers, as stored in a file
+ * passed in as an argument.
  * 
  * @author George Heineman
  */

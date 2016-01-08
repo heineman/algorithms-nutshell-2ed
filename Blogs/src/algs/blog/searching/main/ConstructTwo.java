@@ -15,7 +15,7 @@ import algs.model.search.StringFileIterator;
  *
  * Sample:
  *
- *   java ConstructTwo $ADKHOME/Figures/resources/algs/chapter5/words.english.txt
+ *   java ConstructTwo $ADKHOME/Blogs/artifacts/searching/words.english.txt
  *
  * Generates a set of 641 words. 94.8% dense.
  */

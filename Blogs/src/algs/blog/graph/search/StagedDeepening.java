@@ -20,19 +20,19 @@ import algs.model.tree.BalancedTree;
  *   S = T
  * end while
  * 
- * @param  <K>    key type for each node.
+ * @param  <E>    key type for each node.
  * @author George Heineman
  */
-public abstract class StagedDeepening<K> {
+public abstract class StagedDeepening<E> {
 
 	/** Current state of search. */
 	protected INode node;
 
 	/** Previous states that have been visited. Key=node key. */
-	protected BalancedTree<K,Integer> prev;
+	protected BalancedTree<E,Integer> prev;
 	
 	/* all ids. Won't be purged. */
-	protected BalancedTree<K,Integer> allIDS;
+	protected BalancedTree<E,Integer> allIDS;
 	
 	/**
 	 * Future boards to be searched are inserted into balanced tree
@@ -174,13 +174,13 @@ public abstract class StagedDeepening<K> {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public Result fullSearch (INode start, IScore eval, Comparator<K> comp) {
+	public Result fullSearch (INode start, IScore eval, Comparator<E> comp) {
 		
 		node = start;
 		this.eval = eval;
 		
-		prev = new BalancedTree<K,Integer>(comp);
-		allIDS = new BalancedTree<K,Integer>(comp);
+		prev = new BalancedTree<E,Integer>(comp);
+		allIDS = new BalancedTree<E,Integer>(comp);
 
 		// conduct search
 		moveStack = new java.util.Stack<IMove>();
@@ -189,7 +189,7 @@ public abstract class StagedDeepening<K> {
 		S.insert(eval.eval(node), node.copy());
 		
 		// start is zero
-		allIDS.insert((K)node.key(), 0);
+		allIDS.insert((E)node.key(), 0);
 		
 		int lastID;
 		while (S.size() > 0) {
@@ -223,8 +223,7 @@ public abstract class StagedDeepening<K> {
 			S = T;
 		}	
 		
-		Result res = new Result();
-		return res;
+		return new Result();
 	}
 	
 	/**
@@ -246,7 +245,7 @@ public abstract class StagedDeepening<K> {
 			}
 			
 			// record that we've been here
-			prev.insert((K) node.key(), visited);      
+			prev.insert((E) node.key(), visited);      
 			int score = eval.eval(node);
 			
 			// store this node in T and maintain back-link so we can 
@@ -261,7 +260,7 @@ public abstract class StagedDeepening<K> {
 		}
 
 		// remember where we were BEFORE the move took place.
-		K kk = (K)node.key();
+		E kk = (E)node.key();
 		Integer here = allIDS.search(kk);  
 		if (here == null) {
 			// should never happen.
@@ -278,7 +277,7 @@ public abstract class StagedDeepening<K> {
 			// now see if we reached a node that we are maintaining in prev. note that
 			// because we periodically clear prev, we may double-visit a node, but it 
 			// won't be ignored.
-			K key = (K) node.key();
+			E key = (E) node.key();
 			Integer exist = prev.search(key);
 			if (exist == null) {
 				visited++;
@@ -304,7 +303,7 @@ public abstract class StagedDeepening<K> {
 				}
 				moveStack.pop();                     // remove from move stack
 			} else {
-				visitor.visitEdge(here, exist);    // mark that this edge was visited as well...
+				visitor.visitEdge(here, exist);      // mark that this edge was visited as well...
 			}
 			
 			move.undo(node);  		                 // Undo move
