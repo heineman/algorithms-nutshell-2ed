@@ -49,14 +49,14 @@ public class Board {
 	 * 
 	 * Returns a number from 0 to n.
 	 */
-	public int numChildren(int row) {
+	public int numChildren (int row) {
 		int count = 0;
 		nextValidRowPositions.clear();
 		for (int i = 0; i < n; i++) {
 			board[row][i] = true;
-			if (valid(row, i)) {
+			if (valid (row, i)) {
 				count++;
-				nextValidRowPositions.add(i);
+				nextValidRowPositions.add (i);
 			}
 			board[row][i] = false;
 		}
@@ -65,7 +65,7 @@ public class Board {
 	}
 	
 	/** If no board is available then return false. */
-	public boolean randomNextBoard(int r) {
+	public boolean randomNextBoard (int r) {
 		int sz = nextValidRowPositions.size();
 		if (sz == 0) { return false; }
 		

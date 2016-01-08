@@ -60,13 +60,10 @@ Figure 7-7: Sample NegMax exploration [Makefile]
   
 Figure 7-8: AlphaBeta sample game tree
 
-Figure 7-9: AlphaBeta two-ply search
-
-  java algs.chapter7.figure21.Main           # produce DOTTY output
+Figure 7-9: AlphaBeta two-ply search [Makefile]
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
   hand. 
-
 
 Figure 7-10: AlphaBeta three-ply search [Makefile]
 
@@ -85,7 +82,7 @@ Figure 7-12: Sample tic-tac-toe board after two plays, rotated
 
 Figure 7-13: Sample 8-puzzle search [Makefile]
 
-Figure 7-14: Core classes for search tree algorithms
+Figure 7-14: Core interfaces and classes for search-tree algorithms
 
  UML diagrams describe the following interfaces:
   
@@ -111,17 +108,13 @@ Example 7-6: Depth-First Search implementation
   although this can be configured once the Depth First Search object is
   constructed.
 
-Figure 7-16: Sample board state
+Figure 7-16: Initial position N2
 
-Figure 7-17: Sample board state rotated counterclockwise
+Figure 7-17: Search tree size for Depth-First Search as depth increases [Makefile]
 
-Figure 7-18: Initial position N2
+Figure 7-18: Starting board for Breadth-First Search
 
-Figure 7-19: Search tree size for Depth-First Search as depth increases [Makefile]
-
-Figure 7-20: Starting board for Breadth-First Search
-
-Figure 7-21: Sample Breadth-first search tree for 8-puzzle [Makefile]
+Figure 7-19: Sample Breadth-first search tree for 8-puzzle [Makefile]
 
 Example 7-7: Breadth-First search implementation
 
@@ -134,11 +127,11 @@ Example 7-7: Breadth-First search implementation
   although this can be configured once the Depth First Search object is
   constructed.
 
-Figure 7-22: Starting board state for A*Search
+Figure 7-20: Starting board state for A*Search
 
-Figure 7-23: Sample A*Search tree in 8-puzzle using GoodEvaluator f*(n) [Makefile]
+Figure 7-21: Sample A*Search tree in 8-puzzle using GoodEvaluator f*(n) [Makefile]
   
-Figure 7-24: Sample A*Search tree in 8-puzzle using WeakEvaluator f*(n) [Makefile]
+Figure 7-22: Sample A*Search tree in 8-puzzle using WeakEvaluator f*(n) [Makefile]
  
 Example 7-8: A*Search implementation
 
@@ -151,17 +144,17 @@ Example 7-8: A*Search implementation
   although this can be configured once the Depth First Search object is
   constructed.
 
-Figure 7-25: Sample board state for evaluation functions
+Figure 7-23: Sample board state for evaluation functions
 
-Table 7-2: Comparing three evaluation h*(n) functions [Makefile]
+Table 7-2: Comparing three evaluation h(n) functions [Makefile]
 
-Figure 7-26: Goal for 15-puzzle
+Figure 7-24: Goal for 15-puzzle
 
-Figure 7-27: Sample starting board for 15-puzzle
+Figure 7-25: Sample starting board for 15-puzzle
 
-Figure 7-28: Sample A*Search tree for 15-puzzle [Makefile]
+Figure 7-26: Sample A*Search tree for 15-puzzle [Makefile]
   
-Figure 7-29: Complicated starting board for 15-puzzle
+Figure 7-27: Complicated starting board for 15-puzzle
   
 Table 7-3: Comparing search algorithms [Makefile]
 
@@ -174,4 +167,4 @@ Table 7-3: Comparing search algorithms [Makefile]
   To see a case where DFS fails, even though it ought to find the board, consider
   running 'algs.chapter7.table4.FailedDFSSearch'
   
-Figure 7-30: Comparing Search tree size for random positions [Makefile]
+Figure 7-28: Comparing Search tree size for random positions [Makefile]

@@ -36,10 +36,13 @@ public class Main  {
 		
 		// more complex sequence of moves: just not able to make progress
 		// on this one.
-//		FifteenPuzzleNode impossibleStart = new FifteenPuzzleNode(new int[][]{
-//				{5,1,2,4},{14,9,3,7},{13,10,12,6},{15,11,8,0}
-//		});
+		FifteenPuzzleNode impossibleStart = new FifteenPuzzleNode(new int[][]{
+				{5,1,2,4},{14,9,3,7},{13,10,12,6},{15,11,8,0}
+		});
 
+		// runs out of memory...
+		// start = impossibleStart;
+		
 		FifteenPuzzleNode goal = new FifteenPuzzleNode(new int[][]{
 				{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,0}
 		});

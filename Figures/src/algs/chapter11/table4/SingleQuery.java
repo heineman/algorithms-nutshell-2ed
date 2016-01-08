@@ -22,10 +22,10 @@ public class SingleQuery {
 		int r = 0;
 		long lastEstimate = 1;
 		while (r < n) {
-			int numChildren = b.numChildren(r);
+			int numChildren = b.numChildren (r);
 
 			// no more to go, so no solution found.
-			if (!b.randomNextBoard(r)) {
+			if (!b.randomNextBoard (r)) {
 				lastEstimate = 0;
 				break; 
 			}
