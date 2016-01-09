@@ -1,4 +1,4 @@
-package algs.model.performance.chapter1;
+package algs.model.performance.chapter2;
 
 
 public class MultiplicationExampleMain {

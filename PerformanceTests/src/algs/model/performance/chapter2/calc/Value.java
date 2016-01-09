@@ -1,4 +1,4 @@
-package algs.model.performance.chapter1.calc;
+package algs.model.performance.chapter2.calc;
 
 /** Planned for extension. Aspect will determine later which Value to use... */
 public class Value {

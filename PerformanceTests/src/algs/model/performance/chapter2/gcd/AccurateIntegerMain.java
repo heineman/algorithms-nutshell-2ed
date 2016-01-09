@@ -1,4 +1,4 @@
-package algs.model.performance.chapter1.gcd;
+package algs.model.performance.chapter2.gcd;
 
 import java.util.Random;
 
