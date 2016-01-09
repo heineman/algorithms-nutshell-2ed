@@ -44,6 +44,23 @@ public class SlowHullTest extends TestCase {
 	
 	
 	@Test
+	public void testVerticalLineFirst() {
+		
+		IPoint[] points = new TwoDPoint[]{
+
+				new TwoDPoint(10, 10), // min first
+				new TwoDPoint(10, 30),
+				new TwoDPoint(10, 40),
+				new TwoDPoint(10, 20),
+		};
+		
+		IPoint hull[]= new SlowHull().compute(points);
+		assertEquals (2, hull.length);
+		assertEquals (new TwoDPoint(10,10), hull[0]);
+		assertEquals (new TwoDPoint(10,40), hull[1]);
+	}
+	
+	@Test
 	public void testVerticalLine() {
 		
 		IPoint[] points = new TwoDPoint[]{

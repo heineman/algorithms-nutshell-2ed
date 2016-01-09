@@ -178,7 +178,7 @@ public class HullComparisonsTest extends TestCase {
 	public void testSizeOfRandomHull() {
 		Generator<IPoint> g = new UniformGenerator();
 
-		int n = 75;
+		int n = 50;
 		for (int t = 0; t < 5; t++) {
 			IPoint[] max = g.generate(n);
 

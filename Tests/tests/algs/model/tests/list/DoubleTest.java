@@ -1,13 +1,13 @@
 package algs.model.tests.list;
 
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
 import algs.model.list.DoubleLinkedList;
 import algs.model.list.DoubleNode;
-
 import junit.framework.TestCase;
 
 public class DoubleTest extends TestCase {
@@ -235,43 +235,149 @@ public class DoubleTest extends TestCase {
 		assertEquals (sz, list.size());
 	}
 	
-//	 Removed this method from the interface.
-//		@Test
-//	public void testRemoveOddsAndEnds() {
-//		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
-//		list.insert("Test");
-//		
-//		DoubleNode<String> n = list.first();
-//		list.remove(n);
-//		assertTrue (list.isEmpty());
-//		
-//		list = new DoubleLinkedList<String>();
-//		DoubleLinkedList<String> list2 = new DoubleLinkedList<String>(); 
-//		list.insert("Test");
-//		list.insert("third");
-//		list.insert("DONE");
-//		n = list.first();
-//		DoubleNode<String> n2 = n.next();
-//		DoubleNode<String> n3 = list.last();
-//		try {
-//			list2.remove(n);
-//			fail ("DoubleLinkedList can handle removal of other lists' head.");
-//		} catch (NoSuchElementException nsee) {
-//			
-//		}
-//		
-//		try {
-//			list2.remove(n3);
-//			fail ("DoubleLinkedList can handle removal of other lists' tail.");
-//		} catch (NoSuchElementException nsee) {
-//			
-//		}
-//		
-//		// unable to detect. Hope for the best. This actually modifies list!
-//		list2.remove(n2);
-//		System.out.println ("Be Careful when using DoubleLinkedList.remove(Node).");
-//		assertEquals (-1, list2.size());
-//		assertEquals (3, list.size());   // althoug
-//		
-//	}
+
+	@Test
+	public void testIterator() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		list.insert("Test");
+		for (Iterator<String> it = list.iterator(); it.hasNext(); ) {
+			assertEquals ("Test", it.next());
+		}
+	}
+		
+	
+	@Test
+	public void testArrayStorage() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		assertTrue (list.isEmpty());
+		list.insert("Test");
+		assertFalse (list.isEmpty());
+		String[] result = list.toArray(new String[1]);
+		assertEquals (1, result.length);
+		assertEquals ("Test", result[0]);
+		
+		list = new DoubleLinkedList<String>();
+		list.insert("Test");
+		result = new String[] { "a", "b", "c", "d" };
+		list.toArray(result);
+		assertEquals (4, result.length);
+		assertEquals ("Test", result[0]);
+		assertTrue (result[1] == null); // other values are untouched.
+	}
+	
+	@Test
+	public void testBoundaries() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		assertFalse (list.remove("Test")); // list is empty.
+		
+		assertTrue (list.contains("Test") == null);
+	}
+	
+	@Test
+	public void testValidateSmallCycle() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		list.insert("Test");
+		list.insert("Second");
+		DoubleNode<String> first = list.first();
+		DoubleNode<String> second = list.last();
+		
+		// create cycle
+		second.next(first);
+		
+		try {
+			list.validate();
+			fail ("Failed to detect cycle");
+		} catch (IllegalStateException ise) {
+			// success
+		}
+	}
+	
+	@Test
+	public void testSeparateComparator() {
+		Comparator<String> comp = new Comparator<String>() {
+
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.compareTo(o2);
+			}
+			
+		};
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>(comp);
+		list.insert("C");
+		list.insert("A");
+		list.insert("M");
+		list.insert("T");
+		list.insert("D");
+		
+		String[] result = list.toArray(new String[5]);
+		assertEquals ("A", result[0]);
+		assertEquals ("C", result[1]);
+		assertEquals ("D", result[2]);
+		assertEquals ("M", result[3]);
+		assertEquals ("T", result[4]);
+	}
+	
+	
+	@Test
+	public void testValidateLongerCycle() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		list.insert("Test");
+		list.insert("Second");
+		DoubleNode<String> first = list.first();
+		DoubleNode<String> second = list.last();
+		list.insert("third");
+		list.insert("fourth");
+		list.insert("fifth");
+		
+		// create cycle
+		second.next(first);
+		
+		try {
+			list.validate();
+			fail ("Failed to detect cycle");
+		} catch (IllegalStateException ise) {
+			// success
+		}
+	}
+	
+	@Test
+	public void testRemoveOddsAndEnds() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		list.insert("Test");
+		
+		DoubleNode<String> n = list.first();
+		list.remove(n);
+		assertTrue (list.isEmpty());
+		
+		list = new DoubleLinkedList<String>();
+		list.insert("Test");
+		list.insert("third");
+		list.insert("DONE");
+		n = list.first();
+		DoubleNode<String> n2 = n.next();
+		DoubleNode<String> n3 = list.last();
+		
+		// unrelated list...
+		DoubleLinkedList<String> list2 = new DoubleLinkedList<String>(); 
+		try {
+			list2.remove(n);
+			fail ("DoubleLinkedList shouldn't handle removal of other lists' head.");
+		} catch (NullPointerException npe) {
+			
+		}
+		
+		try {
+			list2.remove(n3);
+			
+		} catch (NullPointerException nsee) {
+			fail ("DoubleLinkedList should handle removal of other lists' tail.");
+		}
+		
+		// unable to detect. Hope for the best. This actually modifies list!
+		list2.remove(n2);
+		System.out.println ("Be Careful when using DoubleLinkedList.remove(Node).");
+		assertEquals (-2, list2.size());  // HAH! list2 was empty and then we "removed" two elements.
+		assertEquals (3, list.size());    // although this is still fine.
+		
+	}
 }
