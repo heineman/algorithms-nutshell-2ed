@@ -27,7 +27,7 @@ SEP=`java Sep`
 rm -f Sep.java Sep.class
 
 # bring in libraries (will be utilized within 'src' hence ../..)
-CLASSPATH=$JUNIT:../../dist/ADK-2.0.jar
+export CLASSPATH=$JUNIT:../../dist/ADK-2.0.jar
 
 # Create JAR file
 # ---------------
@@ -41,7 +41,7 @@ fi
 
 # Make the various JAR files
 # --------------------------------------------------
-(cd src; jar cf ../dist/ADK-$VERSION-Blog.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
+(cd src; echo $PWD; jar cf ../dist/ADK-$VERSION-Blog.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
 
 # -----------------------
 rm -f `find . -name "*.class"`
