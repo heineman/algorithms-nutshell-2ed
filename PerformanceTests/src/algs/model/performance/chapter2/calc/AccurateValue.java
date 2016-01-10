@@ -1,4 +1,4 @@
-package algs.model.performance.chapter1.calc;
+package algs.model.performance.chapter2.calc;
 
 public class AccurateValue extends Value {
 

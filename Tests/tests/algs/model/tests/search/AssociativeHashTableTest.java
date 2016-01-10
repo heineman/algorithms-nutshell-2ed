@@ -29,6 +29,9 @@ public class AssociativeHashTableTest extends TestCase {
 		ht.remove("February");
 		assertFalse (ht.search("February"));	
 		assertEquals (1, ht.size());
+		
+		// make sure report does meaningful thin
+		assertTrue (ht.report() != null);
 	}
 
 	// validate removal with standard hash
