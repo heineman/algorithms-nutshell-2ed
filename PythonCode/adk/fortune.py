@@ -14,28 +14,35 @@ from adk.region import maxValue, X, Y
 
 class VoronoiPolygon:
     """
-    Represents a polygon in the Voronoi Diagram around a point.
-    Points are listed counter clockwise
+    Represents a polygon in the Voronoi Diagram around a point pt=(x,y).
+    Points are listed counter clockwise. When horizontal or vertical lines
+    in the Voronoi Diagram are computed, the polygons are often incomplete.
+    The computed Edges in the Diagram are accurate, however.
     """
-    def __init__(self):
+    def __init__(self, pt):
         self.points = []
+        self.pt = pt
         self.first = None
         self.last = None
     
     def isEmpty(self):
         return self.first is None
     
-    def addCounterClockwise(self, pt):   
-        self.points.append(pt)
-        self.last = pt
-        if len(self.points) == 1:
-            self.first = pt
+    def addToEnd(self, pt):   
+        if len(self.points) == 0:
+            self.first = self.last = pt
+            self.points.append(pt)
+        else:
+            self.points.append(pt)
+            self.last = pt 
 
-    def addClockwise(self, pt):      
-        self.points.insert(0, pt)
-        self.first = pt
-        if len(self.points) == 1:
-            self.last = pt
+    def addToFront(self, pt):
+        if len(self.points) == 0:
+            self.first = self.last = pt
+            self.points.append(pt)    
+        else:
+            self.points.insert(0, pt)
+            self.first = pt
             
     def __str__(self):
         rep = '['
@@ -215,7 +222,7 @@ class Point:
         self.x = round(p[X],4)
         self.y = round(p[Y],4)
         
-        self.polygon = VoronoiPolygon()
+        self.polygon = VoronoiPolygon((self.x, self.y))
         self.idx = idx
 
     def __eq__(self, other):
@@ -541,8 +548,8 @@ class Voronoi:
         Close all Voronoi edges against maximum bounding box, based on how edge extends. 
         """
         n.edge.finish(self.width, self.height)
-        n.edge.left.polygon.addClockwise(n.edge.end)
-        n.edge.right.polygon.addCounterClockwise(n.edge.end)
+        n.edge.left.polygon.addToFront(n.edge.end)
+        n.edge.right.polygon.addToEnd(n.edge.end)
         
         if not n.left.isLeaf:
             self.finishEdges(n.left)
@@ -608,12 +615,12 @@ class Voronoi:
 
         # this is a real Voronoi point! Add to appropriate polygons
         if left.site.polygon.last == node.site.polygon.first:
-            node.site.polygon.addCounterClockwise(p)
+            node.site.polygon.addToEnd(p)
         else:
-            node.site.polygon.addClockwise(p)
+            node.site.polygon.addToFront(p)
         
-        left.site.polygon.addClockwise(p)
-        right.site.polygon.addCounterClockwise(p)
+        left.site.polygon.addToFront(p)
+        right.site.polygon.addToEnd(p)
         
         # Found Voronoi vertex. Update edges appropriately
         leftA.edge.end = p

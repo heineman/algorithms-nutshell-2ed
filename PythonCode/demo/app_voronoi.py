@@ -9,7 +9,6 @@ import tkinter
 from adk.fortune import Voronoi
 from adk.region import minValue, maxValue, X, Y
 
-
 RectangleSize = 4
 
 class VoronoiApp:
@@ -55,8 +54,10 @@ class VoronoiApp:
             self.process(self.points)
             return
         
+        # during movement, add points to track mouse
         p = (event.x, self.toCartesian(event.y))
         
+        # Avoid duplicates for cleaner implementation
         if p not in self.points: 
             fullPoints = self.points + [p]
             self.process(fullPoints)         
@@ -67,11 +68,12 @@ class VoronoiApp:
             self.process(self.points)
             return
         
-        # Ensure no coordinates are identical to avoid all special cases
         p = (event.x, self.toCartesian(event.y))
         
-        self.points.append(p)
-        self.process(self.points) 
+        # Avoid duplicates for cleaner implementation
+        if p not in self.points: 
+            self.points.append(p)
+            self.process(self.points) 
 
     def process(self, collection):
         """Now that Voronoi diagram is computed, act on it."""

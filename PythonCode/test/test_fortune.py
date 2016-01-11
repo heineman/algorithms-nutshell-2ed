@@ -324,6 +324,16 @@ class TestFortuneMethods(unittest.TestCase):
         for e in v.edges:
             print (e)               
             
+    # while lines are computed, the polygons are frustratingly hard to compute
+    # for horizontal and vertical lines
+    def test_threeVertical(self):
+        points = [(10,x) for x in range(2,9,3) ]
+        
+        v = Voronoi(width=20, height=20)
+        v.process(points)
+        for e in v.points:
+            print (e, e.polygon)
+            
     def test_threeHorizontal(self):
         points = [(x,5) for x in range(2,9,3) ]
         
@@ -335,8 +345,36 @@ class TestFortuneMethods(unittest.TestCase):
         v = Voronoi(width=10, height=10)
         v.process(points)
         for e in v.edges:
+            self.valid([e.start, e.end], edges)   
+            
+    def test_threeIsoceles(self):
+        points = [(5,2), (11,2), (8,4) ]
+        
+        e1 = [Point((8.0,0.75)),Point((0,12.75))]
+        e2 = [Point((15,11.25)),Point((8.0,0.75))]
+        e3 = [Point((8.0,0.75)),Point((8.0,0.0))]
+        
+        edges = [e1,e2,e3]
+        
+        v = Voronoi(width=15, height=15)
+        v.process(points)
+        for e in v.edges:
             self.valid([e.start, e.end], edges)    
             
+    def test_threeIsocelesTilted(self):
+        points = [(5,2), (5,8), (9,5) ]
+        
+        e1 = [Point((9.625,10)),Point((5.875,5.0))]
+        e2 = [Point((5.875,5.0)),Point((0,5.0))]
+        e3 = [Point((5.875,5.0)),Point((9.625,0))]
+        
+        edges = [e1,e2,e3]
+        
+        v = Voronoi(width=10, height=10)
+        v.process(points)
+        for e in v.edges:
+            self.valid([e.start, e.end], edges)   
+    
             
     def test_threeByThree(self):
         points = [(x,y) for x in range(2,9,3) for y in range(2,9,3)]
