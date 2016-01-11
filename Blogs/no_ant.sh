@@ -41,7 +41,7 @@ fi
 
 # Make the various JAR files
 # --------------------------------------------------
-(cd src; jar cf ../dist/ADK-$VERSION-Blog.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
+(cd src; echo $PWD; jar cf ../dist/ADK-$VERSION-Blog.jar `find . -name "*.class"`; rm `find . -name "*.class"`)
 
 # -----------------------
 rm -f `find . -name "*.class"`
