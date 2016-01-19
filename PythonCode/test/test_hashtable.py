@@ -1,6 +1,6 @@
 import unittest
 
-from adk.hashtable import *
+from adk.hashtable import Hashtable
 
 
 class TestHashtableMethods(unittest.TestCase):
@@ -45,5 +45,3 @@ class TestHashtableMethods(unittest.TestCase):
         self.assertTrue(self.table.contains(15) < 0)
         self.assertTrue(self.table.contains(26))
         
-if __name__ == '__main__':
-    unittest.main()

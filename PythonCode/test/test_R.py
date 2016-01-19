@@ -277,6 +277,3 @@ class TestRMethods(unittest.TestCase):
         for _ in self.tree:
             ct += 1
         self.assertEquals (0, ct)
-                
-if __name__ == '__main__':
-    unittest.main()

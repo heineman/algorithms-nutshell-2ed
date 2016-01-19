@@ -31,6 +31,3 @@ class TestHashtableMethods(unittest.TestCase):
         # not present.
         self.assertFalse(14 in bloom)
     
-if __name__ == '__main__':
-    unittest.main()
-    

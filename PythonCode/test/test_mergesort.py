@@ -17,8 +17,3 @@ class TestMergeSortMethods(unittest.TestCase):
             copy.sort()
             
             self.assertEquals(c,copy)
-        
-        
-        
-if __name__ == '__main__':
-    unittest.main()

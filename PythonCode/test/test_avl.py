@@ -28,6 +28,6 @@ class TestAVLMethods(unittest.TestCase):
             self.bst.remove(r)
             self.assertFalse(r in self.bst)
             self.assertTrue(self.bst.assertAVLProperty())
-        
+
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()    

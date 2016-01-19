@@ -35,6 +35,3 @@ class TestKDTree(unittest.TestCase):
         self.assertEquals(100, tree.root.below.above.point[Y])
         self.assertEquals(50, tree.root.above.above.point[Y])
         
-if __name__ == '__main__':
-    unittest.main()
-    

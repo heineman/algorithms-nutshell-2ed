@@ -66,8 +66,3 @@ class TestQuadMethods(unittest.TestCase):
                         print ("Duplicate:", combined[i])
         
         self.assertEquals(len(q_all), len(combined))
-
-        
-        
-if __name__ == '__main__':
-    unittest.main()

@@ -22,7 +22,5 @@ class TestKDTree(unittest.TestCase):
         bs_insert(ordered, 1);
         self.assertEquals([1, 2, 6], ordered)
 
-        
 if __name__ == '__main__':
     unittest.main()
-    

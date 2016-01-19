@@ -59,6 +59,3 @@ class TestKDMethods(unittest.TestCase):
         for p in combined:
             self.assertFalse(self.kd.add(p))
         
-        
-if __name__ == '__main__':
-    unittest.main()

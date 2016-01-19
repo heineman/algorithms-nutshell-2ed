@@ -436,7 +436,3 @@ class TestFortuneMethods(unittest.TestCase):
         for e in v.edges:
             print (e)
     
-    
-if __name__ == '__main__':
-    unittest.main()
-    

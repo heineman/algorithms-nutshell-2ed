@@ -49,7 +49,3 @@ class TestKnapsackMethods(unittest.TestCase):
         i5 = Item(28,7)
         
         self.assertEqual((40,[0,0,1,1,0]), knapsack_01([i1,i2,i3,i4,i5], 11))
-
-
-if __name__ == '__main__':
-    unittest.main()
