@@ -1,9 +1,8 @@
 #!/usr/bin/gnuplot -persist
-set terminal postscript monochrome portrait 
+set terminal postscript monochrome portrait
 set output '2ed-2-6.ps'
 
-set key top left
-set key box
+set nokey
 
 set size 1,.5
 

@@ -13,7 +13,7 @@ CP = "../dist/ADK-$(VERSION)-ExamplesAndFigures.jar"
 	@if [ -f $*.ps ]; then chmod 644 $*.ps ; fi
 	$(PLOT) < $*.plot
 
-FIGS = 2ed-7-30.ps 2ed-7-28.ps 2ed-7-24.ps 2ed-7-23.ps 2ed-7-21.ps 2ed-7-19.ps 2ed-7-15.ps 2ed-7-13.ps 2ed-7-10.ps 2ed-7-8.ps 2ed-7-7.ps 2ed-7-5.ps
+FIGS = 2ed-7-30.ps 2ed-7-28.ps 2ed-7-24.ps 2ed-7-22.ps 2ed-7-21.ps 2ed-7-19.ps 2ed-7-15.ps 2ed-7-13.ps 2ed-7-10.ps 2ed-7-8.ps 2ed-7-7.ps 2ed-7-5.ps
 
 DATA = 2ed-table7-1.dat 2ed-table7-2.dat 2ed-table7-3.dat 
 
@@ -44,11 +44,11 @@ figure: $(FIGS)
 	dot -Tps 2ed-7-24.dotty > 2ed-7-24.ps
 	rm 2ed-7-24.dotty
 
-2ed-7-23.ps:
-	@echo "generating Figure 7-23 (2ed)..."
-	(cd $(BASE); java -cp $(CP) algs.chapter7.figure23.Main > $(PWD)/2ed-7-23.dotty)
-	dot -Tps 2ed-7-23.dotty > 2ed-7-23.ps
-	rm 2ed-7-23.dotty
+2ed-7-22.ps:
+	@echo "generating Figure 2ed-7-22 (2ed)..."
+	(cd $(BASE); java -cp $(CP) algs.chapter7.figure22.Main > $(PWD)/2ed-7-22.dotty)
+	dot -Tps 2ed-7-22.dotty > 2ed-7-22.ps
+	rm 2ed-7-22.dotty
 
 2ed-7-21.ps:
 	@echo "generating Figure 7-21 (2ed) ..."
