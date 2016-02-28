@@ -8,15 +8,17 @@ def minEditDistance(s1, s2):
     len1 = len(s1)
     len2 = len(s2)
 
+    # Create two-dimensional structure such that m[i][j] = 0
+    # for i in 0 .. len1 and for j in 0 .. len2
     m = [None] * (len1 + 1)
     for i in range(len1+1):
         m[i] = [0] * (len2+1)
 
     # set up initial costs on horizontal and vertical
-    for j in range(1, len2+1):
-        m[0][j] = j
     for i in range(1, len1+1):
         m[i][0] = i
+    for j in range(1, len2+1):
+        m[0][j] = j
 
     # compute best 
     for i in range(1,len1+1):
