@@ -34,7 +34,7 @@ public class Main {
 		if (isZero(a)) { assign (gcd, a); return; }
 		if (isZero(b)) { assign (gcd, b); return; }
 		
-		// align a and b to have same number of digits. 
+		// align a and b to have same number of digits and work on copies
 		a = copy(normalize(a, b.length));
 		b = copy(normalize(b, a.length));
 		
@@ -77,13 +77,13 @@ public class Main {
 		if (isZero(a)) { assign (gcd, a); return; }
 		if (isZero(b)) { assign (gcd, b); return; }
 		
-		// ensure that a and b are not modified.
-		a = copy (a);
-		b = copy (b);
+		a = copy (a);       // Make copies to ensure
+		b = copy (b);       // that a and b are not modified.
 		
 		while (!isZero(b)) {
 			// last argument to subtract represents sign of result which
 			// we can ignore since we only subtract smaller from larger.
+			// Note compareTo (a, b) is positive if a > b.
 			if (compareTo(a, b) > 0) {
 				subtract (a, b, gcd, new int[1]);
 				assign (a, gcd);
