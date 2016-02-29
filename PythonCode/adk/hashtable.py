@@ -70,7 +70,7 @@ class Hashtable:
         return -self.b
     
     def delete(self, value):
-        """Delete value from hash table without breaking any existing chains."""
+        """Delete value from hash table without breaking existing chains."""
         hk = self.hashFunction(value, self.b)
         
         ctr = 1

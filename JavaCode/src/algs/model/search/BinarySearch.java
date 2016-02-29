@@ -13,7 +13,7 @@ package algs.model.search;
 public class BinarySearch<T extends Comparable<T>> {
 
 	/** 
-	 * Search for target in collection. 
+	 * Search for non-null target in collection. 
 	 * @param collection    array of values of type T
 	 * @param target        target element to be searched
 	 * @return true if collection contains target

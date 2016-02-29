@@ -40,8 +40,8 @@ class bloomFilter:
     def __contains__(self, value):
         """
         Determine whether value is present. A false positive might be returned even if the 
-        element is not present. However, a false negative will never be returned (that is, 
-        if the element is present, then it will return True).
+        element is not present. However, a false negative will never be returned (i.e., if 
+        the element is present, then it will return True).
         """
         for hf in self.hashFunctions:
             if self.bits & 1<<hf(value, self.size) == 0:

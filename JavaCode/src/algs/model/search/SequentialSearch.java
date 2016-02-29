@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class SequentialSearch<T> {
 
 	/**
-	 * Apply the brute-force Sequential Search algorithm to search the
+	 * Apply the brute-force Sequential Search to search the
 	 * indexed collection (of type T) for the given target item.
 	 * 
 	 * @param collection    indexed collection of type T being searched
@@ -23,7 +23,7 @@ public class SequentialSearch<T> {
 	 * @return <code>true</code> if target item exists within the collection;
 	 *         <code>false</code> otherwise.
 	 */
-	public boolean sequentialSearch (T[] collection, T t) {
+	public boolean search (T[] collection, T t) {
 		for (T item : collection) {
 			if (item.equals(t)) {
 				return true;
@@ -34,7 +34,7 @@ public class SequentialSearch<T> {
 	}
 	
 	/**
-	 * Apply the brute-force Sequential Search algorithm to search the
+	 * Apply the brute-force Sequential Search to search the
 	 * iterable collection (of type T) for the given target item.
 	 * 
 	 * @param collection    iterable collection of type T being searched
@@ -42,7 +42,7 @@ public class SequentialSearch<T> {
 	 * @return <code>true</code> if target item exists within the collection;
 	 *         <code>false</code> otherwise.
 	 */
-	public boolean sequentialSearch (Iterable<T> collection, T t) {
+	public boolean search (Iterable<T> collection, T t) {
 		Iterator<T> iter = collection.iterator();
 		while (iter.hasNext()) {
 			if (iter.next().equals(t)) {

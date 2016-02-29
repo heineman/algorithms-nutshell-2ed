@@ -19,7 +19,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 
 	/** Store multiple elements via linked list. */
 	LinkedList<V> []table;
-	
+
 	/**
 	 * Construct initial Hash Table using desired hash method.
 	 * 
@@ -29,7 +29,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 	@SuppressWarnings("unchecked")
 	public ListHashTable(int tableSize, IHash<V> hashMethod) {
 		super(tableSize, hashMethod);
-		
+
 		table = new LinkedList[tableSize];
 	}
 
@@ -42,7 +42,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 	public ListHashTable(int tableSize) {
 		this(tableSize, new StandardHash<V>(tableSize));
 	}
-	
+
 	/**
 	 * Search for the desired value in the HashTable.
 	 * <p>
@@ -56,7 +56,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 		int h = hashMethod.hash (v);
 		LinkedList<V> list = (LinkedList<V>) table[h];
 		if (list == null) { return false; }
-			
+
 		return list.contains(v);
 	}
 
@@ -69,14 +69,31 @@ public class ListHashTable<V> extends HashTable<V,V> {
 	 * @param it   Iterator of the elements to be added into the Hash Table.
 	 */
 	public void load(Iterator<V> it) {
-		
+
 		// Pull each value from the iterator and add.
 		while (it.hasNext()) {
 			V v = it.next();
 			add(v, v);
 		}
 	}
-	
+
+	/** Reduced for Figure 5-6 in second edition. */
+	public void load_Figure5_6(Iterator<V> it) {
+		table = (LinkedList<V>[]) new LinkedList[tableSize];
+
+		// Pull each value from the iterator and find desired bin h.
+		// Add to existing list or create new one into which value is added.
+		while (it.hasNext()) {
+			V v = it.next();
+			int h = hashMethod.hash (v);
+			if (table[h] == null) {
+				table[h] = new LinkedList<V>();
+			}
+			table[h].add(v);
+			count++;  
+		}
+	}
+
 	/**
 	 * ListHashTable objects add elements who are themselves keys.
 	 * 
@@ -85,7 +102,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 	public void add(V k) {
 		add(k,k);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see algs.model.search.IHashtableAccess#add(java.lang.Object)
@@ -94,7 +111,7 @@ public class ListHashTable<V> extends HashTable<V,V> {
 		if (k != v) {
 			throw new IllegalArgumentException ("A ListHashTable stores elements as the keys and entries. k must == v");
 		}
-		
+
 		int h = hashMethod.hash(v);
 		if (table[h] == null) {
 			table[h] = new LinkedList<V>();

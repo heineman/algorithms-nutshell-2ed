@@ -137,10 +137,10 @@ class BinaryNode:
         return +1
         
     def add (self, val):
-        """Adds a new node to the tree with value and rebalance as needed."""
+        """Adds a new node to BST with value and rebalance as needed."""
         newRoot = self
-        
-#        if val <= self.value:
+
+        # if val <= self.value        
         if self.compareTo(val) >= 0:
             self.left = self.addToSubTree (self.left, val)
             if self.heightDifference() == 2:
@@ -182,7 +182,7 @@ class BinaryNode:
 
     def remove (self, val):
         """
-         Remove val of self from BinaryTree. Works in conjunction with remove
+         Remove val from BinaryTree. Works in conjunction with remove
          method in BinaryTree.
         """
         newRoot = self

@@ -19,14 +19,14 @@ public class SequentialSearchTest extends TestCase {
 		SequentialSearch<String> ss = new SequentialSearch<String>();
 		String[] strings = new String[] { "alpha", "beta", "gamma", "delta" };
 		
-		assertTrue (ss.sequentialSearch(strings, "alpha"));
-		assertTrue (ss.sequentialSearch(strings, "delta"));
+		assertTrue (ss.search(strings, "alpha"));
+		assertTrue (ss.search(strings, "delta"));
 		
 		// failing conditions
-		assertFalse (ss.sequentialSearch(strings, "iota"));
+		assertFalse (ss.search(strings, "iota"));
 		
 		// just checking
-		assertFalse (ss.sequentialSearch(strings, null));
+		assertFalse (ss.search(strings, null));
 	}
 
 	@Test
@@ -38,14 +38,14 @@ public class SequentialSearchTest extends TestCase {
 			strings.add(s);
 		}
 		
-		assertTrue (ss.sequentialSearch(strings, "alpha"));
-		assertTrue (ss.sequentialSearch(strings, "delta"));
+		assertTrue (ss.search(strings, "alpha"));
+		assertTrue (ss.search(strings, "delta"));
 		
 		// failing conditions
-		assertFalse (ss.sequentialSearch(strings, "iota"));
+		assertFalse (ss.search(strings, "iota"));
 		
 		// just checking
-		assertFalse (ss.sequentialSearch(strings, null));
+		assertFalse (ss.search(strings, null));
 	}
 	
 }
