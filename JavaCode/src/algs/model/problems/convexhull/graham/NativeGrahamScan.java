@@ -26,13 +26,11 @@ public class NativeGrahamScan implements IConvexHull {
 	 * Helper class for sorting points in reverse order by polar coordinate with regards to a base point.
 	 */
 	class ReversePolarSorter implements Comparator<IPoint> {
-		/** Stored x coordinate of base point used for comparison. */
+		/** Stored x,y coordinate of base point used for comparison. */
 		final double baseX;
-
-		/** Stored y coordinate of base point used for comparison. */
 		final double baseY;
 
-		/** PolarSorter needs base point against which all other points are evaluated. */
+		/** PolarSorter evaluates all points compared to base point. */
 		public ReversePolarSorter(IPoint base) {
 			this.baseX = base.getX();
 			this.baseY = base.getY();
@@ -63,7 +61,8 @@ public class NativeGrahamScan implements IConvexHull {
 			if (oneAngle > twoAngle) { return -1; }
 			else if (oneAngle < twoAngle) { return +1; }
 
-			// if same angle, then order by magnitude
+			// if same angle, then must order by decreasing magnitude
+			// to ensure that the convex hull algorithm is correct
 			if (oneY > twoY) { return -1; }
 			else if (oneY < twoY) { return +1; }
 
@@ -128,13 +127,6 @@ public class NativeGrahamScan implements IConvexHull {
 		// sort points[0..n-2] by descending polar angle with respect to lowest point points[n-1].
 		new HeapSort<IPoint>().sort(pts, 0, n-2, new ReversePolarSorter(pts[n-1]));
 
-		// If all points are collinear, handle now to avoid worrying about later
-		double firstAngle = Math.atan2(pts[0].getY() - lowest, pts[0].getX() - pts[n-1].getX());
-		double lastAngle = Math.atan2(pts[n-2].getY() - lowest, pts[n-2].getX() - pts[n-1].getX()); 
-		if (firstAngle == lastAngle) {
-			return new IPoint[] { pts[n-1], pts[0] };
-		}
-
 		// three points KNOWN to be on the hull are (in this order) the point with
 		// lowest polar angle (points[n-2]), the lowest point (points[n-1]) and the point
 		// with the highest polar angle (points[0]). Start with first two
@@ -142,8 +134,15 @@ public class NativeGrahamScan implements IConvexHull {
 		list.insert(pts[n-2]);
 		list.insert(pts[n-1]);
 
+		// If all points are collinear, handle now to avoid worrying about later
+		double firstAngle = Math.atan2(pts[0].getY() - lowest, pts[0].getX() - pts[n-1].getX());
+		double lastAngle = Math.atan2(pts[n-2].getY() - lowest, pts[n-2].getX() - pts[n-1].getX()); 
+		if (firstAngle == lastAngle) {
+			return new IPoint[] { pts[n-1], pts[0] };
+		}				
+		
 		// Sequentially visit each point in order, removing points upon making mistake. Because
-		// we always have at least one "right turn" the inner while loop will always terminate
+		// we always have at least one "right turn," the inner while loop will always terminate
 		for (int i = 0; i < n-1; i++) {
 			while (isLeftTurn(list.last().prev().value(), list.last().value(), pts[i])) {
 				list.removeLast();
@@ -153,7 +152,7 @@ public class NativeGrahamScan implements IConvexHull {
 			list.insert(pts[i]);
 		}
 
-		// the final point is duplicated, so we take n-1 points starting from lowest point.
+		// The final point is duplicated, so we take n-1 points starting from lowest point.
 		IPoint hull[] = new IPoint[list.size()-1];
 		DoubleNode<IPoint> ptr = list.first().next();
 		int idx = 0;

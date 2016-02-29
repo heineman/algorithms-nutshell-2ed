@@ -7,9 +7,11 @@ Figure 3-1: Example of Sequential Search executing
 
 Table 3-1: Performance computations of 10,000,000 operations [Makefile]
 
-Table 3-2: Floating-point representation [MAKE]
+Table 3-2: Floating-point representation [Makefile]
            
 Table 3-3: Floating point arithmetic errors [Makefile]
+
+  java algs.chapter3.table3.Main
 
 Table 3-4: Special IEEE 754 quantities
 

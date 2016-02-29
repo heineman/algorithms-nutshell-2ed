@@ -19,13 +19,13 @@ public class Main {
 	public static int turns(int n, int low, int high) {
 		int turns = 0;
 
-		// Continue while have potential number to guess
+		// Continue while there is a potential number to guess
 		while (high >= low) { 
 			// Prepare midpoint of [low,high] as the guess.
 			turns++;
 			int mid = (low + high) / 2;
 			if (mid == n) {
-				break;
+				return turns;
 			} else if (mid < n) {
 				low = mid + 1;
 			} else {
@@ -33,7 +33,6 @@ public class Main {
 			}
 		}
 
-		assert (n == low || n == high);
 		return turns;
 	}
 

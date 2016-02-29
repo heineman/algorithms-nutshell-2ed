@@ -22,10 +22,10 @@ public class Main {
 		System.out.println();
 	}
 
-	public static void mult(int[] n1, int[] n2, int[] result) {
+	public static void mult (int[] n1, int[] n2, int[] result) {
 		int pos = result.length-1;
 
-		// clear all values....
+		// clear all values
 		for (int i = 0; i < result.length; i++) { result[i] = 0; }
 		for (int m = n1.length-1; m>=0; m--) {
 			int off = n1.length-1 - m;
@@ -42,7 +42,7 @@ public class Main {
 	}
 
 	// generated code embedded within switch...
-	public static void times(int[] n1, int[] n2, int[] result) {
+	public static void times (int[] n1, int[] n2, int[] result) {
 		int pos = result.length-1;
 
 		// clear all values....

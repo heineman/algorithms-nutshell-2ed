@@ -79,9 +79,12 @@ public class MaxDivideConquer {
 			return vals[left];
 		}
 		
+		// compute subproblems
 		int mid = (left + right)/2;
 		int max1 = maxElement(vals, left, mid);
 		int max2 = maxElement(vals, mid, right);
+		
+		// Resolution: compute result from results of subproblems
 		if (max1 > max2) { return max1; }
 		return max2;		
 	}

@@ -15,7 +15,7 @@ Table 2-1: Sample behavior for guessing number from 1-8
 
   java algs.chapter2.table1.Main
   
-  note that this operates on the range [1,1000000] not the [1,10] in table.
+  note that this operates on the range [1,1000000] not the [1,8] in table.
 
 Example 2-1: Java code to guess number in range [low,high]
 
@@ -25,7 +25,7 @@ Example 2-1: Java code to guess number in range [low,high]
 
 Table 2-2: Bisection Method [MAKE]
 
-  java algs.chapter2.table2.Newton
+  java algs.chapter2.table2.BisectionMethod
   
 Example 2-2: Java implementation of add
 
