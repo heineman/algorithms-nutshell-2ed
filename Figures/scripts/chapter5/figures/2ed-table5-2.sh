@@ -21,7 +21,7 @@ do
   do
     echo "# generated"                >  $CONFIG
 
-    # Just BinaryTree for >= 262144, otherwise both
+    # Just BinaryTree for >= 131072, otherwise both
     if [ $z -ge 131072 ]
     then
       echo "BINS=$CODE/Search/binarySearchInteger"     >> $CONFIG
