@@ -18,16 +18,16 @@ extern int selectKth (void **ar, int(*cmp)(const void *,const void *),
 		      int k, int left, int right);
 
 /**
- * In linear time, group the sub-array ar[left, right) around a pivot
+ * In linear time, group the subarray ar[left, right] around a pivot
  * element pivot=ar[pivotIndex] by storing pivot into its proper 
  * location, store, within the sub-array (whose location is returned 
  * by this function) and ensuring that all ar[left,store) <= pivot and 
- * all ar[store+1,right) > pivot.
+ * all ar[store+1,right] > pivot.
  * 
  * @param ar           array of elements to be sorted.
  * @param cmp          comparison function to order elements.
  * @param left         lower bound index position  (inclusive)    
- * @param right        upper bound index position  (exclusive)
+ * @param right        upper bound index position  (inclusive)
  * @param pivotIndex   index around which the partition is being made.
  * @return             location of the pivot index properly positioned.
  */

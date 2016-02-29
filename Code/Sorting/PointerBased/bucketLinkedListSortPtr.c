@@ -18,8 +18,6 @@
 
 /* Allocation of buckets and the number of buckets allocated */
 static BUCKET *buckets = 0;
-
-/** Number of buckets. */
 static int num = 0;
 
 /** One by one remove and overwrite ar */

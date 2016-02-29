@@ -25,42 +25,30 @@ TESTS = FigureHeapSort DotFigure4-8 DotFigure4-9 DotBaseQsort
 DotCode = dot.o \
 	dot_medianSort.o \
 	dot_baseQsort.o \
-	figure4-9.o \
 	figure4-10.o \
 	figure4-heapsort.o \
 	figure4-qsort.o
 
-EXEC = DotFigure4-9 DotFigure4-8 DotBaseQsort FigureHeapSort Figure4-10 Figure4-16
+EXEC =  DotBaseQsort FigureHeapSort Figure4-10 Figure4-6
 
-FIGS = figure4-12.dotty figure4-13.dotty figure4-9.dotty figure4-8.dotty
+FIGS = figure4-8.dotty figure4-9.dotty 
 
 all: $(DotCode) $(EXEC) $(FIGS)
 
+
 figure4-8.dotty:
-	./DotFigure4-8 > figure4-8.dotty
+	./DotBaseQsort > figure4-8.dotty
 
 figure4-9.dotty:
-	./DotFigure4-9 > figure4-9.dotty
-
-figure4-12.dotty:
-	./DotBaseQsort > figure4-12.dotty
-
-figure4-13.dotty:
-	./DotBaseQsort 12345 > figure4-13.dotty
+	./DotBaseQsort 12345 > figure4-9.dotty
 
 FigureHeapSort: figure4-heapsort.o $(PTR)/straight_HeapSort.o 
-	$(CC) -o $@ $+
-
-DotFigure4-8: dot_medianSort.o dot.o figure4-8.o
-	$(CC) -o $@ $+
-
-DotFigure4-9: dot_medianSort.o dot.o figure4-9.o
 	$(CC) -o $@ $+
 
 Figure4-10: figure4-10.c
 	$(CC) -g -o $@ $+
 
-Figure4-16: figure4-16.c
+Figure4-6: figure4-6.c
 	$(CC) -g -o $@ $+
 
 DotBaseQsort: dot_baseQsort.c dot.o figure4-qsort.o \

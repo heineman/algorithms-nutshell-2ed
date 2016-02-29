@@ -5,5 +5,5 @@ BINS=../Strings/BucketLinkedListSort26Ptr ../Strings/BucketLinkedListSort676Ptr 
 # configure suite
 TRIALS=100
 LOW=16
-HIGH=16384
+HIGH=131072
 INCREMENT=*2

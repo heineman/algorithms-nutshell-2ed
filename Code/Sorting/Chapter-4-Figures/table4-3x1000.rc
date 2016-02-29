@@ -1,8 +1,8 @@
 # InsertionSort bulk move vs. InsertionSort
-BINS=../Strings/MedianSort ../Strings/MedianSortLeftPivot ../Strings/MedianSortWorstCase 
+BINS=../Strings/InsertionPtr ../ValueBased/Insertion ../ValueBased/InsertionAllCopy
 
 # configure suite
 TRIALS=1000
-LOW=256
-HIGH=1048576
+LOW=1024
+HIGH=131072
 INCREMENT=*2
