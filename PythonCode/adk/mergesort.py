@@ -2,13 +2,13 @@
     MergeSort implementation in Python
 """
 
-def sort(A):
+def sort (A):
     """merge sort A in place."""
-    copy = list(A)
-    mergesort_array(copy, A, 0, len(A))
+    copy = list (A)
+    mergesort_array (copy, A, 0, len(A))
 
 
-def mergesort_array(A, result, start, end):
+def mergesort_array (A, result, start, end):
     """Mergesort array in memory with given range."""
     if end - start < 2:
         return
@@ -18,10 +18,10 @@ def mergesort_array(A, result, start, end):
         return
 
     mid = (end + start) // 2
-    mergesort_array(result, A, start, mid)
-    mergesort_array(result, A, mid, end)
+    mergesort_array (result, A, start, mid)
+    mergesort_array (result, A, mid, end)
     
-    # merge is now ready. Merge from A back into result
+    # merge A left- and right- side
     i = start
     j = mid
     idx = start
