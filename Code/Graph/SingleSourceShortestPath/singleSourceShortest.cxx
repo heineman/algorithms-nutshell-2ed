@@ -55,7 +55,7 @@ void singleSourceShortest(Graph const &g, int s,                  /* in */
 
     // For neighbors of u, see if newLen (best path from s->u + weight
     // of edge u->v) is better than best path from s->v. If so, update
-    // in dist[v] and re-adjust binary heap accordingly. Compute in 
+    // in dist[v] and readjust binary heap accordingly. Compute using 
     // long to avoid overflow error.
     for (VertexList::const_iterator ci = g.begin(u); ci != g.end(u); ++ci) {
       int v = ci->first;

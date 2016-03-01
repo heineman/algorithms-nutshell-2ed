@@ -65,7 +65,7 @@ void allPairsShortest(Graph const &graph,             /* in */
       if (dist[i][k] == numeric_limits<int>::max()) { continue; }
 
       // If an edge is found to reduce distance, update dist[][].
-      // Compute using longs to avoid overflow of Infinity-distance.
+      // Compute using longs to avoid overflow of Infinity distance.
       for (int j = 0; j < n; j++) {
 	long newLen = dist[i][k];
 	newLen += dist[k][j];

@@ -46,7 +46,7 @@ void singleSourceShortest(Graph const &graph, int s,              /* in */
 
   // After n-1 times we can be guaranteed distances from s to all 
   // vertices are properly computed to be shortest. So on the nth 
-  // pass, a change to any value guarantees there is negative cycle
+  // pass, a change to any value guarantees there is negative cycle.
   // Leave early if no changes are made.
   for (int i = 1; i <= n; i++) {
     bool failOnUpdate = (i == n);

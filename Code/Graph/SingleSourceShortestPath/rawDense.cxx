@@ -44,7 +44,7 @@ void output (int n, int * const dist, int * const pred) {
 void singleSourceShortestDense(int n, int ** const weight, int s,  /* in */
 			       int *dist, int *pred) {             /* out */   
   // initialize dist[] and pred[] arrays. Start with vertex s by setting
-  // dist[] to 0.
+  // dist[] to 0. All vertices are unvisited.
   bool *visited = new bool[n];
   for (int v = 0; v < n; v++) {
     dist[v] = numeric_limits<int>::max();
@@ -64,10 +64,10 @@ void singleSourceShortestDense(int n, int ** const weight, int s,  /* in */
 	u = i;
       }
     }
-    if (u == -1) { break; }
+    if (u == -1) { break; }  // exit if no new paths found
 
-    // For neighbors of u, see if length of best path from s->u + weight
-    // of edge u->v is better than best path from s->v. Compute using longs.
+    // For neighbors of u, see if best path-length from s->u + weight of
+    // edge u->v is better than best path from s->v. Compute using longs.
     visited[u] = true;
     for (int v = 0; v < n; v++) {
       int w = weight[u][v];
