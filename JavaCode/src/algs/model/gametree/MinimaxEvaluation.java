@@ -11,13 +11,13 @@ import java.util.*;
  */
 public class MinimaxEvaluation implements IEvaluation {
 	
-	/** Game state. */
+	/** Game state to be modified during search. */
 	IGameState state;
 	
-	/** Ply depth. */
+	/** Ply depth. How far to continue search. */
 	int ply;
 	
-	/** Player from whose perspective all states evaluations are carried out. */
+	/** Evaluate all states from this perspective. */
 	IPlayer original;
 	
 	/**
@@ -63,7 +63,7 @@ public class MinimaxEvaluation implements IEvaluation {
 	 * @param player     the current player.
 	 * @param opponent   the opponent.
 	 */
-	private MoveEvaluation minimax (int ply, IComparator comp, 
+	MoveEvaluation minimax (int ply, IComparator comp, 
 			IPlayer player, IPlayer opponent) {
 
 		// If no allowed moves or a leaf node, return game state score.
@@ -72,18 +72,17 @@ public class MinimaxEvaluation implements IEvaluation {
 			return new MoveEvaluation (original.eval (state)); 
 		}
 
-		// Try to improve on this lower-bound (based on selector). Reflects no move possible.
+		// Try to improve on this lower-bound (based on selector). 
 		MoveEvaluation best = new MoveEvaluation (comp.initialValue());
 
-		// Generate game states that result from all valid moves for this player. 
+		// Generate game states resulting from valid moves for this player 
 		while (it.hasNext()) {
 			IGameMove move = it.next();
-			
 			move.execute (state);
 			numStates++; /* STATS */
 
 			// Recursively evaluate position. Compute MiniMax and swap
-			// player and opponent, together with MIN and MAX.
+			// player and opponent, synchronously with MIN and MAX.
 			MoveEvaluation me = minimax (ply-1, comp.opposite(), opponent, player);
 			
 			move.undo (state);

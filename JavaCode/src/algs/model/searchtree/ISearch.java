@@ -13,8 +13,8 @@ public interface ISearch {
 	 * no such path can be found.
 	 * 
 	 * @param initial   the initial board state
-	 * @param target    the final board state
+	 * @param goal      the final board state
 	 * @return          Solution to search, should one exist.
 	 */
-	Solution search(INode initial, INode target);
+	Solution search(INode initial, INode goal);
 }

@@ -52,7 +52,7 @@ public class AStarSearch implements ISearch {
 		scoringFunction.score (copy);
 		open.insert (copy); 
 
-		// Use hashtable to store states we have already visited.
+		// Use Hashtable to store states we have already visited.
 		INodeSet closed = StateStorageFactory.create (closedStorage);
 		while (!open.isEmpty()) {
 		    // Remove node with smallest evaluation function and mark closed.
@@ -71,7 +71,6 @@ public class AStarSearch implements ISearch {
 			if (trans != null) { depth = trans.depth+1; }
 
 			for (IMove move : best.validMoves()) {
-				
 				// Make move and score the new board state.
 				INode successor = best.copy();
 				move.execute (successor);

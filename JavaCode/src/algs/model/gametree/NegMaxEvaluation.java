@@ -42,10 +42,10 @@ import java.util.*;
  */
 public class NegMaxEvaluation implements IEvaluation {
 	
-	/** Game state. */
+	/** Game state to be modified during search. */
 	IGameState state;
 	
-	/** Ply depth. */
+	/** Ply depth. How far to continue search. */
 	int ply;
 	
 	/**
@@ -71,7 +71,6 @@ public class NegMaxEvaluation implements IEvaluation {
 	public IGameMove bestMove (IGameState s, IPlayer player, IPlayer opponent) {
 		state = s.copy();
 		MoveEvaluation me = negmax (ply, player, opponent);
-		
 		return me.move;
 	}
 	
@@ -106,8 +105,7 @@ public class NegMaxEvaluation implements IEvaluation {
 			IGameMove move = it.next();
 			move.execute (state);
 
-			// Recursively evaluate position using consistent negmax. Treat
-			// score as negative value.
+			// Recursively evaluate position using consistent negmax. 
 			MoveEvaluation me = negmax (ply-1, opponent, player);
 			move.undo (state);
 			

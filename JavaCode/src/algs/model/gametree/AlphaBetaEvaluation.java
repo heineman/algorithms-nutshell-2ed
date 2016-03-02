@@ -27,10 +27,10 @@ import java.util.*;
  * @since 1.0
  */
 public class AlphaBetaEvaluation implements IEvaluation {
-	/** Game state (Known when bestMove is invoked). */
+	/**State to be modified during search. */
 	IGameState state;
 
-	/** Ply depth. */
+	/** Ply depth. How far to continue search. */
 	int ply;
 	
 	/**

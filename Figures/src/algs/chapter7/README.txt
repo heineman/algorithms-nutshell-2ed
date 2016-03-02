@@ -19,12 +19,12 @@ an algorithm, make sure you don't use these specialized debug classes.
 
 Figure 7-1: Partial game tree given an initial tic-tac-toe game state
 
-Figure 7-2: Core concepts for game tree algorithms
+Figure 7-2: Core interfaces for game-tree algorithms
 
   These UML diagrams describe the following interfaces:
   
      algs.model.gametree.IGameState
-     algs.model.gametree.IScore
+     algs.model.gametree.IGameScore
      algs.model.gametree.IPlayer
      algs.model.gametree.IGameMove
      
@@ -32,7 +32,7 @@ Example 7-1: Common interface for game-tree path finding
 
   Find class in algs.model.gametree.IEvaluation
   
-Figure 7-3: Minimax sample game tree
+Figure 7-3: Minimax sample game tree (by hand)
 
 Example 7-2: Minimax implementation
 
@@ -42,12 +42,13 @@ Figure 7-4: IComparator interface abstracts MAX and MIN operators
 
   find in algs.model.gametree.IComparator  
   
-Figure 7-5: Sample Minimax exploration [Makefile]]
+Figure 7-5: Sample Minimax exploration [Makefile]
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
-  hand. Must do this again. 
+  hand. Creates a Postscript file. Convert into a PNG file to see information 
+  in full resolution (2,546px × 476px)
     
-Figure 7-6: NegMax sample game tree
+Figure 7-6: NegMax sample game tree (by hand)
 
 Example 7-3: NegMax implementation
 
@@ -56,19 +57,19 @@ Example 7-3: NegMax implementation
 Figure 7-7: Sample NegMax exploration [Makefile]
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
-  hand. 
+  hand. Convert into a PNG file to see information in full resolution (2,546px × 476px)
   
-Figure 7-8: AlphaBeta sample game tree
+Figure 7-8: AlphaBeta sample game tree (by hand)
 
 Figure 7-9: AlphaBeta two-ply search [Makefile]
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
-  hand. 
+  hand. Convert into a PNG file to see information in full resolution (1,186px × 484px)
 
 Figure 7-10: AlphaBeta three-ply search [Makefile]
 
   This image was too large to include in the book, so it was redrawn/excerpted by 
-  hand. 
+  hand. Convert into a PNG file to see information in full resolution (3,853px × 656px)
 
 Example 7-4: AlphaBeta implementation
 
@@ -76,13 +77,13 @@ Example 7-4: AlphaBeta implementation
 
 Table 7-1: Statistics comparing Minimax versus AlphaBeta [Makefile]
 
-Figure 7-11: Sample tic-tac-toe board after two plays
+Figure 7-11: Sample tic-tac-toe board after two plays (by hand)
 
 Figure 7-12: Sample tic-tac-toe board after two plays, rotated
 
 Figure 7-13: Sample 8-puzzle search [Makefile]
 
-Figure 7-14: Core interfaces and classes for search-tree algorithms
+Figure 7-14: Core interfaces and classes for search-tree algorithms (UML)
 
  UML diagrams describe the following interfaces:
   
@@ -91,7 +92,7 @@ Figure 7-14: Core interfaces and classes for search-tree algorithms
      algs.model.searchtree.Solution
      algs.model.searchtree.INodeSet
 
-Example 7-5: Common interface for search tree path finding
+Example 7-5: Common interface for search-tree path finding
 
   find in algs.model.searchtree
    
@@ -108,13 +109,16 @@ Example 7-6: Depth-First Search implementation
   although this can be configured once the Depth First Search object is
   constructed.
 
-Figure 7-16: Initial position N2
+Figure 7-16: Initial position N2 (by hand)
 
 Figure 7-17: Search tree size for Depth-First Search as depth increases [Makefile]
 
-Figure 7-18: Starting board for Breadth-First Search
+Figure 7-18: Starting board for Breadth-First Search (by hand)
 
 Figure 7-19: Sample Breadth-first search tree for 8-puzzle [Makefile]
+
+  This image was too large to include in the book, so it was redrawn/excerpted by 
+  hand. Convert into a PNG file to see information in full resolution (1,550px × 548px)
 
 Example 7-7: Breadth-First search implementation
 
@@ -127,9 +131,12 @@ Example 7-7: Breadth-First search implementation
   although this can be configured once the Depth First Search object is
   constructed.
 
-Figure 7-20: Starting board state for A*Search
+Figure 7-20: Starting board state for A*Search (by hand)
 
 Figure 7-21: Sample A*Search tree in 8-puzzle using GoodEvaluator f*(n) [Makefile]
+  
+  This image was too large to include in the book, so it was redrawn by hand. Convert
+  into PNG file to see information in full resolution (980px × 932px) 
   
 Figure 7-22: Sample A*Search tree in 8-puzzle using WeakEvaluator f*(n) [Makefile]
  
@@ -148,13 +155,9 @@ Figure 7-23: Sample board state for evaluation functions
 
 Table 7-2: Comparing three evaluation h(n) functions [Makefile]
 
-Figure 7-24: Goal for 15-puzzle
-
-Figure 7-25: Sample starting board for 15-puzzle
-
-Figure 7-26: Sample A*Search tree for 15-puzzle [Makefile]
+Figure 7-24: Goal for 15-puzzle AND sample starting board (by-hand)
   
-Figure 7-27: Complicated starting board for 15-puzzle
+Figure 7-25: Complicated starting board for 15-puzzle (by-hand)
   
 Table 7-3: Comparing search algorithms [Makefile]
 
@@ -167,4 +170,4 @@ Table 7-3: Comparing search algorithms [Makefile]
   To see a case where DFS fails, even though it ought to find the board, consider
   running 'algs.chapter7.table4.FailedDFSSearch'
   
-Figure 7-28: Comparing Search tree size for random positions [Makefile]
+Figure 7-26: Comparing search tree size for random positions [Makefile]

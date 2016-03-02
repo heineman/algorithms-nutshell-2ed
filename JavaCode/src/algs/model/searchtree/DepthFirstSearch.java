@@ -62,7 +62,7 @@ public class DepthFirstSearch implements ISearch {
 	 * can retrace steps to the original solution.
 	 */
 	public Solution search(INode initial, INode goal) {
-		// If goal is initial, return now.
+		// If initial is the goal, return now.
 		if (initial.equals(goal)) { return new Solution (initial, goal); }
 		
 		INodeSet open = StateStorageFactory.create(StateStorageFactory.STACK);
@@ -74,7 +74,6 @@ public class DepthFirstSearch implements ISearch {
 			INode n = open.remove();
 			closed.insert (n);
 						
-			// Prepare for computations
 			DepthTransition trans = (DepthTransition) n.storedData();
 			
 			// All successor moves translate into appended OPEN states.
@@ -95,8 +94,8 @@ public class DepthFirstSearch implements ISearch {
 					
 				// Record previous move for solution trace. If solution, leave 
 				// now, otherwise add to the OPEN set if still within depth bound.
-				successor.storedData(new DepthTransition(move, n, depth));
-				if (successor.equals(goal)) {
+				successor.storedData (new DepthTransition (move, n, depth));
+				if (successor.equals (goal)) {
 					numOpen = open.size(); numClosed = closed.size();  /* STATS */
 					return new Solution (initial, successor);
 				}
