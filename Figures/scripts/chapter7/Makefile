@@ -13,7 +13,7 @@ CP = "../dist/ADK-$(VERSION)-ExamplesAndFigures.jar"
 	@if [ -f $*.ps ]; then chmod 644 $*.ps ; fi
 	$(PLOT) < $*.plot
 
-FIGS = 2ed-7-30.ps 2ed-7-28.ps 2ed-7-24.ps 2ed-7-22.ps 2ed-7-21.ps 2ed-7-19.ps 2ed-7-15.ps 2ed-7-13.ps 2ed-7-10.ps 2ed-7-8.ps 2ed-7-7.ps 2ed-7-5.ps
+FIGS = 2ed-7-26.ps 2ed-7-17.ps 2ed-7-24.ps 2ed-7-22.ps 2ed-7-21.ps 2ed-7-19.ps 2ed-7-15.ps 2ed-7-13.ps 2ed-7-10.ps 2ed-7-9.ps 2ed-7-8.ps 2ed-7-7.ps 2ed-7-5.ps
 
 DATA = 2ed-table7-1.dat 2ed-table7-2.dat 2ed-table7-3.dat 
 
@@ -23,20 +23,16 @@ data: $(DATA)
 
 figure: $(FIGS)
 
-2ed-7-30.ps: 2ed-table7-3.dat
-	@echo "generating Figure 7-30 (2ed)..."
-	$(PLOT) < 2ed-7-30.plot
+
+
+2ed-7-26.ps: 2ed-table7-3.dat
+	@echo "generating Figure 7-26 (2ed)..."
+	$(PLOT) < 2ed-7-26.plot
 	rm -f fit.log
 
 2ed-table7-3.dat:
 	@echo "generating data for table 7-3 (2ed)..."
 	(cd $(BASE); java -cp $(CP) algs.chapter7.table3.Main > $(PWD)/2ed-table7-3.dat)
-
-2ed-7-28.ps:
-	@echo "generating Figure 2ed-7-28 (2ed) ..."
-	(cd $(BASE); java -cp $(CP) algs.chapter7.figure28.Main > $(PWD)/2ed-7-28.dotty)
-	dot -Tps 2ed-7-28.dotty > 2ed-7-28.ps
-	rm 2ed-7-28.dotty
 
 2ed-7-24.ps:
 	@echo "generating Figure 2ed-7-24 (2ed)..."
@@ -56,16 +52,21 @@ figure: $(FIGS)
 	dot -Tps 2ed-7-21.dotty > 2ed-7-21.ps
 	rm 2ed-7-21.dotty
 
-2ed-7-19.ps:
-	@echo "generating Figure 7-19 (2ed) ..."
-	(cd $(BASE); java -cp $(CP) algs.chapter7.figure19.Main > $(PWD)/2ed-7-19.out)
+2ed-7-17.ps:
+	@echo "generating Figure 7-17 (2ed) ..."
+	(cd $(BASE); java -cp $(CP) algs.chapter7.figure17.Main > $(PWD)/2ed-7-17.out)
 	#
 	# Don't try to graph Unbounded one...
-	awk -f 2ed-figure7-19.awk 2ed-7-19.out | head -30 > 2ed-7-19.dat
-	rm 2ed-7-19.out 
-	$(PLOT) < 2ed-figure7-19.plot
-	rm 2ed-7-19.dat
+	awk -f 2ed-figure7-17.awk 2ed-7-17.out | head -30 > 2ed-7-17.dat
+	rm 2ed-7-17.out 
+	$(PLOT) < 2ed-figure7-17.plot
+	rm 2ed-7-17.dat
 
+2ed-7-19.ps:
+	@echo "generating Figure 7-19 (2ed) ..."
+	(cd $(BASE); java -cp $(CP) algs.chapter7.figure19.Main > $(PWD)/2ed-7-19.dotty)
+	dot -Tps 2ed-7-19.dotty > 2ed-7-19.ps
+	rm 2ed-7-19.dotty
 
 2ed-7-15.ps:
 	@echo "generating Figure 7-15 (2ed) ..."
@@ -84,6 +85,12 @@ figure: $(FIGS)
 	(cd $(BASE); java -cp $(CP) algs.chapter7.figure10.Main > $(PWD)/2ed-7-10.dotty)
 	dot -Tps 2ed-7-10.dotty > 2ed-7-10.ps
 	rm 2ed-7-10.dotty
+
+2ed-7-9.ps:
+	@echo "generating Figure 7-9 (2ed) ..."
+	(cd $(BASE); java -cp $(CP) algs.chapter7.figure9.Main > $(PWD)/2ed-7-9.dotty)
+	dot -Tps 2ed-7-9.dotty > 2ed-7-9.ps
+	rm 2ed-7-9.dotty
 
 2ed-7-8.ps:
 	@echo "generating Figure 7-8 (2ed) ..."
