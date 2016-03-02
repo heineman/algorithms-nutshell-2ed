@@ -36,6 +36,7 @@ public class Main {
 		edges.add(new EdgeInfo(3, 5,   8));
 		
 		// JUST confusing and actually may cause problems.
+		// this was in 1st edition.
 		//edges.add(new EdgeInfo(4, 2,   4));
 		
 		edges.add(new EdgeInfo(5, 2,   3));

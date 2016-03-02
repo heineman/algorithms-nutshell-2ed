@@ -1,23 +1,25 @@
 Version: 2.0
 Date: 6-24-2015
 
-Figure 8-1: Relationship between network flow problems
+Figure 8-1: Relationship between network flow problems (by hand)
 
 Figure 8-2: Sample flow network graph
 
   find in algs.chapter8.figure2.Main
 
-Figure 8-2: Ford-Fulkerson example
-
 Example 8-1: Sample Java Ford-Fulkerson implementation
 
   find in algs.model.network.FordFulkerson
   
-Figure 8-4: Modeling information for Ford-Fulkerson
+Figure 8-3: Ford-Fulkerson example (by-hand)  
 
-Figure 8-5: Search capability
+  find in algs.chapter8.figure3.Main 
+  
+Figure 8-4: Modeling information for Ford-Fulkerson (UML)
 
-  Find these classes in package algs.model.network.
+Figure 8-5: Search capability (UML)
+
+  Find these classes in package algs.model.network
 
 Example 8-2: Using Depth-First Search to locate augmenting path
 
@@ -38,7 +40,7 @@ Example 8-4: Optimized Ford-Fulkerson implementation
 
   find in algs.model.network.Optimized
   
-Figure 8-6: Bipartite Matching reduces to Maximum Flow
+Figure 8-6: Bipartite Matching reduces to Maximum Flow (by hand)
   
 Example 8-5: Bipartite Matching using Ford-Fulkerson
 
@@ -49,7 +51,7 @@ Example 8-6: Shortest path (in costs) search for Ford-Fulkerson
   find in algs.model.network.ShortestPathArray  
   
 Figure 8-7: Side-by-side comparison showing difference when considering the
-    minimum cost flow
+    minimum cost flow (by hand)
     
   java algs.chapter8.figure7.Main
   
@@ -57,7 +59,7 @@ Figure 8-7: Side-by-side comparison showing difference when considering the
   breakpoints individually to see each step of the animation.
   
 Figure 8-8: Sample Transshipment problem instance converted to Minimum Cost Flow
-   problem instance
+   problem instance (by hand)
    
    java algs.chapter8.figure8.Main;
    

@@ -42,7 +42,7 @@ public class BFS_SearchList extends Search {
 		while (!path.isEmpty()) {
 			int u = path.removeFirst();
 
-			// try forward edges out from u
+			// edges out from u
 			Iterator<EdgeInfo> it = struct[u].forward();
 			while (it.hasNext()) {
 				EdgeInfo ei = it.next();
@@ -57,7 +57,7 @@ public class BFS_SearchList extends Search {
 				}
 			}
 
-			// try backward edges into u
+			// backward edges into u
 			it = struct[u].backward();
 			while (it.hasNext()) {
 				// try to find an incoming edge into u whose flow can be reduced.

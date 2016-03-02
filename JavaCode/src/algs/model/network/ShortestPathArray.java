@@ -73,7 +73,7 @@ public class ShortestPathArray extends Search {
 			int u = pq.smallestID();
 			inqueue[u] = false;
 			
-			/** When reach sinkIndex we are done. */
+			// When reach sinkIndex we are done.
 			if (u == sinkIndex) { break; }
 			
 			for (int v = 0; v < n; v++) {

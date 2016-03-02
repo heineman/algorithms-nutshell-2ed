@@ -27,10 +27,15 @@ public class Main {
 		
 	}
 
+	/** Not really a JUnit test case, but keep code honest. */
+	static void guarantee (boolean value) {
+		if (!value) {
+			throw new RuntimeException("Failed to meet guarantee");
+		}
+	}
 	
 	/**
 	 * Example from Figure 8-3
-	 * 
 	 */
 	public static void setUp() {
 		edgesOut = new EdgeInfo[2];
@@ -62,22 +67,22 @@ public class Main {
 			outSum += edgesOut[i].getFlow();
 		}
 		
-		assert (inSum == outSum);
-		assert (5 == inSum);
+		guarantee (inSum == outSum);
+		guarantee (5 == inSum);
 		
-		assert (5 == network.getFlow());
+		guarantee (5 == network.getFlow());
 		
 
-		assert (3 == network.edge(0, 1).getFlow());
-		assert (2 == network.edge(0, 2).getFlow());
+		guarantee (3 == network.edge(0, 1).getFlow());
+		guarantee (2 == network.edge(0, 2).getFlow());
 	
-		assert (2 == network.edge(1, 3).getFlow());
-		assert (1 == network.edge(1, 4).getFlow());
-		assert (1 == network.edge(2, 3).getFlow());
-		assert (1 == network.edge(2, 4).getFlow());
+		guarantee (2 == network.edge(1, 3).getFlow());
+		guarantee (1 == network.edge(1, 4).getFlow());
+		guarantee (1 == network.edge(2, 3).getFlow());
+		guarantee (1 == network.edge(2, 4).getFlow());
 		
-		assert (3 == network.edge(3, 5).getFlow());
-		assert (2 == network.edge(4, 5).getFlow());
+		guarantee (3 == network.edge(3, 5).getFlow());
+		guarantee (2 == network.edge(4, 5).getFlow());
 	}
 	
 	/** Run in debugger to validate augmenting paths... */

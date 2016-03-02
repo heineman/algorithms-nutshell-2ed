@@ -41,7 +41,7 @@ public class FordFulkerson {
 	/** Represents the FlowNetwork problem. */
 	FlowNetwork<?> network;
 	
-	/** Search method. */
+	/** Search method to use. */
 	Search searchMethod;	
 	
 	/** 
@@ -70,8 +70,8 @@ public class FordFulkerson {
 	 */
 	public boolean compute () {
 		boolean augmented = false;
-		while (searchMethod.findAugmentingPath(network.vertices)) {
-			processPath(network.vertices);
+		while (searchMethod.findAugmentingPath (network.vertices)) {
+			processPath (network.vertices);
 			augmented = true;
 		}
 		return augmented;
@@ -92,7 +92,7 @@ public class FordFulkerson {
 	 * 
 	 * @param vertices   Stores information about the computed augmented path 
 	 */
-	protected void processPath(VertexInfo []vertices) {
+	protected void processPath (VertexInfo []vertices) {
 		int v = network.sinkIndex;
 		
 		// Determine the amount. Goal is to find the smallest 
