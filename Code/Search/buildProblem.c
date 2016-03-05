@@ -339,7 +339,7 @@ void prepareInput (int size, int argc, char **argv) {
      insert (ins);
 
      strings[j] = strings[idx-1];
-     strings[idx-1] = '\0';
+     strings[idx-1] = NULL;
      idx--;
    }
 

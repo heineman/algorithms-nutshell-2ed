@@ -68,9 +68,9 @@ while (ct > sizeof (int)) { \
  */
 void *partition (void *const pbase, size_t n, size_t s, 
 	       int(*cmp)(const void *,const void *)) {
-  void *store = (void*)((char*)pbase+(n-1)*s);
-  void *left = (void*)((char*)pbase+s);
-  void *right = (void*)((char*)store-s);
+  char *store = ((char*)pbase+(n-1)*s);
+  char *left =  ((char*)pbase+s);
+  char *right = ((char*)store-s);
 
   do {
     while (cmp(left,store) < 0) { left += s; ADD_COMP; }
@@ -175,7 +175,7 @@ void insertion (void *base, int n, int s,
  */
 void do_qsort (void *const pbase, size_t n, size_t s, 
 	       int(*cmp)(const void *,const void *)) {
-  void *pp;
+  char *pp;
   long ct, num;
 
   if (n <= 1) { return; }
@@ -209,10 +209,10 @@ int numSets = 1000;
 /** sort method (0=quickSort, 1=insertionSort). */
 int sortMethod = -1;
 
-void output (void *pbase, int n, int s) {
+void output (char *pbase, int n, int s) {
   int i;
   for (i = 0; i < n; i++) {
-    printf ("%d. %s\n", i, (char *) pbase);
+    printf ("%d. %s\n", i, pbase);
     pbase += s;
   }
 }

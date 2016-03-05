@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
   for (i = idx; i < argc; i++) {
     newargv[i-idx+1] = strdup(argv[i]);
   }
-  newargv[argc-idx+1] = '\0';
+  newargv[argc-idx+1] = NULL;
 
   if (seeded) {
     if (verbose) { printf ("using seed %d\n", seed); }

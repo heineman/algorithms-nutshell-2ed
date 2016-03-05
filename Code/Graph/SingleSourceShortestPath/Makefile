@@ -20,7 +20,7 @@ BHEAP = ../BinaryHeap/BinaryHeap.o
 %.o: %.cxx
 	$(CC) -c $(CFLAGS) $(INCLUDE) $<
 
-APPS=tsp generateBench tspBellmanFord tspDense testDense testGraph testBellmanFord
+APPS=tspExec generateBench tspBellmanFord tspDense testDense testGraph testBellmanFord
 
 TRIALS=2 4 8 16 32 64 128
 TESTS=testSmall testFigure testCaseBellmanFord rawTest 
@@ -35,7 +35,7 @@ Benchmarks:
 test: $(TESTS)
 	for i in $(TESTS); do ./$${i}; if [ $$? -ne 0 ]; then exit -1; fi; done
 
-tsp: tsplib.o singleSourceShortest.o rawDense.o
+tspExec: tsplib.o singleSourceShortest.o rawDense.o
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $+ $(BHEAP) $(GRAPH) $(TIMING)
 
 tspBellmanFord: tsplib.o bellmanFord.o rawDense.o

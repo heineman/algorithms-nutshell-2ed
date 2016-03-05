@@ -1,5 +1,5 @@
 Version: 2.0
-Date: 6-24-2015
+Date: 3-4-2016
 
 
 Some images found in this chapter are generated. If the figure is 
@@ -26,13 +26,13 @@ Figure 9-5: Performance of convex hull variations [Makefile]
 
 Table 9-3: Timing comparison (in milliseconds) with highly skewed data [Makefile]
 
-Figure 9-6: Three line segments with two intersections
+Figure 9-6: Three line segments with two intersections (by hand)
 
 Example 9-2: Brute Force Intersection implementation
 
   find in algs.model.problems.segmentIntersection.BruteForceAlgorithm
 
-Figure 9-7: Detecting Seven Intersections for six line segments
+Figure 9-7: Detecting Seven Intersections for six line segments (by hand)
 
   java algs.chapter9.figure7.Main and read the generated output. Note that
   the output shows the final set of intersections; you will have to debug the
@@ -48,23 +48,25 @@ Table 9-5: Worst-case comparison of LineSweep versus BruteForce (in ms) [MAKE]
 
   java algs.chapter9.table5.Main
  
-Figure 9-8: Sample Voronoi Diagram
+Figure 9-8: Sample Voronoi Diagram (by hand)
 
 Figure 9-9: Elements of Fortune Sweep
 
-Figure 9-10: Parabolas change shape as the sweep line moves down
+Figure 9-10: Definition of parabola
+
+Figure 9-11: Parabolas change shape as the sweep line moves down
 
   source: parabolaExplorer.xlsx
   
-Figure 9-11: Circle formed by three points
+Figure 9-12: Circle formed by three points
 
-Figure 9-12: Beach line after two points
+Figure 9-13: Beach line after two points
 
-Figure 9-13: Beach line after three points
+Figure 9-14: Beach line after three points
 
-Figure 9-14: Beach line after processing circle event
+Figure 9-15: Beach line after processing circle event
 
-Figure 9-15: Classes supporting the code
+Figure 9-16: Classes supporting the code
 
 Example 9-4: Voronoi Python implementation
 

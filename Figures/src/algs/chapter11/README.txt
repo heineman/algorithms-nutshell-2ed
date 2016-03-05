@@ -1,25 +1,40 @@
 Version: 2.0
-Date: 6-24-2015
+Date: 3-4-2016
+
+Table 11-1: Performance of Knapsack 0/1 on small set [Makefile]
+
+Table 11-2: Performance of Knapsack Unbounded on small set [Makefile]
 
 Example 11-1: Implementation of Knapsack 0/1 in Python
+
+  PythonCode/adk/knapsack.py
+
 Example 11-2: Implementation of Knapsack unbounded in Python
+
+  PythonCode/adk/knapsack.py
+
 Example 11-3: Implementation of Knapsack unbounded approximation in Python
 
   find in PythonCode/adk/knapsack.py
 
-Table 11-1: performance on small set [Makefile]
+Table 11-3. Performance on Knapsack variations [Makefile]
 
 Example 11-4: QuickSort Implementation in Java
+
+  JavaCode/src/algs/model/array/MultiThreadQuickSort.java
+
 Example 11-5: Multithreaded Java QuickSort Implementation in Java
   
   find in algs.model.array.MultiThreadQuickSort
 
-Figure 11-1: Performance of Multi-Threaded Quicksort for varying N and R [Makefile]
+<START HERE>
+
+Figure 11-1: Multithreaded Quicksort for varying N and R [Makefile]
 
   Use makefile to create files thread.11-1.1.dat, thread.11-1.2.dat, thread.11-1.4.dat
   which can be brought into Excel and plotted; shown in Chapter11.xlsx
   
-Table 11-2: Speedup of having one helper thread for (R=1) vs. (R=MAXINT)
+Table 11-4: Speedup of having one helper thread for (R=1) vs. (R=MAXINT)
 
   grab SingleThreaded values from thread.11-1.1.dat file and compare ratio T1/T2
   
