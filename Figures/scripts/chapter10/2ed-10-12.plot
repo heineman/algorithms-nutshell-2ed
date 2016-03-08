@@ -2,6 +2,8 @@
 set terminal postscript monochrome portrait 
 set output '2ed-10-12.ps'
 
+# The vertical keyword is not present in GnuPlot 4.0 so you might
+# have to remove it
 set key bottom vertical at 20,-3500
 
 set multiplot

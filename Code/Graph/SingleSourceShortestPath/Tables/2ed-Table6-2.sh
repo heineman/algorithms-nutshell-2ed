@@ -24,7 +24,7 @@ do
   T=0
   while [ $T -lt $NUM_TRIALS ]
   do
-     ../tsp -f $i |tail -1 | sed 's/secs//'         >> $ACTIVE
+     ../tspExec -f $i |tail -1 | sed 's/secs//'     >> $ACTIVE
 
      T=$((T+1))
   done
@@ -48,7 +48,7 @@ do
   T=0
   while [ $T -lt $NUM_TRIALS ]
   do
-     ../tsp -d -f $i |tail -1 | sed 's/secs//'>> $ACTIVE
+     ../tspExec -d -f $i |tail -1 | sed 's/secs//'  >> $ACTIVE
 
      T=$((T+1))
   done

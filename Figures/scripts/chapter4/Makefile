@@ -33,12 +33,12 @@ figure: $(DOTTY)
 2ed-4-8.ps:
 	@echo "generating Figure 4-8 (2ed)..."
 	(cd $(CODE)/Sorting/Longs; $(MAKE))
-	dot -Tps $(CODE)/Sorting/Longs/figure4-12.dotty > 2ed-4-8.ps
+	dot -Tps $(CODE)/Sorting/Longs/figure4-8.dotty > 2ed-4-8.ps
 
 2ed-4-9.ps:
 	@echo "generating Figure 4-9 (2ed)..."
 	(cd $(CODE)/Sorting/Longs; $(MAKE))
-	dot -Tps $(CODE)/Sorting/Longs/figure4-13.dotty > 2ed-4-9.ps
+	dot -Tps $(CODE)/Sorting/Longs/figure4-9.dotty > 2ed-4-9.ps
 
 2ed-table4-2.dat:
 	@echo "generating data for Table 4-2 (2ed)..."

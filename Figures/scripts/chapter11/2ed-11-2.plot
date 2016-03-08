@@ -2,6 +2,10 @@
 set terminal postscript monochrome portrait
 set output '2ed-11-2.ps'
 
+# Note: The gnuplot commands are not compatible with GnuPlot 4.0 but
+#       are available on GnuPlot 4.6
+
+
 ## Warning: This cannot be automated since you need input from
 ## multiple computers. Also, the constants in the plot commands
 ## are drawn from the data itself.
