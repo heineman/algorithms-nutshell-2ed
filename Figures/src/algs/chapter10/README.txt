@@ -38,6 +38,8 @@ Table 10-2: Comparing Range Query execution times in milliseconds (k-d tree vers
             
 Figure 10-12: Comparing k-d tree versus brute force for fractional regions [Makefile]
 
+  Needs GnuPlot 4.6
+
 Table 10-3: Brute force Range Query execution times in milliseconds for Empty Region [Makefile]
 
 Figure 10-13: Range searching using a quadtree (screenshot)
@@ -62,7 +64,7 @@ Example 10-6: Quadtree Range Query implementation
   
 Example 10-7: Quadtree Collision Detection implementation
 
-  find in PythonCode/adk.qud
+  find in PythonCode/adk.quad
 
 Figure 10-15: Degenerate quadtree (screenshot)
 

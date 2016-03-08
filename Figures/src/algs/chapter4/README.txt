@@ -1,3 +1,6 @@
+Version: 2.0
+Date: 3-6-2016
+
 Some images found in this chapter are generated. If the figure is 
 drawn manually then it is not included in this list. For examples, 
 we show where in the code repository to locate the code.

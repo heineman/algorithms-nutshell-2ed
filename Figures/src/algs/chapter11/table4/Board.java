@@ -69,9 +69,9 @@ public class Board {
 		int sz = nextValidRowPositions.size();
 		if (sz == 0) { return false; }
 		
+		// select one randomly
 		int c = (int) (Math.random()*sz);
-		
-		board[r][nextValidRowPositions.get(c)] = true;
+		board[r][nextValidRowPositions.get (c)] = true;
 		return true;
 	}
 	

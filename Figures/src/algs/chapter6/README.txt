@@ -1,5 +1,5 @@
 Version: 2.0
-Date: 6-24-2015
+Date: 3-6-2016
 
 Figure 6-1: Graph Examples (by hand)
     

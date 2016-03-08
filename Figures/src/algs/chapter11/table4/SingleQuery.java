@@ -30,6 +30,7 @@ public class SingleQuery {
 				break; 
 			}
 
+			// compute estimate based on ongoing tally and advance
 			lastEstimate = lastEstimate*numChildren;
 			r++;
 		}

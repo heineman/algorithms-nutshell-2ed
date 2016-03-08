@@ -1,10 +1,10 @@
 """
     Demonstrate probabilistic method of counting a set by sampling.
+    Provide own average function to eliminate dependence on numpy.
 """
 
 import random
 import math
-import numpy
 
 def computeK(generator):
     """
@@ -21,6 +21,17 @@ def computeK(generator):
         else:
             seen.add(item)
 
+def average(vals):
+    """Eliminate dependency on numpy by providing simple average function."""
+    if len(vals) == 0:
+        return 0
+    ct = 0
+    total = 0
+    for v in vals:
+        total += v
+        ct += 1
+    return total/ct
+
 if __name__ == '__main__':
     n = 1024
     while n <= 1048576:
@@ -34,7 +45,7 @@ if __name__ == '__main__':
             estimates.remove(min(estimates))
             estimates.remove(max(estimates))
             
-            row.append(int(numpy.average(estimates)))
+            row.append(int(average(estimates)))
         
         print (n, row[0], row[1], row[2], row[3], row[4])
         n = n * 2

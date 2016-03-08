@@ -1,5 +1,5 @@
 Version: 2.0
-Date: 12-23-2015
+Date: 3-6-2016
 
 Figure 1-1: Sample set of 15 points in plane
 

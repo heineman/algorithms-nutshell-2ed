@@ -19,5 +19,6 @@ Note: Some figures are generated using Python. We assume that Python 3.x is
 installed. If you only have Python 2.x then some figures might not generate
 properly.
 
-In Chapter 11, figure 11-2 uses a gnuplot feature that are not available in
-version 4.0, but are available in 4.6
+In Chapter 11, figure 10-12 and 11-2 use gnuplot features not available in
+version 4.0, but which are available in 4.6.
+
