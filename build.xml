@@ -1,0 +1,412 @@
+<!--
+
+  To build entire project, just launch ant. This will compile everything
+  needed to be compiled.
+
+  To generate javaDocs,            type "ant javadoc"
+  To generate JUnit test report,   type "ant junitreport"
+  
+  To run performance tests         type "ant performance"
+-->
+
+<project name="AlgorithmsDevelopmentKit" default="all" basedir=".">
+
+  <property file="build.properties"/>
+  <property file="${user.home}/build.properties"/>
+
+  <!-- Update to your installation of JUnit 4.0 (http://junit.org). -->
+  <property name="junit.home"     value="${basedir}/../junit4.0"/>
+
+  <property name="app.name"       value="ADK"/>
+  <property name="app.version"    value="1.1"/>
+
+  <property name="dist.home"      value="${basedir}/dist"/>
+  <property name="docs.home"      value="${basedir}/docs"/>
+  <property name="adk.home"       value="${basedir}/JavaCode"/>
+
+  <property name="adk.build"      value="${adk.home}/bin"/>
+
+  <property name="home.examples"  value="${basedir}/Examples"/>
+  <property name="build.examples" value="${home.examples}/bin"/>
+  <property name="home.blogs"     value="${basedir}/Blogs"/>
+  <property name="home.figures"   value="${basedir}/Figures"/>
+  <property name="build.blogs"    value="${home.blogs}/bin"/>
+  <property name="build.figures"  value="${home.figures}/bin"/>
+
+  <!-- Note that tests.core depends at times on examples.              -->
+  <property name="home.tests"    value="${basedir}/Tests"/>
+  <property name="build.tests"   value="${home.tests}/bin"/>
+
+  <!-- Report JUnit results here.                                      -->
+  <property name="tests.report"  value="${home.tests}/report"/>
+
+  <!-- While some of these classes are JUnit, they are only structured -->
+  <!-- in that way for ease of programming. Some of them might run for -->
+  <!-- a LONG time (especially random searches over search trees) which-->
+  <!-- is why they are separated from the home.tests set which are     -->
+  <!-- TRUE Junit tests cases.                                         -->
+  <property name="home.performance"    value="${basedir}/PerformanceTests"/>
+  <property name="build.performance"   value="${home.performance}/bin"/>
+  <property name="report.performance"  value="${home.performance}/report"/>
+
+  <property name="compile.debug"       value="true"/>
+  <property name="compile.deprecation" value="false"/>
+  <property name="compile.optimize"    value="true"/>
+
+  <!-- Special ant task I've written to launch all performance main. -->
+  <taskdef name="runall" classname="algs.ant.RunAll" classpath="${ant.home}/lib/ant.jar:Task/bin"/>
+
+  <!-- Path to bring in JUnit dependencies -->
+  <path id="run.junit">
+    <fileset dir="${junit.home}">
+      <exclude name="*-src.jar"/>
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <!-- Libraries needed to access the Algorithm Development Kit -->
+  <path id="run.adk">
+    <fileset dir="${dist.home}">
+      <include name="${app.name}-${app.version}.jar"/>
+    </fileset>
+  </path>
+
+  <!-- When dist isn't yet built, use home classes -->
+  <path id="run.internal">
+    <pathelement location="${adk.build}"/>
+  </path>
+
+  <!-- Full path access for all examples, figures and tests -->
+  <path id="run.full">
+    <pathelement location="${build.examples}"/>
+    <pathelement location="${build.figures}"/>
+    <pathelement location="${build.tests}"/>
+  </path>
+
+  <!-- Full path access to blogs -->
+  <path id="run.blogs">
+    <pathelement location="${build.blogs}"/>
+  </path>
+
+  <!-- Performance needs performance directory! -->
+  <path id="run.performance">
+    <pathelement location="${build.performance}"/>
+  </path>
+
+
+  <target name="all" depends="compile,dist,junit,compileExamples,compileFigures,compileTests,compilePerformance"
+   description="Clean build and dist directories, then compile"/>
+
+  <!-- Do not delete special task, since that requires us to regenerate it. -->
+  <target name="clean"
+     description="Delete old build(s) and dist directories">
+
+    <!-- Remove dist area and docs -->
+    <delete dir="${dist.home}"/>
+    <delete dir="${docs.home}"/>
+
+    <!-- All builds go. -->
+    <delete dir="${adk.build}"/>
+    <delete dir="${home.examples}/bin/"/>
+    <delete dir="${home.figures}/bin/"/>
+    <delete dir="${home.tests}/bin/"/>
+    <delete dir="${home.performance}/bin/"/>
+    <delete dir="${home.blogs}/bin/"/>
+  </target>
+
+  <!-- Core compilation of ADK doesn't have external classpath dependencies -->
+  <target name="compile" depends="prepare"
+   description="Compile Java sources">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${adk.build}"/>
+
+    <javac srcdir="${adk.home}/src"
+          destdir="${adk.build}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile,compileFigures,compileExamples,compileBlogs"
+   description="Create binary distribution">
+
+    <mkdir  dir="${dist.home}"/>
+
+    <!-- Create application JAR file -->
+    <jar jarfile="${dist.home}/${app.name}-${app.version}.jar"
+         basedir="${adk.build}"/>
+
+    <!-- Create ExamplesAndFigures JAR file -->
+    <jar jarfile="${dist.home}/${app.name}-${app.version}-ExamplesAndFigures.jar">
+      <fileset dir="${adk.build}"/>
+      <fileset dir="${build.examples}"/>
+      <fileset dir="${build.blogs}"/>
+      <fileset dir="${build.figures}"/>
+    </jar>
+  </target>
+
+  <target name="compileExamples" depends="compile"
+   description="Compile the ${home.examples} directory">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.examples}"/>
+
+    <!-- Some resources are needed for some examples. -->
+    <copy todir="${build.examples}/resources">
+       <fileset dir="${home.examples}/resources"/>
+    </copy>
+
+    <!-- Compile all -->
+    <javac srcdir="${home.examples}/src"
+          destdir="${build.examples}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.internal"/>
+        </classpath>
+    </javac>
+
+  </target>
+
+  <target name="compileBlogs" depends="compile"
+   description="Compile the ${home.blogs} directory">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.blogs}"/>
+
+    <!-- Some resources are needed for some examples. -->
+    <copy todir="${build.blogs}/artifacts">
+       <fileset dir="${home.blogs}/artifacts"/>
+    </copy>
+
+    <!-- Compile all -->
+    <javac srcdir="${home.blogs}/src"
+          destdir="${build.blogs}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.internal"/>
+          <path refid="run.junit"/>
+        </classpath>
+    </javac>
+
+    <!-- Compile all Blog tests -->
+    <javac srcdir="${home.blogs}/test"
+          destdir="${build.blogs}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.internal"/>
+          <path refid="run.junit"/>
+        </classpath>
+    </javac>
+  </target>
+
+  <target name="compileFigures" depends="compile"
+   description="Compile the ${home.figures} directory">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.figures}"/>
+    <mkdir    dir="${build.figures}"/>
+
+    <!-- Some resources are needed for some figures. -->
+    <copy todir="${build.figures}/resources">
+       <fileset dir="${home.figures}/resources"/>
+    </copy>
+
+    <javac srcdir="${home.figures}/src"
+          destdir="${build.figures}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.internal"/>
+          <path refid="run.full"/>
+        </classpath>
+    </javac>
+
+    <copy todir="${build.figures}/resources">
+       <fileset dir="${home.figures}/resources"/>
+    </copy>
+  </target>
+
+  <!-- Some Test cases depend on code from the examples. Done to avoid -->
+  <!-- code.                                                           -->
+  <target name="compileTests" depends="compile,compileExamples,dist"
+          description="Compile the test.core tests directory">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.tests}"/>
+
+    <!-- output reports are placed -->
+    <mkdir    dir="${tests.report}/report"/>
+
+    <javac srcdir="${home.tests}/tests"
+          destdir="${build.tests}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.adk"/>
+          <path refid="run.junit"/>
+          <path refid="run.full"/>
+        </classpath>
+    </javac>
+
+    <javac srcdir="${home.tests}/debug"
+          destdir="${build.tests}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.adk"/>
+          <path refid="run.junit"/>
+          <path refid="run.full"/>
+        </classpath>
+    </javac>
+
+    <copy todir="${build.tests}/resources">
+       <fileset dir="${home.tests}/resources"/>
+    </copy>
+  </target>
+
+  <!-- Performance Test cases explore boundaries of the code but may   -->
+  <!-- run for a very long (possibly infinite) time, thus not part of  -->
+  <!-- core JUnit test cases. Indeed, these are *Main applications.    -->
+  <target name="compilePerformance" depends="compile,compileExamples,compileTests"
+          description="Compile the home.performance src directory">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.performance}"/>
+    <mkdir    dir="${build.performance}"/>
+
+    <javac srcdir="${home.performance}/src"
+          destdir="${build.performance}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}"
+         includeantruntime="false">
+        <classpath>
+          <path refid="run.adk"/>
+          <path refid="run.junit"/>
+          <path refid="run.full"/>
+        </classpath>
+    </javac>
+  </target>
+
+  <target name="junitreport">
+    <junitreport todir="${tests.report}">
+       <fileset dir="${tests.report}">
+           <include name="TEST-*.xml"/>
+       </fileset>
+       <report todir="${tests.report}"/>
+    </junitreport>
+  </target>
+
+  <target name="junit" depends="compile,dist,compileTests"
+   description="Perform base set of JUnit test cases on the code.">
+
+      <!-- None of these tests should fail. -->
+      <junit dir="${home.tests}" printsummary="yes" haltonfailure="yes">
+        <formatter type="xml"/>
+        <classpath>
+           <path refid="run.adk"/>
+           <path refid="run.full"/>
+           <path refid="run.junit"/>
+        </classpath>
+
+        <batchtest fork="yes" todir="${tests.report}">
+          <fileset dir="${home.tests}/tests">
+            <include name="**/*Test.java"/>
+          </fileset>
+
+          <fileset dir="${home.tests}/debug">
+            <include name="**/*Test.java"/>
+          </fileset>
+        </batchtest>
+      </junit>
+   </target>
+
+  <target name="junitBlogs" depends="compileBlogs"
+   description="Perform JUnit test cases for the blogs.">
+
+      <!-- Blog tests -->
+      <junit dir="${home.blogs}" printsummary="yes" haltonfailure="yes">
+        <formatter type="xml"/>
+        <classpath>
+           <path refid="run.adk"/>
+           <path refid="run.full"/>
+           <path refid="run.blogs"/>
+           <path refid="run.junit"/>
+        </classpath>
+
+        <batchtest fork="yes" todir="${tests.report}">
+          <fileset dir="${home.blogs}/test">
+            <include name="**/Test*.java"/>
+          </fileset>
+        </batchtest>
+      </junit>
+  </target>
+
+  <target name="performance" depends="compile,dist,compileTests,compilePerformance"
+   description="Perform base set of JUnit test cases on the code.">
+       
+      <!-- place reports here -->
+      <mkdir    dir="${report.performance}"/>
+
+      <runall output="${report.performance}">
+          <fileset dir="${home.performance}/src">
+            <include name="**/*Main.java"/>
+          </fileset>
+        <classpath>
+           <path refid="run.adk"/>
+           <path refid="run.performance"/>
+        </classpath>
+      </runall>
+  </target>
+
+
+  <target name="javadoc" 
+   description="Create Javadoc API documentation">
+
+    <mkdir          dir="${docs.home}"/>
+    <mkdir          dir="${docs.home}/api"/>
+
+    <javadoc sourcepath="${adk.home}/src"
+                destdir="${docs.home}/api"
+                header="Algorithm&lt;br&gt;Development Kit ${app.version}"
+                footer="&lt;i&gt;Algorithm Development Kit ${app.version}&lt;/i&gt;"
+                bottom="&lt;font size=-1&gt;This code supports the
+&lt;i&gt;&lt;a
+href=&quot;http://oreilly.com/catalog/9780596516246/&quot;&gt;Algorithms in
+a Nutshell&lt;/a&gt;&lt;/i&gt; book, published by O'Reilly Media, Inc. in
+November 2008. Please visit the book web page to learn of any changes to
+the code repository or to record a potential defect.&lt;/font&gt;"
+           packagenames="*">
+      <classpath>
+           <path refid="run.junit"/>
+      </classpath>
+    </javadoc>
+
+  </target>
+
+  <target name="prepare">
+
+    <!-- Create build directories as needed -->
+    <mkdir  dir="${adk.build}"/>
+
+  </target>
+
+</project>
