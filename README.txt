@@ -63,6 +63,9 @@ Primary Task
    JDK-1.6 compatible javac compiler. Download the latest JDK from
    [http://java.sun.com/javase]
 
+   All code examples have been tested using the latest JDK 1.8.0_74
+   release.
+
    Make sure that $JAVA_HOME/bin is in your PATH so the proper java and
    javac executables can be located.
 
