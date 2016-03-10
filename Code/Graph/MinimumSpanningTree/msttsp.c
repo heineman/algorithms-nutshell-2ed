@@ -1,5 +1,5 @@
 /**
- * @file tsplib.c   Test driver code that understands TSP data formatn
+ * @file msttsp.c   Test driver code that understands TSP data formatn
  * @brief 
  *   Driver that can load up dense graphs whose input is stored using 
  *   the TSP format as recognized by the community.

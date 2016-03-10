@@ -49,6 +49,9 @@
   <target name="all" 
    description="Build runall task">
 
+    <!-- Make sure bin directory exists -->
+    <mkdir    dir="Task/bin"/>
+
     <javac srcdir="Task/src"
           destdir="Task/bin"
             debug="${compile.debug}"

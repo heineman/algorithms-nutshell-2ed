@@ -1,6 +1,6 @@
 This directory contains the C and C++ code solutions as coded in the
-O'Reilly book "Algorithm in a Nutshell" by George Heineman, Gary Pollice,
-and Stanley Selkow, (C) 2008.
+O'Reilly book "Algorithm in a Nutshell", Second Edition, by George
+Heineman, Gary Pollice, and Stanley Selkow, (C) 2016.
 
 INSTALLATION
 
@@ -15,6 +15,10 @@ VALIDATE
 BUILD
 
   To build, type 'make' in this top-level directory.
+
+DOCUMENTATION
+
+  To build the Doxygen documentation, type 'make doxygen'
 
 TEST
 

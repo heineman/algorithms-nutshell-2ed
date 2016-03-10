@@ -88,8 +88,9 @@ void insertion (int *ar, int low, int high) {
  * Inline code using macro to set value
  * 
  * \param vals    the array of elements.
- * \param left    the left end of the subarray range
- * \param right   the right end of the subarray range
+ * \param left    the left end of the subarray range.
+ * \param right   the right end of the subarray range.
+ * \param pivot   variable for pivot.
  * \return        int in the range [left, right] to use in partition.
  */
 #define selectPivotIndex(vals,left,right,pivot)\

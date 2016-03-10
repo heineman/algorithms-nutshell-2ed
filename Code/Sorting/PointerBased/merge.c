@@ -1,5 +1,5 @@
 /**
- * @file merge.c   Merge Sort implementation
+ * @file PointerBased/merge.c   Merge Sort implementation
  * @brief 
  *   Contains Merge Sort implementation.
  *

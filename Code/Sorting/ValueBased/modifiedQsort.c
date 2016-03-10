@@ -1,5 +1,5 @@
 /**
- * @file modifiedQsort.c
+ * @file ValueBased/modifiedQsort.c
  * @brief
  *
  *    See how well optimized Qsort compares with qsort() unix library
@@ -61,9 +61,10 @@ while (ct > sizeof (int)) { \
  * ASSUMES THAT pivot value is already placed in ar[right] and that
  * ar[left] <= ar[mid] <= ar[right].
  * 
- * @param ar           array of elements to be sorted.
- * @param left         lower bound index position  (inclusive)    
- * @param right        upper bound index position  (exclusive)
+ * @param pbase        pointer to base of array of elements to be sorted.
+ * @param n            number of elements in the array.
+ * @param s            fixed size of each element.
+ * @param cmp          comparator function.
  * @return             location of the pivot index properly positioned.
  */
 void *partition (void *const pbase, size_t n, size_t s, 
@@ -128,14 +129,15 @@ void insertion (void *base, int n, int s,
 
 /**
  * Select pivot index to use in partition based on median of three. 
- * Places smallest value in vals[left] and the mdeian value in vals[right].
+ * Places smallest value in vals[left] and the median value in vals[right].
  * The largest of the three is actually placed in vals[mid]
  * 
  * Inline code using macro to set value
  * 
  * \param vals    the array of elements.
- * \param left    the left end of the subarray range
- * \param right   the right end of the subarray range
+ * \param n       the number of elements in the array.
+ * \param s       the size in bytes of each value.
+ * \param cmp     the comparator function.
  * \return        int in the range [left, right] to use in partition.
  */
 #define selectPivotIndex(vals,n,s,cmp)       \

@@ -1,5 +1,5 @@
 /**
- * @file Memory/sample.c    Program to show addresses in memory
+ * @file sample.c    Program to show addresses in memory
  * @brief 
  *    Small program to show internal memory addresses.
  * 

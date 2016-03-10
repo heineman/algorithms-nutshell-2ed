@@ -1,5 +1,5 @@
 /**
- * @file mst.cxx    Prim's Algorithm for Minimum Spanning Tree problem
+ * @file mst_slow.cxx    Prim's Algorithm for Minimum Spanning Tree problem
  * @brief 
  *
  *   Defines the implementation using Prim's Algorithm to minimum spanning

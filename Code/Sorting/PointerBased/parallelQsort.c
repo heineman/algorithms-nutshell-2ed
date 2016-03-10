@@ -1,5 +1,5 @@
 /**
- * @file baseQsort.c   Multithread Quicksort implementation
+ * @file parallelQsort.c   Multithread Quicksort implementation
  * @brief 
  *
  *   Complete Multithread Quicksort implementation using PThreads implementation.

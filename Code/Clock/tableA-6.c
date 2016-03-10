@@ -1,5 +1,5 @@
 /**
- * @file Clock/sample.c   Show timing example in both milliseconds and nanonseconds.
+ * @file Clock/tableA-6.c   Show timing example in both milliseconds and nanonseconds.
  * @brief 
  *   Show the ability on Unix systems to time both using milliseconds and
  *   nanosecond timers.

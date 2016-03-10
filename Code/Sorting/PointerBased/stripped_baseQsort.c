@@ -1,5 +1,5 @@
 /**
- * @file baseQsort.c   Quicksort implementation
+ * @file stripped_baseQsort.c   Quicksort implementation
  * @brief 
  *   Complete Quicksort implementation optimized to switch to Insertion 
  *   Sort when problem sizes are less than or equal to minSize in length.

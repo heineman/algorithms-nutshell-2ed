@@ -115,13 +115,14 @@ Primary Task
 
    Apparently, ant 1.7 does not have this second CLASSPATH requirement.
 
-5. cd into 'Tasks' and type 'ant' to build special ant task
+5. cd into 'Task' and type 'ant' to build special ant task
 
    go back to main directory (cd ..) and continue. At this point you 
    may have to ensure that the ant libraries ${ant.home}/lib/ant.jar
    are in your CLASSPATH.
 
-6. Type 'ant' to compile all Java code (in JavaCode directory).
+6. Type 'ant' to compile all Java code (in JavaCode, Examples, Figures,
+   and PerformanceTests).
 
    This will compile all sources and execute the JUnit test cases
 
@@ -177,7 +178,7 @@ Optional Tasks
    progress. Only works if you have valid JAVA_HOME set to locate
    tools.jar. Find the compiled JUnit report in:
 
-       ./Tests/bin/report/ 
+       ./Tests/report/ 
 
    This option is likely only available for ant 1.7 (and higher).
 
