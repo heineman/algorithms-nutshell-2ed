@@ -1,8 +1,8 @@
-# Performance (in seconds) on random strings
-BINS=Strings/BucketLinkedListSort17576Ptr Strings/BaseQsortMedianOfThree Strings/MergePtr Strings/StraightHeapSort Strings/QSortWorstCaseFour 
+# InsertionSort bulk move vs. InsertionSort
+BINS=Strings/BucketLinkedListSort26Ptr Strings/BucketLinkedListSort676Ptr Strings/BucketLinkedListSort17576Ptr Strings/BaseQsortMedianOfThree 
 
 # configure suite
 TRIALS=100
-LOW=4096
+LOW=16
 HIGH=131072
 INCREMENT=*2

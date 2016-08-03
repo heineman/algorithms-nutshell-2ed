@@ -1,9 +1,0 @@
-# Table 4-2
-BINS=Strings/MedianSort Strings/MedianSortLeftPivot Strings/MedianSortWorstCaseFour Strings/MedianSortMedianOfThree 
-
-# configure suite
-EXTRAS=-a
-TRIALS=10
-LOW=256
-HIGH=131072
-INCREMENT=*2

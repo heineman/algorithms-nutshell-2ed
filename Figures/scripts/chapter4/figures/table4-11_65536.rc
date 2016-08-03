@@ -1,9 +1,0 @@
-# 65536: Performance (in seconds) on swap n/4, 4
-BINS=Strings/BucketLinkedListSort17576Ptr Strings/BaseQsortMedianOfThree Strings/StraightHeapSort Strings/MedianSort Strings/QSortWorstCaseFour 
-
-# configure suite
-EXTRAS=-a -u 16384,4
-TRIALS=100
-LOW=65536
-HIGH=65536
-INCREMENT=*2

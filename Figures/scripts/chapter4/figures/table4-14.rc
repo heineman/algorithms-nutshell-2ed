@@ -1,9 +1,0 @@
-# Performance (in seconds) on killer median of three data [TEN TRIALS ONLY]
-BINS=Doubles/BucketLinkedListSortPtr Doubles/StraightHeapSort Doubles/MedianSort Doubles/BaseQsortMedianOfThree Doubles/QSortWorstCaseFour
-
-# configure suite
-EXTRAS=-a -k
-TRIALS=10
-LOW=4096
-HIGH=131072
-INCREMENT=*2
