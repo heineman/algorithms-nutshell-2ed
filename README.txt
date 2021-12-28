@@ -34,6 +34,7 @@ Examples" from the preface of the book. We quote:
 Within this repository you will find the following directories:
 
   README.txt         This file
+  Blogs              Code associated with blog entries posted for book
   Code               Implementation of algorithms using C/C++
   PerformanceTests   Tests to stress-test JavaCode
   Tests              JUnit tests cases for JavaCode
@@ -47,7 +48,6 @@ Within this repository you will find the following directories:
   build.xml          Ant buildfile to compile, test, and package JavaCode
   VERSION.txt        Version information about this Development Kit
   Makefile           Makefile to compile C/C++ code using gcc/g++
-
 
 Primary Task
 ============
@@ -64,8 +64,11 @@ Primary Task
    JDK-1.6 compatible javac compiler. Download the latest JDK from
    [https://java.com/download/]
 
-   All code examples have been tested using the latest JDK 1.8 releases
-   and openjdk version "13" 2019-09-17 [https://jdk.java.net/java-se-ri/13]
+   All code examples have been tested using:
+   
+     * The latest JDK 1.8 releases
+     * openjdk version "13" 2019-09-17 [https://jdk.java.net/java-se-ri/13]
+     * openjdk version "17" 2021-09-14 [https://jdk.java.net/java-se-ri/17]
 
    Make sure that $JAVA_HOME/bin is in your PATH so the proper java and
    javac executables can be located.
