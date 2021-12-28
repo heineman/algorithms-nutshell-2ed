@@ -15,8 +15,8 @@ import algs.example.gui.problems.tictactoe.controller.GameController;
 public class TournamentController extends PlayGameController implements ActionListener {
 
 	/** Playing a tournament is an extensions of playing a game. */
-	public TournamentController(TicTacToeApplet applet) {
-		super(applet);
+	public TournamentController(TicTacToeGUI g) {
+		super(g);
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class TournamentController extends PlayGameController implements ActionLi
 		setup();
 
 		if (!computerPlaysSelf) {
-			applet.output("Unable to play tournament with human involved.");
+			gui.output("Unable to play tournament with human involved.");
 			return;
 		}
 

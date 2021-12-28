@@ -3,9 +3,6 @@ package algs.example.gui.canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import algs.example.gui.canvas.DrawingCanvas;
-import algs.example.gui.canvas.DrawingDecorator;
-import algs.example.gui.canvas.ElementCanvas;
 import algs.example.gui.model.IActiveRectangle;
 import algs.model.IRectangle;
 

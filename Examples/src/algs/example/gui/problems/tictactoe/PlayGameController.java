@@ -20,7 +20,7 @@ import java.awt.event.*;
  */
 public class PlayGameController implements ActionListener, MouseListener {
 	/** Remember the applet so we can get information from the GUI. */
-	TicTacToeApplet applet;
+	TicTacToeGUI gui;
 	
 	/** Current GameController. */
 	GameController controller;
@@ -41,26 +41,26 @@ public class PlayGameController implements ActionListener, MouseListener {
 	 * 
 	 * @param applet
 	 */
-	public PlayGameController (TicTacToeApplet applet) {
-		this.applet = applet;
+	public PlayGameController (TicTacToeGUI g) {
+		this.gui = g;
 	}
 	
 	
 	protected void setup () {
-		String gameType = applet.getSelectedGameType();
-		Logic logic = applet.getGameLogic (gameType);
+		String gameType = gui.getSelectedGameType();
+		Logic logic = gui.getGameLogic (gameType);
 		if (logic == null) {
-			applet.output ("You must select a game type.");
+			gui.output ("You must select a game type.");
 			return;
 		}
 
 		controller = new GameController (logic);
 			
 		// Find out the X Player
-		String xType = applet.getXPlayChoice();
+		String xType = gui.getXPlayChoice();
 		
 		// Find out the O Player
-		String oType = applet.getOPlayChoice();
+		String oType = gui.getOPlayChoice();
 		
 		computerGoesFirst = false;
 		computerPlaysSelf = true;
@@ -69,7 +69,7 @@ public class PlayGameController implements ActionListener, MouseListener {
 		boolean setOpponentX = false;
 		
 		Player p;
-		if (oType.equals (TicTacToeApplet.Human)) {
+		if (oType.equals (TicTacToeGUI.Human)) {
 			// Even though this is a human player, it will be involved in
 			// 
 			p = new MousePlayer(Player.OMARK);
@@ -82,7 +82,7 @@ public class PlayGameController implements ActionListener, MouseListener {
 			if (p == null) {
 				int ply = 5;  // default
 				try {
-					ply = Integer.valueOf(applet.getOPly().getText());
+					ply = Integer.valueOf(gui.getOPly().getText());
 				} catch (Exception _e) {
 					
 				}
@@ -92,7 +92,7 @@ public class PlayGameController implements ActionListener, MouseListener {
 		}
 		controller.setOPlayer(p);
 		
-		if (xType.equals (TicTacToeApplet.Human)) {
+		if (xType.equals (TicTacToeGUI.Human)) {
 			p = new MousePlayer(Player.XMARK);
 			p.score(new BoardEvaluation());
 			
@@ -104,7 +104,7 @@ public class PlayGameController implements ActionListener, MouseListener {
 			if (p == null) {
 				int ply = 5;  // default
 				try {
-					ply = Integer.valueOf(applet.getXPly().getText());
+					ply = Integer.valueOf(gui.getXPly().getText());
 				} catch (Exception _e) {
 					
 				}
@@ -156,21 +156,21 @@ public class PlayGameController implements ActionListener, MouseListener {
 			switch (state) {
 			
 				case GameController.DRAW:
-					applet.output ("Game is drawn");
+					gui.output ("Game is drawn");
 					break;
 					
 				case GameController.X_WINS:
-					applet.output ("X Wins!");
+					gui.output ("X Wins!");
 					break;
 				
 				case GameController.O_WINS:
-					applet.output ("O Wins!");
+					gui.output ("O Wins!");
 					break;
 			}
 		}
 		
 		// refresh view
-		applet.repaint();
+		gui.repaint();
 	}
 
 	/**
@@ -226,7 +226,7 @@ public class PlayGameController implements ActionListener, MouseListener {
 		Move m = controller.interpretMove(cell, humanPlayer);
 		
 		if (m == null) {
-			applet.output ("Invalid move. Try again");
+			gui.output ("Invalid move. Try again");
 			return;
 		}
 		
@@ -237,13 +237,13 @@ public class PlayGameController implements ActionListener, MouseListener {
 		int rc = controller.playTurn();
 
 		// refresh to ensure that move is visible again.
-		applet.repaint();
+		gui.repaint();
 		
 		if (rc != GameController.IN_PROGRESS) {
 			if (rc == GameController.DRAW) {
-				applet.output ("Game is drawn");
+				gui.output ("Game is drawn");
 			} else {
-				applet.output ("Game over. You Win!");
+				gui.output ("Game over. You Win!");
 			}
 		} else {
 			// update humanPlayer and deal with auto-play
@@ -264,9 +264,9 @@ public class PlayGameController implements ActionListener, MouseListener {
 			rc = controller.playTurn();
 			if (rc != GameController.IN_PROGRESS) {
 				if (rc == GameController.DRAW) {
-					applet.output ("Game is drawn");
+					gui.output ("Game is drawn");
 				} else {
-					applet.output ("Game over. You Lose!!!!!");
+					gui.output ("Game over. You Lose!!!!!");
 				}
 			}
 		}
