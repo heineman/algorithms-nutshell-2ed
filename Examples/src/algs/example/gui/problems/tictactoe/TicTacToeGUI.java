@@ -1,11 +1,12 @@
 package algs.example.gui.problems.tictactoe;
 
-import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+
+import javax.swing.JFrame;
 
 import algs.example.gui.problems.tictactoe.variations.annihilate.AnnihilateLogic;
 import algs.example.gui.problems.tictactoe.variations.neighbor.NeighborLogic;
@@ -16,7 +17,7 @@ import algs.model.problems.tictactoe.model.StraightLogic;
 
 
 /**
- * GUI for TicTacToe.
+ * GUI for TicTacToe, converted from an Applet into a JFrame.
  * <p>
  * Allows different types of players to be constructed to play head-to-head
  * competition of variations of tic tac toe. If both players are automated 
@@ -26,7 +27,7 @@ import algs.model.problems.tictactoe.model.StraightLogic;
  * @version 1.0, 6/15/08
  * @since 1.0
  */
-public class TicTacToeApplet extends Applet {
+public class TicTacToeGUI extends JFrame {
 
 	/**
 	 * To keep Eclipse happy.
@@ -49,6 +50,16 @@ public class TicTacToeApplet extends Applet {
 	private Label oPlyLabel = null;
 	
 	public static String Human = "Human";
+	
+	public static void main(String[] args) {
+		TicTacToeGUI tg = new TicTacToeGUI();
+		tg.setVisible(true);
+	}
+	
+	public TicTacToeGUI() {
+		super();
+		init();
+	}
 	
 	/**
 	 * Every applet has an init() method to initialize itself
