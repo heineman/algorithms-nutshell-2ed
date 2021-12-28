@@ -293,7 +293,7 @@ public class TrialSuite {
 		}
 		
 		// add to the set.
-		trials.add(new Long(endTime-startTime));
+		trials.add(Long.valueOf(endTime-startTime));
 	}
 
 

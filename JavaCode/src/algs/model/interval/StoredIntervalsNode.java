@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import algs.model.IBinaryTreeNode;
 import algs.model.IInterval;
-import algs.model.interval.SegmentTreeNode;
 
 /**
  * When a Segment Tree uses StoredIntervalsNode as the base node type, then a 

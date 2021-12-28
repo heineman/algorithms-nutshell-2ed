@@ -7,8 +7,6 @@ import java.nio.channels.*;
 /**
  * Demonstrates efficient merge sort by using the ability to memory map files for rapid access. 
  * 
- * There are some windows-specific code, unfortunately, that is needed to properly release resources.
- *  
  * @author George Heineman
  * @version 2.0, 8/6/15
  * @since 2.0
@@ -27,17 +25,6 @@ public class MergeSortFileMapped {
 		fos.close();
 	}
 
-	// inelegant need to manually close on some operating systems (Windows)
-	static void closeDirectBuffer(MappedByteBuffer mbb) {
-	    try {
-	        java.lang.reflect.Method cleaner = mbb.getClass().getMethod("cleaner");
-	        cleaner.setAccessible(true);
-	        java.lang.reflect.Method clean = Class.forName("sun.misc.Cleaner").getMethod("clean");
-	        clean.setAccessible(true);
-	        clean.invoke(cleaner.invoke(mbb));
-	    } catch(Exception ex) { }	   
-	}
-	
 	public static void mergesort (File A) throws IOException {
 		File copy = File.createTempFile("Mergesort", ".bin");
 		copyFile (A, copy);
@@ -51,9 +38,6 @@ public class MergeSortFileMapped {
 
 		mergesort (destMap, srcMap, 0, (int) A.length());
 		
-		// The following two invocations are needed only on Windows Platform:
-		closeDirectBuffer (srcMap);
-		closeDirectBuffer (destMap);
 		src.close();
 		dest.close();
 		copy.deleteOnExit();

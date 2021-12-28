@@ -5,8 +5,6 @@ import java.util.*;
 import algs.debug.IDebugSearch;
 import algs.debug.Legend;
 import algs.model.gametree.*;
-import algs.model.gametree.debug.AlphaBetaDebugNode;
-import algs.model.gametree.debug.ScoreNode;
 
 /**
  * Initiate AlphaBeta Evaluation over the given game state and ply.

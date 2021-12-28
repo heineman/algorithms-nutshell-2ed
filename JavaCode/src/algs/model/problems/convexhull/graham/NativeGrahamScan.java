@@ -135,8 +135,8 @@ public class NativeGrahamScan implements IConvexHull {
 		list.insert(pts[n-1]);
 
 		// If all points are collinear, handle now to avoid worrying about later
-		double firstAngle = Math.atan2(pts[0].getY() - lowest, pts[0].getX() - pts[n-1].getX());
-		double lastAngle = Math.atan2(pts[n-2].getY() - lowest, pts[n-2].getX() - pts[n-1].getX()); 
+		double firstAngle = Math.atan2(pts[0].getY() - lowestY, pts[0].getX() - pts[n-1].getX());
+		double lastAngle = Math.atan2(pts[n-2].getY() - lowestY, pts[n-2].getX() - pts[n-1].getX()); 
 		if (firstAngle == lastAngle) {
 			return new IPoint[] { pts[n-1], pts[0] };
 		}				

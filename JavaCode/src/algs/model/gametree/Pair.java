@@ -1,7 +1,5 @@
 package algs.model.gametree;
 
-import algs.model.gametree.MoveEvaluation;
-
 /**
  * Combines an {@link IGameState} position with a {@link MoveEvaluation}
  * that produced the game state.

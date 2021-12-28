@@ -2,8 +2,6 @@ package algs.model.array;
 
 import java.util.Comparator;
 
-import algs.model.array.IPivotIndex;
-
 /**
  * Implement a multi-threaded QuickSort that allows any number of helper threads
  * to help the computation.
