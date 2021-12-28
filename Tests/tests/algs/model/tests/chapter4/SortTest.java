@@ -14,7 +14,7 @@ public class SortTest extends TestCase {
 		// copy
 		Integer []copy = new Integer[8];
 		for (int i = 0; i < copy.length; i++) {
-			copy[i] = new Integer(i);
+			copy[i] = Integer.valueOf(i);
 		}
 		
 		// baseline for sorting. Should return false

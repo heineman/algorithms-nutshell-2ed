@@ -23,7 +23,7 @@ public class PolarAnglePointTest extends TestCase {
 		
 		// note angles are externally set, which makes it hard to test but eas(ier) to write graham scan
 		TwoDPoint pt2 = new TwoDPoint(15, 5);
-		PolarAnglePoint pap2 = new PolarAnglePoint(pt);
+		PolarAnglePoint pap2 = new PolarAnglePoint(pt2);
 		
 		// until you change angles, they are the same.
 		assertEquals (0, pap.compareTo(pap2));

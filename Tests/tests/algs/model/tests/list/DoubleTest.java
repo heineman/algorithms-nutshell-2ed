@@ -26,8 +26,8 @@ public class DoubleTest extends TestCase {
 		
 		// default to prepend.
 		DoubleLinkedList<String> list2 = new DoubleLinkedList<String>(null);
-		String s1 = new Integer(123).toString();
-		String s2 = new Integer(122+1).toString();
+		String s1 = Integer.valueOf(123).toString();
+		String s2 = Integer.valueOf(122+1).toString();
 		list2.insert(s1);
 		list2.insert(s2);
 		assertTrue (s2 == list2.first().value());
@@ -96,16 +96,16 @@ public class DoubleTest extends TestCase {
 		assertTrue (list.remove(s));
 		
 		// must actually be == to the object in the list, not just .equals.
-		list.insert (new Integer (123).toString());
-		assertFalse (list.remove(new Integer (123).toString()));
+		list.insert (Integer.valueOf(123).toString());
+		assertFalse (list.remove(Integer.valueOf(123).toString()));
 		
 		String s2 = new String ("Bed");
 		list.insert (s2);
 		list.insert ("Step");
 		list.insert ("Table");
 		// must actually be == to the object in the list, not just .equals.
-		list.insert (new Integer (123).toString());
-		assertFalse (list.remove(new Integer (123).toString()));
+		list.insert (Integer.valueOf(123).toString());
+		assertFalse (list.remove(Integer.valueOf(123).toString()));
 		assertTrue (list.remove(s2));
 		
 	}

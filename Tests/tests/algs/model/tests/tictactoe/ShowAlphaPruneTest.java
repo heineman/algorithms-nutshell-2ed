@@ -176,21 +176,21 @@ class InclusivePlayer extends IntelligentAgent {
 public class ShowAlphaPruneTest extends TestCase {
 	static char o = 'O';
 	static char x = 'X';
-	static char _ = ' ';
+	static char mt = ' ';  // "mt" stands for "empty"
 
 	public static TicTacToeBoard boards[] = new TicTacToeBoard[] {
-		new TicTacToeBoard(new char[][]{{o,_,x},{_,x,_},{_,_,_}}),
+		new TicTacToeBoard(new char[][]{{o,mt,x},{mt,x,mt},{mt,mt,mt}}),
 
-		new TicTacToeBoard(new char[][]{{o,o,x},{_,x,_},{_,_,_}}),
-		new TicTacToeBoard(new char[][]{{o,o,x},{x,x,_},{_,_,_}}),
-		new TicTacToeBoard(new char[][]{{o,o,x},{_,x,_},{x,_,_}}),
+		new TicTacToeBoard(new char[][]{{o,o,x},{mt,x,mt},{mt,mt,mt}}),
+		new TicTacToeBoard(new char[][]{{o,o,x},{x,x,mt},{mt,mt,mt}}),
+		new TicTacToeBoard(new char[][]{{o,o,x},{mt,x,mt},{x,mt,mt}}),
 
-		new TicTacToeBoard(new char[][]{{o,_,x},{_,x,_},{o,_,_}}),
-		new TicTacToeBoard(new char[][]{{o,x,x},{_,x,_},{o,_,_}}),
-		new TicTacToeBoard(new char[][]{{o,_,x},{x,x,_},{o,_,_}}),
+		new TicTacToeBoard(new char[][]{{o,mt,x},{mt,x,mt},{o,mt,mt}}),
+		new TicTacToeBoard(new char[][]{{o,x,x},{mt,x,mt},{o,mt,mt}}),
+		new TicTacToeBoard(new char[][]{{o,mt,x},{x,x,mt},{o,mt,mt}}),
 
-		new TicTacToeBoard(new char[][]{{o,_,x},{_,x,_},{_,_,o}}),
-		new TicTacToeBoard(new char[][]{{o,x,x},{_,x,_},{_,_,o}}),
+		new TicTacToeBoard(new char[][]{{o,mt,x},{mt,x,mt},{mt,mt,o}}),
+		new TicTacToeBoard(new char[][]{{o,x,x},{mt,x,mt},{mt,mt,o}}),
 	};
 
 

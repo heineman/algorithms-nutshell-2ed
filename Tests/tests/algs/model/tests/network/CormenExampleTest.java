@@ -83,7 +83,7 @@ public class CormenExampleTest extends TestCase {
 		java.util.Iterator<EdgeInfo> it = s.iterator();
 		while (it.hasNext()) {
 			EdgeInfo ei = it.next();
-			assertEquals (ei + " is not found", new Integer(1), edges.get(ei)); 
+			assertEquals (ei + " is not found", Integer.valueOf(1), edges.get(ei)); 
 			edges.remove(ei);
 		}
 		assertEquals (0, edges.size());

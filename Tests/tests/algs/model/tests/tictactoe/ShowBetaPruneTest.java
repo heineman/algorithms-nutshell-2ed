@@ -82,21 +82,21 @@ class SpecializedOBPlayer extends IntelligentAgent {
 public class ShowBetaPruneTest extends TestCase {
 	static char o = 'O';
 	static char x = 'X';
-	static char _ = ' ';
+	static char mt = ' ';    // "mt" stands for "empty"
 	
 	// vertical ordering.
 	public static TicTacToeBoard boards[] = new TicTacToeBoard[] {
-			new TicTacToeBoard(new char[][]{{_,_,_},{_,_,_},{_,_,_}}),
+			new TicTacToeBoard(new char[][]{{mt,mt,mt},{mt,mt,mt},{mt,mt,mt}}),
 			
-			new TicTacToeBoard(new char[][]{{x,_,_},{_,_,_},{_,_,_}}),
-			new TicTacToeBoard(new char[][]{{x,_,_},{_,o,_},{_,_,_}}),
-			new TicTacToeBoard(new char[][]{{x,_,_},{_,_,o},{_,_,_}}),
+			new TicTacToeBoard(new char[][]{{x,mt,mt},{mt,mt,mt},{mt,mt,mt}}),
+			new TicTacToeBoard(new char[][]{{x,mt,mt},{mt,o,mt},{mt,mt,mt}}),
+			new TicTacToeBoard(new char[][]{{x,mt,mt},{mt,mt,o},{mt,mt,mt}}),
 			
-			new TicTacToeBoard(new char[][]{{x,_,_},{_,x,o},{_,_,_}}),
-			new TicTacToeBoard(new char[][]{{x,_,_},{x,_,o},{_,_,_}}),
+			new TicTacToeBoard(new char[][]{{x,mt,mt},{mt,x,o},{mt,mt,mt}}),
+			new TicTacToeBoard(new char[][]{{x,mt,mt},{x,mt,o},{mt,mt,mt}}),
 			
-			new TicTacToeBoard(new char[][]{{x,x,_},{_,o,_},{_,_,_}}),
-			new TicTacToeBoard(new char[][]{{x,_,_},{_,o,_},{_,_,x}}),
+			new TicTacToeBoard(new char[][]{{x,x,mt},{mt,o,mt},{mt,mt,mt}}),
+			new TicTacToeBoard(new char[][]{{x,mt,mt},{mt,o,mt},{mt,mt,x}}),
 			
 	};
 

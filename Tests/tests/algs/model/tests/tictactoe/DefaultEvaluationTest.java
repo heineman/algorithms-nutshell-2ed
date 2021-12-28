@@ -20,7 +20,7 @@ public class DefaultEvaluationTest {
 	// help initialize boards in test cases.
 	static char o = 'O';
 	static char x = 'X';
-	static char _ = ' ';
+	static char mt = ' ';   // "mt" stands for "empty"
 	
 	@Test
 	public void testBoardEvaluation() {
@@ -95,10 +95,10 @@ public class DefaultEvaluationTest {
 		oPlayer.score(de);
 		
 		Object[][] cases = {
-				{ new TicTacToeBoard(new char[][]{{x,x,o},{x,x,o},{o,o,_}}), 10000 },
-				{ new TicTacToeBoard(new char[][]{{x,x,o},{_,o,_},{_,_,_}}), 1000 } ,
+				{ new TicTacToeBoard(new char[][]{{x,x,o},{x,x,o},{o,o,mt}}), 10000 },
+				{ new TicTacToeBoard(new char[][]{{x,x,o},{mt,o,mt},{mt,mt,mt}}), 1000 } ,
 				{ new TicTacToeBoard(new char[][]{{x,x,o},{o,o,x},{x,x,o}}), 0 },
-				{ new TicTacToeBoard(new char[][]{{x,x,o},{x,x,o},{o,_,o}}), Integer.MAX_VALUE },
+				{ new TicTacToeBoard(new char[][]{{x,x,o},{x,x,o},{o,mt,o}}), Integer.MAX_VALUE },
 		};
 		
 		for (int i = 0; i < cases.length; i++) {
