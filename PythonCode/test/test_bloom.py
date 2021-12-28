@@ -20,10 +20,13 @@ class TestHashtableMethods(unittest.TestCase):
     def test_multiple(self):
         hf1 = lambda e, size : hash(e) % size
         hf2 = lambda e, size : hash(e*e) % size
-        hf3 = lambda e, size : hash(1/e) if e != 0 else 1
+        hf3 = lambda e, size : hash(1/e) % size if e != 0 else 1
 
         bloom = bloomFilter(10000, [hf1, hf2, hf3])
     
+        for hf in [hf1, hf2, hf3]:
+            print(15,bloom.size,hf(15,bloom.size))
+            
         self.assertFalse(15 in bloom)
         bloom.add(15)
         self.assertTrue(15 in bloom)

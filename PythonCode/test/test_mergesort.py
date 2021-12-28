@@ -16,4 +16,4 @@ class TestMergeSortMethods(unittest.TestCase):
             sort(c)
             copy.sort()
             
-            self.assertEquals(c,copy)
+            self.assertEqual(c,copy)

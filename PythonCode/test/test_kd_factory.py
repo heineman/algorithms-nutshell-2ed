@@ -32,6 +32,6 @@ class TestKDTree(unittest.TestCase):
         self.assertEqual(70, tree.root.above.point[X])    
         
         # on Y-coordinate for two grand-children
-        self.assertEquals(100, tree.root.below.above.point[Y])
-        self.assertEquals(50, tree.root.above.above.point[Y])
+        self.assertEqual(100, tree.root.below.above.point[Y])
+        self.assertEqual(50, tree.root.above.above.point[Y])
         

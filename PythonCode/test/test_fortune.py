@@ -23,13 +23,13 @@ class TestFortuneMethods(unittest.TestCase):
         
         v = Voronoi(20,20)
         v.process([p1])
-        self.assertEquals(0, len(v.edges))
+        self.assertEqual(0, len(v.edges))
             
     def test_bisectorIntersection(self):
         pt = Point((2,1))
         arc = Arc(point = pt)
         y = arc.pointOnBisectionLine(5,0)
-        self.assertEquals (Point((5, 5.0)), y)
+        self.assertEqual (Point((5, 5.0)), y)
         
     def test_twoInitial(self):
         p1 = (8,4)
@@ -89,7 +89,7 @@ class TestFortuneMethods(unittest.TestCase):
         
         v = Voronoi(10,10)
         v.process([p1,p2,p3])
-        self.assertEquals (3, len(v.edges))
+        self.assertEqual (3, len(v.edges))
         for e in v.edges:
             self.valid([e.start, e.end], edges)
             
@@ -106,7 +106,7 @@ class TestFortuneMethods(unittest.TestCase):
         
         v = Voronoi(10,10)
         v.process([p1,p2,p3])
-        self.assertEquals (3, len(v.edges))
+        self.assertEqual (3, len(v.edges))
         for e in v.edges:
             print (e)
             self.valid([e.start, e.end], edges)
@@ -124,7 +124,7 @@ class TestFortuneMethods(unittest.TestCase):
         
         v = Voronoi(10,10)
         v.process([p1,p2,p3])
-        self.assertEquals (3, len(v.edges))
+        self.assertEqual (3, len(v.edges))
         for e in v.edges:
             self.valid([e.start, e.end], edges)
     
@@ -141,7 +141,7 @@ class TestFortuneMethods(unittest.TestCase):
         
         v = Voronoi(10,10)
         v.process([p1,p2,p3])
-        self.assertEquals (3, len(v.edges))
+        self.assertEqual (3, len(v.edges))
         for e in v.edges:
             self.valid([e.start, e.end], edges)        
     
@@ -248,8 +248,8 @@ class TestFortuneMethods(unittest.TestCase):
         
         x = root.getLargestLeftDescendant()
         y = root.getSmallestRightDescendant()
-        self.assertEquals ((1,0), (x.site.x, x.site.y))
-        self.assertEquals ((3,0), (y.site.x, y.site.y))
+        self.assertEqual ((1,0), (x.site.x, x.site.y))
+        self.assertEqual ((3,0), (y.site.x, y.site.y))
         
     def test_another(self):
         p1 = (11, 26)

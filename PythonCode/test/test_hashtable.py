@@ -24,7 +24,7 @@ class TestHashtableMethods(unittest.TestCase):
             print (i, self.table.bins[i])
             
         # now the hashtable is completely full. Can't add any more
-        self.assertEquals(-11, self.table.add("s" + str(12)))
+        self.assertEqual(-11, self.table.add("s" + str(12)))
         
     def test_badlinear(self):
         """linear with 0 must fail."""

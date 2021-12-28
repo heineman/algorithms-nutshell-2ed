@@ -23,8 +23,8 @@ class TestRMethods(unittest.TestCase):
         for node,_,status in self.tree.range(r):
             self.assertTrue(status)
             for rect, ident in node.leafOrder():
-                self.assertEquals(99, ident)
-                self.assertEquals(r, rect)
+                self.assertEqual(99, ident)
+                self.assertEqual(r, rect)
 
     # Expanded region for node with multiple insertions.
     def test_expand(self):
@@ -34,7 +34,7 @@ class TestRMethods(unittest.TestCase):
         self.tree.add(r, 99)
         self.tree.add(r2, 101)
                          
-        self.assertEquals(Region(10,20,70,80), self.tree.root.region)
+        self.assertEqual(Region(10,20,70,80), self.tree.root.region)
         
     # Add five regions and watch split.
     def test_split(self):
@@ -48,13 +48,13 @@ class TestRMethods(unittest.TestCase):
         self.tree.add(r3, 103)
         self.tree.add(r4, 105)
         
-        self.assertEquals(Region(-30,20,70,100), self.tree.root.region)
+        self.assertEqual(Region(-30,20,70,100), self.tree.root.region)
         
         r5 = Region(10,60,0,90)
         
         self.tree.add(r5, 107)
 
-        self.assertEquals(Region(-30,20,70,100), self.tree.root.region)
+        self.assertEqual(Region(-30,20,70,100), self.tree.root.region)
         
         # finds all rectangles.
         r_ids = []
@@ -65,7 +65,7 @@ class TestRMethods(unittest.TestCase):
             else:
                 r_ids.append(triple[1])
         r_ids.sort()
-        self.assertEquals ([99,101,103,105,107], r_ids)
+        self.assertEqual ([99,101,103,105,107], r_ids)
      
     def expand(self, region):
         """When Full Sub-trees returned as nodes traverse to expand nodes."""
@@ -88,7 +88,7 @@ class TestRMethods(unittest.TestCase):
         count = 0
         for _ in self.tree:
             count = count + 1
-        self.assertEquals(500, count)
+        self.assertEqual(500, count)
        
     def test_adding(self):
         # rectangles have all even numbered coordinates. Doesn't really matter since
@@ -123,7 +123,7 @@ class TestRMethods(unittest.TestCase):
                     if combined[i] == combined[j]:
                         print ("Duplicate:", combined[i])
         
-        self.assertEquals(len(q_all), len(combined))
+        self.assertEqual(len(q_all), len(combined))
                 
     def ensure_maxBounding(self, node):
         """Ensures R-Node guarantees max bounding rectangle for all interior nodes covers descendants."""
@@ -143,7 +143,7 @@ class TestRMethods(unittest.TestCase):
             s = Region(x*6, 2, x*6+47, 100)
             match = self.expand(s)
             
-            self.assertEquals(8, len(match))
+            self.assertEqual(8, len(match))
         
         self.ensure_maxBounding(self.tree.root)
         
@@ -158,7 +158,7 @@ class TestRMethods(unittest.TestCase):
                 s = Region(x*64, y*64, x*64+255, y*64+127)   # includes 2x4 selection or 8
                 match = self.expand(s)
             
-                self.assertEquals(8, len(match))
+                self.assertEqual(8, len(match))
         
     def test_multipleM(self):
         # check multiple m,M values
@@ -174,7 +174,7 @@ class TestRMethods(unittest.TestCase):
             # make sure all can be individually found
             for ctr in range(len(regions)):
                 match = [m for m in self.tree.search(regions[ctr][0])][0]
-                self.assertEquals(match, regions[ctr][0])
+                self.assertEqual(match, regions[ctr][0])
                 
             # make sure that all are contained within the 
             self.ensure_maxBounding(self.tree.root)
@@ -186,7 +186,7 @@ class TestRMethods(unittest.TestCase):
         self.tree.add(r, 99)
                          
         self.assertTrue(self.tree.search(r))
-        self.assertEquals(Region(10,20,50,60), self.tree.root.region)
+        self.assertEqual(Region(10,20,50,60), self.tree.root.region)
         
         # not in tree.
         self.assertFalse(self.tree.remove(Region(2,4,22,50)))
@@ -206,7 +206,7 @@ class TestRMethods(unittest.TestCase):
                          
         self.assertTrue(self.tree.search(r))
         self.assertTrue(self.tree.search(r2))
-        self.assertEquals(Region(10,20,70,80), self.tree.root.region)
+        self.assertEqual(Region(10,20,70,80), self.tree.root.region)
         
         # not in tree.
         self.assertFalse(self.tree.remove(Region(2,4,22,50)))
@@ -276,4 +276,4 @@ class TestRMethods(unittest.TestCase):
         ct = 0
         for _ in self.tree:
             ct += 1
-        self.assertEquals (0, ct)
+        self.assertEqual (0, ct)

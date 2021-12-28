@@ -49,7 +49,7 @@ class TestKDMethods(unittest.TestCase):
             if q not in combined:
                 print (q, " missing ")
         
-        self.assertEquals(len(q_all), len(combined))
+        self.assertEqual(len(q_all), len(combined))
         
         # validate searches are true
         for p in combined:

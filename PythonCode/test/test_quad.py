@@ -65,4 +65,4 @@ class TestQuadMethods(unittest.TestCase):
                     if combined[i] == combined[j]:
                         print ("Duplicate:", combined[i])
         
-        self.assertEquals(len(q_all), len(combined))
+        self.assertEqual(len(q_all), len(combined))
