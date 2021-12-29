@@ -1,12 +1,11 @@
 package algs.model.tests.network.matching;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.network.matching.Pair;
+import junit.framework.TestCase;
 
-public class PairTest {
+public class PairTest extends TestCase {
 
 	@Test
 	public void testPair() {

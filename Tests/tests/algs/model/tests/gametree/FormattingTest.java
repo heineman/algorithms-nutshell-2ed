@@ -1,7 +1,5 @@
 package algs.model.tests.gametree;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.gametree.IComparator;
@@ -9,13 +7,14 @@ import algs.model.gametree.debug.AlphaBetaDebugNode;
 import algs.model.gametree.debug.MinMaxNode;
 import algs.model.gametree.debug.NegMaxNode;
 import algs.model.gametree.debug.ScoreNode;
+import junit.framework.TestCase;
 
 /**
  * Since we changed the way that formatting is done, we get low-coverage counts arbitrarily because
  * code has been left in if we can ever get this working again. This test suite just exercises these
  * methods to make sure they no longer do anything.
  */
-public class FormattingTest {
+public class FormattingTest extends TestCase {
 
 	@Test
 	public void testNegMaxNode() {

@@ -1,7 +1,5 @@
 package algs.model.tests.debug;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +10,7 @@ import algs.debug.drawers.DiscardedNodeDrawer;
 import algs.debug.drawers.UnexploredNodeDrawer;
 import algs.model.gametree.MoveEvaluation;
 import algs.model.gametree.debug.AlphaBetaDebugNode;
+import junit.framework.TestCase;
 
 /**
  * The computed DOTTY output is based on hand-crafted examples. This test suite validates that 
@@ -20,7 +19,7 @@ import algs.model.gametree.debug.AlphaBetaDebugNode;
  * @author George Heineman
  *
  */
-public class DebugTest {
+public class DebugTest extends TestCase {
 
 	static final String label = "NODELABEL";
 	

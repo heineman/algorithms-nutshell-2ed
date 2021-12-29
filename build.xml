@@ -387,7 +387,6 @@
     <javadoc sourcepath="${adk.home}/src"
                 destdir="${docs.home}/api"
                 header="Algorithm&lt;br&gt;Development Kit ${app.version}"
-                footer="&lt;i&gt;Algorithm Development Kit ${app.version}&lt;/i&gt;"
                 bottom="&lt;font size=-1&gt;This code supports the
 &lt;i&gt;&lt;a
 href=&quot;http://oreilly.com/catalog/9780596516246/&quot;&gt;Algorithms in

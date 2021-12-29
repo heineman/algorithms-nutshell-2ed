@@ -1,7 +1,5 @@
 package algs.model.tests.intersections;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -12,8 +10,9 @@ import algs.model.IPoint;
 import algs.model.list.List;
 import algs.model.problems.segmentIntersection.LineSweep;
 import algs.model.twod.TwoDLineSegment;
+import junit.framework.TestCase;
 
-public class IntersectionDetectionTest {
+public class IntersectionDetectionTest extends TestCase {
 
 	@Test
 	public void testEntryPoints() {
