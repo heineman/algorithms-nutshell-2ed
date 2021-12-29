@@ -1,12 +1,11 @@
 package algs.model.tests.search;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.search.SimpleHash;
+import junit.framework.TestCase;
 
-public class SimpleHashTest {
+public class SimpleHashTest extends TestCase {
 
 	@Test
 	public void testSimpleHash() {

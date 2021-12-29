@@ -1,11 +1,11 @@
 package algs.model.tests.common;
 
-import static org.junit.Assert.*;
-
 import java.util.Iterator;
 import org.junit.Test;
 
-public class TrialSuiteTest {
+import junit.framework.TestCase;
+
+public class TrialSuiteTest extends TestCase {
 
 	@Test
 	public void testGetCount() {

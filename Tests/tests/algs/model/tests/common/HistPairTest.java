@@ -1,10 +1,13 @@
 package algs.model.tests.common;
 
-import static org.junit.Assert.*;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import org.junit.Test;
 
-public class HistPairTest {
+import junit.framework.TestCase;
+
+public class HistPairTest  extends TestCase {
 
 	@Test
 	public void testConstructor() {
@@ -22,11 +25,21 @@ public class HistPairTest {
 	}
 	
 	
-	@Test
 	public void testUpdates() {
 		HistPair hp = new HistPair (23, 88);
+		FileWriter myWriter;
+		try {
+			myWriter = new FileWriter("C:\\users\\heineman\\Desktop\\ERROR.txt");
+			myWriter.write("Output:" + hp.getCount());
+			myWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    System.out.println(hp.getCount());
 		assertEquals (88, hp.getCount());
 		hp.addCount();
+		System.out.println(hp.getCount());
 		assertEquals (89, hp.getCount());
 	}
 	
@@ -35,6 +48,7 @@ public class HistPairTest {
 		HistPair hp = new HistPair (23, 88);
 		HistPair hp2 = new HistPair (23, 88);
 		
+		System.out.println(hp.compareTo(hp2));
 		assertEquals (0, hp.compareTo(hp2));
 		
 		HistPair hp3 = new HistPair (30, 10);

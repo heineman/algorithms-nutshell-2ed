@@ -1,15 +1,14 @@
 package algs.model.tests.tictactoe;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.problems.tictactoe.model.Player;
 import algs.model.problems.tictactoe.model.StraightLogic;
 import algs.model.problems.tictactoe.model.TicTacToeBoard;
 import algs.model.problems.tictactoe.model.TicTacToeState;
+import junit.framework.TestCase;
 
-public class TicTacToeStateTest {
+public class TicTacToeStateTest extends TestCase {
 
 	@Test
 	public void testState() {

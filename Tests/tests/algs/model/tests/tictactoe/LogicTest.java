@@ -1,16 +1,15 @@
 package algs.model.tests.tictactoe;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.problems.tictactoe.model.Logic;
 import algs.model.problems.tictactoe.model.Player;
 import algs.model.problems.tictactoe.model.RandomPlayer;
 import algs.model.problems.tictactoe.model.StraightLogic;
+import junit.framework.TestCase;
 
 // not many tests in common across all Logic classes...
-public class LogicTest {
+public class LogicTest extends TestCase {
 
 	@Test
 	public void testMaxNumberMoves() {

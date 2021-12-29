@@ -1,13 +1,12 @@
 package algs.model.tests.data;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.data.points.CircleGenerator;
 import algs.model.data.points.UniformGenerator;
+import junit.framework.TestCase;
 
-public class UniformGeneratorTest {
+public class UniformGeneratorTest extends TestCase {
 
 	@Test
 	public void testParameters() {

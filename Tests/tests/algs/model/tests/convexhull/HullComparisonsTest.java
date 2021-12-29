@@ -24,7 +24,6 @@ import algs.model.twod.TwoDPoint;
  */
 public class HullComparisonsTest extends TestCase {
 
-	
 	@Test
 	public void testSizeThreeCollinear() {
 		IPoint[] points = new IPoint[] {

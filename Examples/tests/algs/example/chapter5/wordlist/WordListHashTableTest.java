@@ -1,7 +1,5 @@
 package algs.example.chapter5.wordlist;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -12,6 +10,7 @@ import algs.model.search.ListHashTable;
 import algs.model.search.ListHashTableReporter;
 import algs.model.search.SimpleHash;
 import algs.model.search.StringFileIterator;
+import junit.framework.TestCase;
 
 /**
  * Test the hash table utility functions.
@@ -19,7 +18,7 @@ import algs.model.search.StringFileIterator;
  * @author George Heineman
  * @author Gary Pollice
  */
-public class WordListHashTableTest {
+public class WordListHashTableTest extends TestCase {
 	
 	@Test
 	public void testCollisionReportWithStandardHash() throws IOException {

@@ -1,7 +1,5 @@
 package algs.model.tests.tictactoe;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.problems.tictactoe.model.Move;
@@ -11,8 +9,9 @@ import algs.model.problems.tictactoe.model.RandomPlayer;
 import algs.model.problems.tictactoe.model.StraightLogic;
 import algs.model.problems.tictactoe.model.TicTacToeBoard;
 import algs.model.problems.tictactoe.model.TicTacToeState;
+import junit.framework.TestCase;
 
-public class PlaceMarkTest {
+public class PlaceMarkTest extends TestCase {
 
 	@Test
 	public void testStraightLogic() {

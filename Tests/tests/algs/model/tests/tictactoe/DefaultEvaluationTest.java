@@ -1,7 +1,5 @@
 package algs.model.tests.tictactoe;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.gametree.MoveEvaluation;
@@ -14,8 +12,9 @@ import algs.model.problems.tictactoe.model.RandomPlayer;
 import algs.model.problems.tictactoe.model.StraightLogic;
 import algs.model.problems.tictactoe.model.TicTacToeBoard;
 import algs.model.problems.tictactoe.model.TicTacToeState;
+import junit.framework.TestCase;
 
-public class DefaultEvaluationTest {
+public class DefaultEvaluationTest extends TestCase {
 
 	// help initialize boards in test cases.
 	static char o = 'O';

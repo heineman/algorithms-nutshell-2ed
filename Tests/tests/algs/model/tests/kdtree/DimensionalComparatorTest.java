@@ -1,12 +1,11 @@
 package algs.model.tests.kdtree;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.kdtree.DimensionalComparator;
+import junit.framework.TestCase;
 
-public class DimensionalComparatorTest {
+public class DimensionalComparatorTest extends TestCase {
 
 	@Test
 	public void testDimensionalComparator() {

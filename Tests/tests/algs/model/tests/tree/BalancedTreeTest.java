@@ -1,7 +1,5 @@
 package algs.model.tests.tree;
 
-import static org.junit.Assert.*;
-
 import java.util.Iterator;
 
 import org.junit.Test;
@@ -10,9 +8,9 @@ import algs.model.IPoint;
 import algs.model.tree.BalancedBinaryNode;
 import algs.model.tree.BalancedTree;
 import algs.model.twod.TwoDPoint;
+import junit.framework.TestCase;
 
-public class BalancedTreeTest {
-
+public class BalancedTreeTest extends TestCase {
 
 	@Test
 	public void testNullEntries() {

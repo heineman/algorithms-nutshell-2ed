@@ -1,8 +1,5 @@
 package algs.model.tests.eightpuzzle;
 
-import static org.junit.Assert.*;
-
-
 import org.junit.Test;
 
 import algs.debug.DottyDebugger;
@@ -10,8 +7,9 @@ import algs.model.problems.eightpuzzle.EightPuzzleNode;
 import algs.model.problems.eightpuzzle.GoodEvaluator;
 import algs.model.searchtree.Solution;
 import algs.model.searchtree.debug.AStarSearch;
+import junit.framework.TestCase;
 
-public class ChallengeToGoodEvaluatorAStarSearchTest {
+public class ChallengeToGoodEvaluatorAStarSearchTest extends TestCase {
 
 	@Test
 	public void testSearch() {

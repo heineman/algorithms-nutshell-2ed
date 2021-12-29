@@ -1,13 +1,12 @@
 package algs.model.tests.kdtree;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.kdtree.DimensionalNode;
 import algs.model.nd.Hyperpoint;
+import junit.framework.TestCase;
 
-public class DimensionalNodeTest {
+public class DimensionalNodeTest extends TestCase {
 
 	@Test
 	public void testDimensionalNode() {

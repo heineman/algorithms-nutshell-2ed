@@ -1,13 +1,12 @@
 package algs.model.tests.segments;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.problems.segmentIntersection.AugmentedBalancedTree;
 import algs.model.problems.segmentIntersection.AugmentedNode;
+import junit.framework.TestCase;
 
-public class AugmentedBalancedTreeTest {
+public class AugmentedBalancedTreeTest extends TestCase {
 
 	@Test
 	public void testRoot() {

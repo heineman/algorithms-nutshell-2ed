@@ -1,7 +1,5 @@
 package algs.model.tests.eightpuzzle;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 
 import org.junit.Test;
@@ -10,10 +8,11 @@ import algs.debug.DottyDebugger;
 import algs.model.problems.eightpuzzle.BadEvaluator;
 import algs.model.problems.eightpuzzle.EightPuzzleNode;
 import algs.model.searchtree.debug.ClosedHeuristic;
+import junit.framework.TestCase;
 import algs.model.searchtree.Solution;
 import algs.model.searchtree.debug.AStarSearch;
 
-public class AStarSearchTest {
+public class AStarSearchTest extends TestCase {
 
 	@Test
 	public void testSearch() {

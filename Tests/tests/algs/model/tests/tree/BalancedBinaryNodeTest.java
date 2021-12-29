@@ -1,13 +1,12 @@
 package algs.model.tests.tree;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.tree.BalancedBinaryNode;
 import algs.model.tree.BalancedTree;
+import junit.framework.TestCase;
 
-public class BalancedBinaryNodeTest {
+public class BalancedBinaryNodeTest extends TestCase {
 
 	@Test
 	public void testTree() {

@@ -1,13 +1,12 @@
 package algs.model.tests.network;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.network.EdgeInfo;
 import algs.model.network.VertexStructure;
+import junit.framework.TestCase;
 
-public class VertexStructureTest {
+public class VertexStructureTest extends TestCase {
 
 	@Test
 	public void testConstruct() {

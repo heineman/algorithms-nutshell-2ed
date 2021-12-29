@@ -1,13 +1,12 @@
 package algs.model.tests.searchtree;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import algs.model.searchtree.Solution;
 import algs.model.searchtree.states.StateStorageFactory;
+import junit.framework.TestCase;
 
-public class BreadthFirstSearchTest {
+public class BreadthFirstSearchTest extends TestCase {
 
 	@Test
 	public void testFailedBFS() {

@@ -1,7 +1,5 @@
 package algs.model.tests.tictactoe;
 
-import static org.junit.Assert.*;
-
 import java.util.Collection;
 
 import org.junit.Test;
@@ -18,8 +16,9 @@ import algs.model.problems.tictactoe.model.RandomPlayer;
 import algs.model.problems.tictactoe.model.StraightLogic;
 import algs.model.problems.tictactoe.model.TicTacToeBoard;
 import algs.model.problems.tictactoe.model.TicTacToeState;
+import junit.framework.TestCase;
 
-public class RandomPlayerTest {
+public class RandomPlayerTest extends TestCase {
 
 	@Test
 	public void testFactory() {

@@ -10,7 +10,6 @@ import algs.model.problems.eightpuzzle.GoodEvaluator;
 import algs.model.searchtree.IMove;
 import algs.model.searchtree.IScore;
 
-
 public class NodeTest extends TestCase {
 	
 	@Test
