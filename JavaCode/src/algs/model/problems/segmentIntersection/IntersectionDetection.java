@@ -15,7 +15,7 @@ import algs.model.list.Node;
  * This superclass has been designed to enable the side-by-side comparison
  * of a number of line segment variations, where different data structures
  * are used to support the core algorithm.
- * <p>
+ * 
  * Note that one implication of using this structure is that the line state 
  * may not be emptied in between executions.
  * 
@@ -70,7 +70,7 @@ public abstract class IntersectionDetection {
 	 * of the array by two with each discovered point. However, since this
 	 * implementation affects equally the brute force implementation as well
 	 * as the LineSweep implementation, it was left as is.
-	 * <p>
+	 * 
 	 * @param p   an intersection point
 	 * @param il1 a member of a line pair that intersects at that intersection point
 	 * @param il2 the other member of a line pair that also intersects at that intersection point 
@@ -114,8 +114,10 @@ public abstract class IntersectionDetection {
 	 * This method is a helper method that makes it easy to add line segments that are intersecting
 	 * in one of three spots (upper, lower, intersecting).
 	 *  
-	 * @param p
-	 * @param lists
+	 * @param p         point of interest
+	 * @param lows      low points for segments 
+	 * @param ups       high points for segments
+	 * @param ints      intersection points
 	 */
 	protected void record(IPoint p, List<ILineSegment> lows, List<ILineSegment> ups, List<ILineSegment> ints) { 
 
@@ -171,10 +173,12 @@ public abstract class IntersectionDetection {
 
 	// timing
 
+	/** Complete the timing. */
 	protected void computeTime() {
 		computedTime = System.currentTimeMillis()-startingTime;
 	}
 
+	/** Start the timing. */
 	protected void startTime() {
 		startingTime = System.currentTimeMillis();
 	}

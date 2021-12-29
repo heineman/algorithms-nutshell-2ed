@@ -7,7 +7,7 @@ import algs.model.list.DoubleLinkedList;
 /**
  * Store information regarding the graph in a two-dimensional matrix. The
  * matrix may be either sparse or dense, depending upon the problem at hand.
- * <p>
+ * 
  * @author George Heineman
  */
 public class FlowNetworkArray extends FlowNetwork<EdgeInfo[][]> {

@@ -9,17 +9,17 @@ import algs.model.nd.Hypercube;
 
 /**
  * Standard unbalanced k-dimensional binary tree.
- * <p>
- * Stores a set of points against which one can execute 2-dimensional range queries
+ * 
+ * <p>Stores a set of points against which one can execute 2-dimensional range queries
  * against a rectangle D whose domain is defined by a rectangle D=[x1,x2] x [y1,y2].
  * Note that the rectangle could be infinite in none, one, or two of these dimensions
  * by having any of its coordinates set to Double.NEGATIVE_INFINITY or 
  * Double.POSITIVE_INFINITY. A rectangle could be one-dimensional (if either x1==x2 or
- * y1==y2) or zero-dimensional (if both x1==x2 and y1==y2).
- * <p>
- * Note that the example above is for Double values; the node values stored could be
- * of any type that implements Comparable. 
- * <p>
+ * y1==y2) or zero-dimensional (if both x1==x2 and y1==y2).</p>
+ * 
+ * <p>Note that the example above is for Double values; the node values stored could be
+ * of any type that implements Comparable. </p>
+ *
  * Original source derived from Bentley [1975].
  * http://portal.acm.org/citation.cfm?id=361007
  * 
@@ -39,7 +39,10 @@ public class KDTree {
 	boolean debug = false;
 	
 	// debugging stats
+	/** Number of times single recursion. */
 	private int numRecursion=0;
+	
+	/** Number of times double recursion. */
 	private int numDoubleRecursion=0;
 	
 	/** 
@@ -341,7 +344,16 @@ public class KDTree {
 	}
 	
 	// debugging output
+	/** 
+	 * Number of times single recursion occurred. 
+	 * @return  number of single recursions
+	 */
 	public int getNumRecursion() { return numRecursion; }
+	
+	/** 
+	 * Number of times double recursion occurred.
+	 * @return  number of double recursions
+	 */
 	public int getNumDoubleRecursion() { return numDoubleRecursion; }
 
 }

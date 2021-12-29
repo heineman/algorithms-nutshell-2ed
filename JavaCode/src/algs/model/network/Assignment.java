@@ -8,11 +8,16 @@ package algs.model.network;
  * The resulting Flow Network has m + n + 2 nodes. Note that the shipping 
  * "cost" from the virtual new source and new target are zero. All edges store the shipping 
  * cost, in addition to the flow and capacity constraints. 
- * <p>
+ * 
  * If a particular assignment is not possible then the cost should be Integer.MAX_VALUE.
  */
 public class Assignment extends Transportation {
 
+	/** 
+	 * Construct Assignment from 2d array of costs.
+	 *  
+	 * @param costs    initial 2d array of weighted costs 
+	 */
 	public Assignment(int[][] costs) {
 		super(craftSuppliers(costs), craftDemanders(costs), costs);
 	}

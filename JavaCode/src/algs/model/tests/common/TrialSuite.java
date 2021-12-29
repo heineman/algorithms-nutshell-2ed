@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 /**
  * Represents a suite of timed trials.
- * <p>
+ * 
  * Automatically throws away the lowest and highest of all trials sizes when
  * computing the average.
  * 
@@ -24,6 +24,11 @@ public class TrialSuite {
 	/** Histogram separator. */
 	public static final String histogramSeparator = "---------------------------------------";
 	
+	/** 
+	 * Produce header for the table.
+	 * 
+	 * @return table header 
+	 */
 	public final static String buildHeader() {
 		return "n,average,min,max,stdev,#";
 	}

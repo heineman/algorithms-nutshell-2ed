@@ -13,14 +13,17 @@ public class CounterKDTree implements IVisitKDNode {
 	/** Number found. */
 	int number;
 	
+	/** Instantiate node that records number of traversals. */
 	public CounterKDTree() {
 		number = 0;
 	}
 	
+	/** Each drain requests increments count. */
 	public void drain(DimensionalNode node) {
 		number++;
 	}
 
+	/** Visit will increment count. */
 	public void visit(DimensionalNode node) {
 		number++;
 	}

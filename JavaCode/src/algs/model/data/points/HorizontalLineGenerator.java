@@ -28,6 +28,11 @@ public class HorizontalLineGenerator extends Generator<IPoint> {
 		return params;
 	}
 	
+	/** 
+	 * Construct horizontal lines on given value.
+	 * 
+	 * @param yValue   desired y value
+	 */
 	public HorizontalLineGenerator (double yValue) {
 		this.yValue = yValue;
 	}

@@ -32,8 +32,10 @@ public class FifteenPuzzleNode implements INode, Comparable<FifteenPuzzleNode> {
 	/** Stored object for extensions. */
 	Object stored;
 	
-	/** Max constants */
+	/** Max row value. */
 	public static int MaxR = 3;
+	
+	/** Max column value. */
 	public static int MaxC = 3;
 
 	/** 
@@ -310,6 +312,13 @@ public class FifteenPuzzleNode implements INode, Comparable<FifteenPuzzleNode> {
 		return true;
 	}
 	
+	/**
+	 * Determines if location is empty
+	 * 
+	 * @param r   desired row
+	 * @param c   desired column
+	 * @return    true if board is empty at (r,c)
+	 */
 	public boolean isEmpty(int r, int c) {
 		return (board[r][c] == EmptyMark);
 	}

@@ -55,7 +55,7 @@ public class Hypercube implements IHypercube {
 	
 	/**
 	 * Construct an n-dimensional hypercube.
-	 * <p>
+	 * 
 	 * The dimensionality is assumed to be the length of either array.
 	 * 
 	 * @param lows    vector of low values
@@ -82,10 +82,10 @@ public class Hypercube implements IHypercube {
 	
 	/**
 	 * Convenience method to construct a 2-dimensional Hypercube from two points.
-	 * <p>
+	 * 
 	 * Note that the order of these parameters is at odds with what would be found
 	 * in RectangularRegion.
-	 * <p>
+	 * 
 	 * @param xlow    x-low coordinate of a 2d hypercube.
 	 * @param xhigh   x-high coordinate of a 2d hypercube.
 	 * @param ylow    y-low coordinate of a 2d hypercube.
@@ -235,7 +235,7 @@ public class Hypercube implements IHypercube {
 	
 	/** 
 	 * Determine if the hypercube wholly contains the given hypercube h.
-	 * <p>
+	 * 
 	 * The hypercube presents closed intervals on all dimensions. Note that if
 	 * -INF or +INF is present, then we can take care to ensure proper containment
 	 * even in face of boundless dimensions.
@@ -270,7 +270,7 @@ public class Hypercube implements IHypercube {
 	
 	/** 
 	 * Determine if the hypercube intersects the given hypercube h.
-	 * <p>
+	 * 
 	 * The hypercube presents closed intervals on all dimensions. Note that if
 	 * -INF or +INF is present, then we can take care to ensure proper containment
 	 * even in face of boundless dimensions.

@@ -2,7 +2,7 @@ package algs.model;
 
 /**
  * A Line Segment between two-dimensional points.
- * <p>
+ * 
  * The common etiquette is that the start of a line segment has the higher y-value
  * than the end of the line segment; note for horizontal line segments the start
  * will be the one whose x-value is smaller (i.e., left-to-right).
@@ -13,10 +13,16 @@ package algs.model;
  */
 public interface ILineSegment {
 
-	/** Types of intersecting line segments. */
+	/** Parallel intersecting line segments. */
 	public static final int PARALLEL = 0;
+	
+	/** Coincident intersecting line segments (on an end point). */
 	public static final int COINCIDENT = 1;
+	
+	/** Valid intersecting line segments. */
 	public static final int INTERSECTING = 2;
+	
+	/** Non-intersecting line segments. */
 	public static final int NON_INTERSECTING = -1;
 	
 	/** 

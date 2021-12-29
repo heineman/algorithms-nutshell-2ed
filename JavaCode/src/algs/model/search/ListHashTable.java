@@ -5,10 +5,10 @@ import java.util.LinkedList;
 
 /**
  * HashTable that uses list collision to store objects whose keys collide.
- * <p>
+ * 
  * Stores the objects as the keys themselves.
- * <p>
- * @param V   type of element to be the element stored in the Hash table
+ * 
+ * @param <V>   type of element to be the element stored in the Hash table
  * 
  * @author George Heineman
  * @author Gary Pollice
@@ -77,7 +77,12 @@ public class ListHashTable<V> extends HashTable<V,V> {
 		}
 	}
 
-	/** Reduced for Figure 5-6 in second edition. */
+	/** 
+	 * Reduced for Figure 5-6 in second edition.
+	 * 
+	 * @param it   Iterator of values to use
+	 */
+	@SuppressWarnings("unchecked")
 	public void load_Figure5_6(Iterator<V> it) {
 		table = (LinkedList<V>[]) new LinkedList[tableSize];
 

@@ -55,6 +55,12 @@ public class StateStorageFactory {
 	/** Combines HASH for contains() queries while using TREE for ordering. */
 	public static final int PRIORITY_RETRIEVAL = 6;
 	
+	/** 
+	 * Create appropriate structure to use. 
+	 * 
+	 * @param type  Type of collection to use
+	 * @return  the collection
+	 */
 	public static INodeSet create (int type) {
 		switch (type) {
 			case ORDERED:

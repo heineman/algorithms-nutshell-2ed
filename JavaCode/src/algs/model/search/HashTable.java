@@ -7,8 +7,8 @@ import java.util.Iterator;
  * <p>
  * The two known subclasses are ListHashTable and ProbeHashTable.
  * 
- * @param K   type of element to be stored as an entry in the hash table.
- * @param V   type of element to be a value associated with an entry in the hash table.
+ * @param <K>   type of element to be stored as an entry in the hash table.
+ * @param <V>   type of element to be a value associated with an entry in the hash table.
  * 
  * @author Gary Pollice
  * @author George Heineman

@@ -5,16 +5,16 @@ import java.util.Comparator;
 /**
  * Implement a multi-threaded QuickSort that allows any number of helper threads
  * to help the computation.
- * <p>
- * Essentially an extension of {@link QuickSort} where the array contains objects
+ * 
+ * <p>Essentially an extension of {@link QuickSort} where the array contains objects
  * that, by default, do not implement {@link Comparable} but there is a method
  * which can be used to compare two elements. This class was designed to let us
- * investigate the ability to use {@link QuickSort} within {@link algs.model.problems.convexhull.andrew.ConvexHullScan}
- * <p>
+ * investigate the ability to use {@link QuickSort} within {@link algs.model.problems.convexhull.andrew.ConvexHullScan}.</p>
+ * 
  * Note that {@link IPivotIndex} was mistakenly specified to take an array of {@link Comparable}
  * so we couldn't use this interface. 
  * 
- * @param E   base element for the set.
+ * @param <E>   base element for the set.
  * 
  * @author George Heineman
  * @version 1.0, 6/1/09
@@ -67,7 +67,7 @@ public class QuickSortExternal<E> {
 	/**
 	 * Construct an instance to solve quicksort and initialize the threshold
 	 * to be 20% of the original array size.
-	 * <p>
+	 * 
 	 * @param ar    array to be sorted.
 	 * @param comp  comparison function to use
 	 */
@@ -161,7 +161,7 @@ public class QuickSortExternal<E> {
 
 	/**
 	 * Single-thread sort using quicksort method.
-	 * <p>
+	 *
 	 * @param left     The left-bounds within which to sort (0 &le; left &lt; ar.length)
 	 * @param right    The right-bounds within which to sort (0 &le; right &lt; ar.length)
 	 */

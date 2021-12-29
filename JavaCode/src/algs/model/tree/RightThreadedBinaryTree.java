@@ -91,7 +91,7 @@ public class RightThreadedBinaryTree<T extends Comparable<T>> implements Iterabl
 	  * 
 	  * Note that setting the root properly links the node into the artificial root node. 
 	  * 
-	  * @param newRoot
+	  * @param newRoot    new root to use
 	  */
 	protected void setRoot (RightThreadedBinaryNode<T> newRoot) {
 		artificialRoot.left = newRoot;

@@ -25,6 +25,11 @@ public class ConvertToND extends Generator<IMultiPoint> {
 		return pointGen.parameters();
 	}
 	
+	/** 
+	 * Construct from initial point generator.
+	 * 
+	 * @param pointGen   point generator to use      
+	 */
 	public ConvertToND(Generator<IPoint> pointGen) {
 		this.pointGen = pointGen;
 	}

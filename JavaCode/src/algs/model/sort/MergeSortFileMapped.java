@@ -13,6 +13,13 @@ import java.nio.channels.*;
  */
 public class MergeSortFileMapped {
 
+	/**
+	 * Helper method to copy file into destination.
+	 * 
+	 * @param src       Source file to copy
+	 * @param dest      Destination file
+	 * @throws IOException  should any problem occur.
+	 */
 	static void copyFile(File src, File dest) throws IOException {
 		FileInputStream fis = new FileInputStream(src);
 		FileOutputStream fos = new FileOutputStream (dest);
@@ -25,6 +32,12 @@ public class MergeSortFileMapped {
 		fos.close();
 	}
 
+	/** 
+	 * Perform mergesort on the file.
+	 * 
+	 * @param A   file to be sorted
+	 * @throws IOException if unable to access files or temporary files
+	 */
 	public static void mergesort (File A) throws IOException {
 		File copy = File.createTempFile("Mergesort", ".bin");
 		copyFile (A, copy);
@@ -43,6 +56,15 @@ public class MergeSortFileMapped {
 		copy.deleteOnExit();
 	}
 
+	/**
+	 * Helper function for performing mergesort on the MappedByteBuffer, using A as auxiliary.
+	 * 
+	 * @param A         Auxiliary to use
+	 * @param result    where merged result is to be stored
+	 * @param start     start of range
+	 * @param end       end of range
+	 * @throws IOException
+	 */
 	static void mergesort(MappedByteBuffer A, MappedByteBuffer result, 
 			int start, int end) throws IOException {
 

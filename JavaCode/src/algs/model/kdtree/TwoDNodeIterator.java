@@ -15,11 +15,30 @@ import algs.model.IPoint;
 public class TwoDNodeIterator implements Iterator<IPoint> {
 	
 	/** Binary traversals have three phases. */
-	public enum Phase { LEFT, SELF, RIGHT, DONE };
+	public enum Phase { 
+		/** Left phase. */
+		LEFT, 
+		
+		/** Self phase. */
+		SELF, 
+		
+		/** Right phase. */
+		RIGHT, 
+		
+		/** Done phase. */
+		DONE 
+	};
 	
+	/** Left phase of traversal. */
 	public static final Phase left = Phase.LEFT;
+	
+	/** Self phase of traversal. */
 	public static final Phase self = Phase.SELF;
+	
+	/** Right phase of traversal. */
 	public static final Phase right = Phase.RIGHT;
+	
+	/** Done phase of traversal. */
 	public static final Phase done = Phase.DONE;
 	
 	/** A moment in the computation of the traversal. */

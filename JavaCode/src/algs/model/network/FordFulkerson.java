@@ -6,15 +6,16 @@ import java.util.Arrays;
  * Given a flow network (see definition below) with known capacities on 
  * each directed edge, compute the maximal flow between the source vertex
  * and the sink vertex.
- * <p>
- * A Flow Network is a directed graph G=(V,E) with two special vertices,
+ * 
+ * <p>A Flow Network is a directed graph G=(V,E) with two special vertices,
  * source and sink. Each edge (u, v) has an associated capacity c(u,v) &ge; 0,
  * and the resulting computation leaves f(u,v) flow values with each edge.
  * Since it is likely that the problem data is stored in a rich set of classes,
  * this algorithm assumes that the multi-dimensional data needed by the algorithm
- * is provided up-front.
- * <p>
- * The structure of the data is as follows:
+ * is provided up-front.</p>
+ * 
+ * <p>The structure of the data is as follows:</p>
+ * 
  * Each edge (i,j) is represented by an EdgeInfo object containing:
  *    <ul><li>capacity: The capacity of the edge (or zero if that edge doesn't exist)
  *        <li>flow    : The current flow over the edge (or zero if no flow)
@@ -34,7 +35,7 @@ import java.util.Arrays;
  * While the FlowNetwork and Search classes are parameterized, at this 
  * level of detail there is no need to know what its generic parameter is,
  * which is why we suppress warnings about generics.
- * <p>
+ * 
  * @author George Heineman
  */
 public class FordFulkerson {

@@ -98,7 +98,8 @@ public class CreateImage {
 	/** 
 	 * Get the node identified by the integer index. 
 	 * 
-	 * @param idx
+	 * @param idx   which node to retrieve
+	 * @return      desired node
 	 */
 	protected IGraphEntity get(int idx) {
 		return nodes.get(idx);

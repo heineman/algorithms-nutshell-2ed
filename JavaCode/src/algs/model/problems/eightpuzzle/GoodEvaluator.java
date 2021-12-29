@@ -88,7 +88,7 @@ public class GoodEvaluator implements IScore {
 	 * by checking around the noncentral squares in turn, allotting 2 for every 
 	 * tile not followed by its proper successor and 0 for every other tile, except
 	 * that a piece in the center scores 1.
-	 * <p>
+	 * 
 	 * Compute f^(n) = g^(n) + h^(n) where g(n) is the length of the path form the start node
 	 * n to the state.
 	 * 

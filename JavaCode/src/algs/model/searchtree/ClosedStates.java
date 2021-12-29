@@ -18,6 +18,7 @@ public class ClosedStates implements INodeSet, Iterable<INode> {
 	/** Use double linked list for storage. */
 	DoubleLinkedList<INode> closed;
 	
+	/** Construct initial empty closed state. */
 	public ClosedStates() {
 		closed = new DoubleLinkedList<INode>();
 	}

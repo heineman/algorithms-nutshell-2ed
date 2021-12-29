@@ -11,7 +11,6 @@ import algs.model.tree.BalancedTree;
 /**
  * Maintains the set of open states using a Hash for quick contains() but also
  * stores binary tree of evaluations for quick getMin().
- * <p>
  * 
  * @author George Heineman
  * @version 2.0, 8/30/15

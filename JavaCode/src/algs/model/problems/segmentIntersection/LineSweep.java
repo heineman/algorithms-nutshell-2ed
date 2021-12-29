@@ -43,6 +43,7 @@ public class LineSweep extends IntersectionDetection {
     /** Maintain a count of any errors found so far. */
     int errorCount;
     
+    /** No argument constructor. */
 	public LineSweep  () {
 		super();
 	}

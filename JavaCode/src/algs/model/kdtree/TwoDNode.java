@@ -6,7 +6,7 @@ import algs.model.twod.TwoDRectangle;
 
 /**
  * Represents the base class of a node in the TwoD tree.
- * <p>
+ * 
  * This class is intended as a simpler, optimized implementation of {@link DimensionalNode}
  * for two dimensional KD trees. 
  * 
@@ -307,6 +307,7 @@ public abstract class TwoDNode {
 	 * Vertical subclasses.
 	 * 
 	 * @param    r    query rectangle
+	 * @return true if in the below range
 	 */
 	protected abstract boolean inBelowRange(IRectangle r);
 	
@@ -315,6 +316,7 @@ public abstract class TwoDNode {
 	 * Vertical subclasses.
 	 * 
 	 * @param    r    query rectangle
+	 * @return true if in the above range
 	 */
 	protected abstract boolean inAboveRange(IRectangle r);
 	

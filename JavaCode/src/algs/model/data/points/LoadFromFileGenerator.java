@@ -37,6 +37,11 @@ public class LoadFromFileGenerator extends Generator<IPoint> {
 	/** File to contain the info, one per line with four doubles for x1,y1, x2,y2 */
 	File file;
 	
+	/** 
+	 * Load file from the given string.
+	 * 
+	 * @param s   file name to use
+	 */
 	public LoadFromFileGenerator (String s) {
 		this.file = new File (s);
 	}

@@ -108,8 +108,14 @@ public class DepthFirstSearch implements ISearch {
 		return new Solution (initial, goal, false);
 	}
 
+
 	// statistical information to evaluate algorithms effectiveness.
+	/** Number of moves computed. */
 	public int numMoves = 0;
+	
+	/** Number of open states discovered. */
 	public int numOpen = 0;
+	
+	/** Number of closed states once completed. */
 	public int numClosed = 0;
 }

@@ -18,8 +18,13 @@ import algs.model.problems.convexhull.graham.GrahamScan.PolarSorter;
  * here so the code properly compiles. Thus it never executes in the Graham Scan context.
  */
 public class PolarAnglePoint implements Comparable<PolarAnglePoint>{
+	/** X value of point. */
 	public final double x;
+	
+	/** Y value of point. */
 	public final double y;
+	
+	/** Original point. */
 	public final IPoint original;
 	
 	/** Uncomputed angles are set to maximum value. Making public to allow external comparisons with compareTo. */

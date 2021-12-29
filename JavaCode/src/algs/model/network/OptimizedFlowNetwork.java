@@ -6,7 +6,7 @@ import algs.model.list.DoubleLinkedList;
 
 /**
  * Store information regarding the graph in a two-dimensional matrix.
- * <p>
+ * 
  * This optimized implementation computes the Ford-Fulkerson algorithm
  * entirely using arrays. The improved efficiency can be benchmarked by
  * comparing its performance with the {@link FordFulkerson} implementation.
@@ -98,15 +98,16 @@ public class OptimizedFlowNetwork {
 
 	/**
 	 * Augments the flows within the network along the path found from source to sink.
-	 * <p>
+	 * 
 	 * Walking backwards from the sink vertex to the source vertex, this updates the flow
 	 * values for the edges in the augmenting path.
-	 * <p>
+	 * 
 	 * Note that the available units in the sinkIndex are used as the additive value (for
 	 * forward edges) and the subtractive value (for backward edges).
 	 * 
 	 * @param source    source index of the augmenting path
 	 * @param sink      sink index of the augmenting path
+	 * @return   result computed from the path
 	 */
 	protected int processPath(int source, int sink) {
 		int v = sink;
@@ -133,6 +134,11 @@ public class OptimizedFlowNetwork {
 		return increment;
 	}
 	
+	/**
+	 * Returns the min cut as a collection of EdgeInfo
+	 * 
+	 * @return   MinCut as a collection of EdgeInfo objects.
+	 */
 	public DoubleLinkedList<EdgeInfo> getMinCut() {
 		DoubleLinkedList<EdgeInfo> dl = new DoubleLinkedList<EdgeInfo>();
 		
@@ -196,10 +202,18 @@ public class OptimizedFlowNetwork {
 		return visited[sink] != 0;  // did we make it to the sink?
 	}
 
+	/**
+	 * Return the sink vertex.
+	 * @return the sink vertex
+	 */
 	public int getSink() {
 		return sink;
 	}
 
+	/**
+	 * Return the source vertex.
+	 * @return the source vertex
+	 */
 	public int getSource() {
 		return source;
 	}

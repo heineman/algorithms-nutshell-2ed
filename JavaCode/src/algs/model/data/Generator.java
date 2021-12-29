@@ -3,7 +3,7 @@ package algs.model.data;
 
 /**
  * Generator of a fixed number of elements.
- * <p>
+ * 
  * @param <E>   the type of entity being generated.
  * 
  * @author George Heineman

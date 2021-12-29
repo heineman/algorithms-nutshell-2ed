@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 /**
  * Provide minimal iterator to walk through the next pointers in the {@link DoubleLinkedList}.
- * <p>
  * 
  * @param <E>   Underlying type of the element values stored by each node
  * 
@@ -55,9 +54,9 @@ public class DoubleLinkedListIterator<E> implements Iterator<E> {
 	/**
 	 * Remove the most recent element retrieved by the {@link #next()} iterator method.
 	 * 
-	 * @exception IllegalStateException if the <tt>next</tt> method has not
-     *		  yet been called, or the <tt>remove</tt> method has already
-     *		  been called after the last call to the <tt>next</tt>
+	 * @exception IllegalStateException if the <pre>next</pre> method has not
+     *		  yet been called, or the <pre>remove</pre> method has already
+     *		  been called after the last call to the <pre>next</pre>
      *		  method.
      */
 	public void remove() {

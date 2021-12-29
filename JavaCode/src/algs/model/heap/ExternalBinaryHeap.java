@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Declared as 'External' since all comparison is external via a provided
  * comparator class.
- * <p>
+ * 
  * Functionality is identical to BinaryHeap
  * 
  * @param <E>    Type of element stored in the BinaryHeap. Doesn't need to be Comparable because this relies
@@ -78,6 +78,11 @@ public class ExternalBinaryHeap<E> {
 		_elements[i] = obj;
 	}
 
+	/** 
+	 * Return the smallest value. 
+	 * 
+	 * @return the smallest value
+	 */
 	public E smallest() { 
 		E id = _elements[1];
 		int pIdx;

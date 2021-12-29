@@ -49,6 +49,7 @@ public class DisjointPairs<A,B> {
 	 * @param b    second element in paired tuple (a,b)
 	 * @return     true if able to add this disjoint pairing; false otherwise.
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean add (A a, B b) {
 		if (setB.containsKey(a) || setA.containsKey(b)) {
 			throw new IllegalArgumentException ("Non Bipartite Graph would be formed by adding edge (" + a + "," + b + ")");
@@ -94,18 +95,34 @@ public class DisjointPairs<A,B> {
 		return pairings.keySet().iterator();
 	}
 	
+	/** 
+	 * Get source index.
+	 *  
+	 * @return   source index
+	 */
 	public int sourceIndex() {
 		return 0;
 	}
 	
+	/** 
+	 * Get sink index.
+	 *  
+	 * @return   sink index
+	 */
 	public int sinkIndex() { 
 		return ctr+1;
 	}
 	
+	/** 
+	 * Get number of vertices
+	 *  
+	 * @return   Number of vertices
+	 */
 	public int numVertices() {
 		return ctr+2;
 	}
 
+	/** Output Edge information to the console. */
 	public void output() {
 		for (EdgeInfo ei : pairings.keySet()) {
 			// make sure we are a valid pairing (not fictitious one) and there is

@@ -37,7 +37,7 @@ public class AugmentedBalancedTree<K> extends BalancedTree<K,K> {
      * Constructs a new, empty tree sorted according to the given comparator.
      * 
      * @param c the comparator that will be used to sort this map.  A
-     *        <tt>null</tt> value indicates that the keys' <i>natural
+     *        <pre>null</pre> value indicates that the keys' <i>natural
      *        ordering</i> should be used.
      */
     public AugmentedBalancedTree(Comparator<? super K> c) {
@@ -50,9 +50,10 @@ public class AugmentedBalancedTree<K> extends BalancedTree<K,K> {
      * Subclass extensions of BalancedTree must override this method to
      * insert the appropriate node of the appropriate subclass.
      * 
-     * @param key
-     * @param value
-     * @param parent
+     * @param key      key for this node
+     * @param value    value to associate with key
+     * @param parent   parent for node
+     * @return         properly constructed node
      */
     protected AugmentedNode<K> construct(K key, K value, AugmentedNode<K> parent) {
     	return new AugmentedNode<K>(key, value, parent);

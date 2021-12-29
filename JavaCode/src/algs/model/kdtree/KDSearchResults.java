@@ -33,6 +33,7 @@ public class KDSearchResults implements Iterator<IMultiPoint> {
 	/** Once true, iteration has begun and no more points or nodes can be added. */
 	boolean inProgress = false;
 	
+	/** No argument constructor. */
 	public KDSearchResults () {
 		
 	}

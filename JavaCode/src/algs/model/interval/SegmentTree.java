@@ -271,11 +271,11 @@ public class SegmentTree<T extends SegmentTreeNode<?>> extends AbstractSet<IInte
 	/**
      * Removes a single instance of the specified element from this
      * collection, if it is present (optional operation).  More formally,
-     * removes an element <tt>e</tt> such that <tt>(o==null ? e==null :
-     * o.equals(e))</tt>, if the collection contains one or more such
-     * elements.  Returns <tt>true</tt> if the collection contained the
+     * removes an element <pre>e</pre> such that <pre>(o==null ? e==null :
+     * o.equals(e))</pre>, if the collection contains one or more such
+     * elements.  Returns <pre>true</pre> if the collection contained the
      * specified element (or equivalently, if the collection changed as a
-     * result of the call).<p>
+     * result of the call).
      * 
      * We override this method to improve the efficiency of the implementation.
      * You can remove it to witness the extra performance costs from using
@@ -314,12 +314,12 @@ public class SegmentTree<T extends SegmentTreeNode<?>> extends AbstractSet<IInte
      * stored within the Segment tree. Note that if we didn't overwrite this method, the
      * comparison would be against the internal nodes of the segment tree, not the value(s) being
      * contained by those nodes.
-     * <p>
+     * 
      * Subclasses can override this 'contains' to actually peek into the extra information that
      * is going to be stored by the appropriate nodes.
-     * <p>
+     * 
      * Note the object is not checked for whether it is a valid IInterval.
-     * <p>
+     * 
      * @param o     {@link IInterval} object to be searched for.
      * @exception   ClassCastException if o does not implement the IInterval interface
      * @see java.util.AbstractCollection#contains(Object)

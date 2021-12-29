@@ -14,6 +14,12 @@ public class HistPair implements Comparable<HistPair> {
 	/** Maintain the number of executions of this exact time. Is mutable. */
 	int count;
 	
+	/**
+	 * Construct a pair with (time to compute in ms, count).
+	 * 
+	 * @param time    Time to compute
+	 * @param count   Count of this time
+	 */
 	public HistPair (long time, int count) {
 		this.time = time;
 		this.count = count;

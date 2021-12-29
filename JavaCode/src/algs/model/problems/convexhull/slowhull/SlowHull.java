@@ -157,9 +157,9 @@ public class SlowHull implements IConvexHull {
 	 * 
 	 * Given line (i,j), determine which side points[m] is on. Then verify that
 	 * this is the case for line (j,k) and line (k,i) in that order and direction.
-	 * <p>
+	 * 
 	 * Note that points that are collinear with any of the edges are determined to be "inside"
-	 * <p>
+	 * 
 	 * @param points  original IPoint array into which (i,j,k) index
 	 * @param m   index of target point to be investigated
 	 * @param i   index of point 1

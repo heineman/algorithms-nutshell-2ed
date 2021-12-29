@@ -121,6 +121,7 @@ import algs.model.tree.debug.BinaryTreeDebugger;
  * @since 1.0
  */
 public class DottyDebugger implements IDebugSearch {
+	/** Internal counter. */
 	public static int _ctr = 0;
 	
 	/** Start key. */
@@ -147,12 +148,16 @@ public class DottyDebugger implements IDebugSearch {
 	/** Rank of the drawing (can be changed to LeftRight). */
 	String optionalRank = "";
 
-	/** These fonts are embeddable within PDF documents. */
+	/** Embeddable Font size within PDF documents. */
 	public static final int defaultFontSize = 10;
+	
+	/** Embeddable Font name within PDF documents. */
 	public static final String defaultFontName = "TimesNewRomanPSMT";
 	
-	/** Ordering types. */
+	/** Depth First Search Ordering type. */
 	public static final String DepthFirstOrdering = "in";
+	
+	/** Breath First Search Ordering type. */
 	public static final String BreadthFirstOrdering = "out";
 	
 	/** Uniq file names for output. */

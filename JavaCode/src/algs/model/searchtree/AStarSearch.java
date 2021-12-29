@@ -104,7 +104,12 @@ public class AStarSearch implements ISearch {
 	}
 	
 	// statistical information to evaluate algorithms effectiveness.
+	/** Number of moves computed. */
 	public int numMoves = 0;
+	
+	/** Number of open states discovered. */
 	public int numOpen = 0;
+	
+	/** Number of closed states once completed. */
 	public int numClosed = 0;
 }

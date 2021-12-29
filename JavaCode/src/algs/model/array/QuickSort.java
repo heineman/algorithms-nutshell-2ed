@@ -19,6 +19,11 @@ public class QuickSort<E extends Comparable<E>> {
 	/** Problem size below which to use insertion sort. */
 	int minSize = 0;
 	
+	/** 
+	 * Use quicksort to sort the array of Comparable values.
+	 * 
+	 * @param ar    array to sort
+	 */
 	public QuickSort (Comparable<E> ar[]) {
 		this.ar = ar;
 	}

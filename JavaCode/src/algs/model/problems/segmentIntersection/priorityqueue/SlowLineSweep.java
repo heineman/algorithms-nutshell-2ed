@@ -23,6 +23,7 @@ public class SlowLineSweep extends IntersectionDetection {
     LineState lineState;     // Store state as sweep progresses.
     SlowEventQueue eq;       // Event queue of event Points.
 
+    /** No argument constructor. */
 	public SlowLineSweep  () {
 		super();
 	}

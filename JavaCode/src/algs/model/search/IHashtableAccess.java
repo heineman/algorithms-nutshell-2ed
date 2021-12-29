@@ -7,8 +7,8 @@ package algs.model.search;
  * interface, they may throw an {@link IllegalStateException} to alert
  * users that they are no longer consistent.
  * 
- * @param K   type of element to be stored as an entry in the hash table.
- * @param V   type of element to be a value associated with an entry in the hash table.
+ * @param <K>   type of element to be stored as an entry in the hash table.
+ * @param <V>   type of element to be a value associated with an entry in the hash table.
  * 
  * @author George Heineman
  * @author Gary Pollice

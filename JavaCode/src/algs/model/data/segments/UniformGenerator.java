@@ -7,10 +7,10 @@ import algs.model.twod.TwoDPoint;
 
 /**
  * Generators of sample lines.
- * <p>
+ * 
  * Randomly select a point in the [0,1] x [0,1] square, and make the length of the
  * line be 1/ratio in a random direction.
- * <p>
+ * 
  * @author George Heineman
  * @version 1.0, 6/15/08
  * @since 1.0

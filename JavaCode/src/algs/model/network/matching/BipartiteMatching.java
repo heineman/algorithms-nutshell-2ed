@@ -12,7 +12,7 @@ import algs.model.network.FordFulkerson;
 /**
  * Computes a matching in a bipartite graph whose vertices are divided into two distinct 
  * sets S and T and whose edges only exist between vertices in S and vertices in T.
- * <p>
+ * 
  * Computes the matching by converting the problem into a FlowNetwork problem.
  * 
  * @author George Heineman
@@ -48,9 +48,9 @@ public class BipartiteMatching {
 	 * Note that the objects which make up the vertex sets must have properly
 	 * implements {@link Object#hashCode()} and {@link Object#equals(Object)}
 	 * methods.
-	 * <p>
-	 * @param setS     Set S being matched to T
-	 * @param setT     Set T being matched to S
+	 * 
+	 * @param S        Set S being matched to T
+	 * @param T        Set T being matched to S
 	 * @param pairs    edges crossing from S to T
 	 * 
 	 * @throws RuntimeException    if an error in input occurs.
@@ -100,7 +100,7 @@ public class BipartiteMatching {
 	 * Compute a solution to the FlowNetwork problem and find all edges in the 
 	 * solution whose flow is 1, since these are valid solutions to the matching
 	 * problem. 
-	 * <p>
+	 * 
 	 * @return  Iterator of Pair objects that reflect the discovered matching. 
 	 */
 	public Iterator<Pair> compute() {

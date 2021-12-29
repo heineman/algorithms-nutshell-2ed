@@ -4,7 +4,7 @@ import algs.model.list.DoubleLinkedList;
 
 /**
  * Parent abstract class for representing a flow network problem to be solved.
- * <p>
+ * 
  * Subclasses included an array-based implementation and one using adjacency lists.
  * 
  * @param <E>    type parameter to describe Edge Structure used by each algorithm
@@ -39,7 +39,6 @@ public abstract class FlowNetwork<E> {
 	
 	/**
 	 * Store relevant information about the FlowNetwork graph.
-	 * <p>
 	 * 
 	 * @param numVertices    the number of vertices in the Flow Network
 	 * @param srcIndex       the index of the vertex designated to be the source
@@ -62,7 +61,6 @@ public abstract class FlowNetwork<E> {
 
 	/**
 	 * Subclasses provide this implementation, based upon their data structures.
-	 * <p>
 	 * 
 	 * @param start    the start index of desired edge.
 	 * @param end      the end index of desired edge.

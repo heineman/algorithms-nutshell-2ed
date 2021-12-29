@@ -66,7 +66,6 @@ public class DoubleGenerator extends Generator<ILineSegment> {
 	 * Generate a random set of segments within a [max,max] box, 
 	 * extending potentially out to a larger range based upon the length 
 	 * of each line segment.
-	 * <p>
 	 * 
 	 * @param size   The number of ILineSegments to create   
 	 */

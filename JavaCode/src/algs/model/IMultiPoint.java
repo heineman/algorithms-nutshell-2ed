@@ -2,12 +2,11 @@ package algs.model;
 
 /**
  * A multi-dimensional point has a set of coordinates in d-dimensional space.
- * <p>
- * This interface is the d-dimensional counterpart to {@link IPoint}. Indeed
+ * 
+ * <p>This interface is the d-dimensional counterpart to {@link IPoint}. Indeed
  * the classes which implement {@link IPoint} should also implement {@link IMultiPoint}
  * to enable two-dimensional data to be processed in the same way that d-dimensional
- * data can be.
- * <p>
+ * data can be.</p> 
  * 
  * @author George Heineman
  * @version 1.0, 6/15/08

@@ -63,7 +63,7 @@ public class BalancedBinaryNode<K,V> implements IGraphEntity {
 	
 	/**
      * Make a new node with given key, value, and parent, and with
-     * <tt>null</tt> child links, and BLACK color.
+     * <pre>null</pre> child links, and BLACK color.
      * 
 	 * @param key         key value to be associated with value in the tree
 	 * @param value       value to be associated with key

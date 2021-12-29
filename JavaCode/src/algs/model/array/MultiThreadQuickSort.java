@@ -4,17 +4,17 @@ package algs.model.array;
 /**
  * Implement a multi-threaded QuickSort that allows any number of helper threads
  * to help the computation.
- * <p>
- * Given a specific threshold size, {@link #threshold}, this implementation will
+ * 
+ * <p>Given a specific threshold size, {@link #threshold}, this implementation will
  * endeavor to spawn a new thread to solve sorting sub-problems less than this
  * threshold size, should there be more threads available. The total number of 
- * threads will never exceed {@link #numThreads}.
- * <p>
- * A mutex, {@link #helpRequestedMutex}, guards the number of helpers working. 
- * We assume that all of the working threads complete succesfully, which enables 
+ * threads will never exceed {@link #numThreads}.</p>
+ * 
+ * <p>A mutex, {@link #helpRequestedMutex}, guards the number of helpers working. 
+ * We assume that all of the working threads complete successfully, which enables 
  * the {@link #qsort(int, int)} method to delay its return until 
- * helpersWorking == 0.
- * <p>
+ * helpersWorking == 0.</p>
+ * 
  * @author George Heineman
  * @version 1.0, 6/1/09
  */
@@ -47,7 +47,7 @@ public class MultiThreadQuickSort<E extends Comparable<E>> {
 	/**
 	 * Construct an instance to solve Quicksort and initialize the threshold
 	 * to be 20% of the original array size.
-	 * <p>
+	 * 
 	 * @param ar    array to be sorted.
 	 */
 	public MultiThreadQuickSort (E ar[]) {
@@ -138,7 +138,7 @@ public class MultiThreadQuickSort<E extends Comparable<E>> {
 
 	/**
 	 * Single-thread sort using Quicksort method.
-	 * <p>
+	 * 
 	 * @param left     The left-bounds within which to sort (0 &le; left &lt; ar.length)
 	 * @param right    The right-bounds within which to sort (0 &le; right &lt; ar.length)
 	 */

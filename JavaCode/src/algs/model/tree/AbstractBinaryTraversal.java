@@ -9,7 +9,7 @@ import algs.model.IBinaryTreeNode;
  * The default traversal class for IBinaryTree trees.
  * 
  * Makes it possible to expose a pre-, in-, or post-order traversal as an Iterator.
- *<p>
+ *
  * @param <T>  Any class that extends {@link IBinaryTreeNode} can be used as the 
  * structure of a Binary tree, and thus can be used as the parameter for this traversal
  * class.
@@ -21,11 +21,30 @@ import algs.model.IBinaryTreeNode;
 public abstract class AbstractBinaryTraversal<T extends IBinaryTreeNode<T>> implements Iterator<IBinaryTreeNode<T>> {
 
 	/** Binary traversals have three phases. */
-	public enum Phase { LEFT, SELF, RIGHT, DONE };
+	public enum Phase { 
+		/** Left phase. */
+		LEFT, 
+		
+		/** Self phase. */
+		SELF, 
+		
+		/** Right phase. */
+		RIGHT, 
+		
+		/** Done phase. */
+		DONE 
+	};
 	
+	/** Left phase of traversal. */
 	public static final Phase left = Phase.LEFT;
+	
+	/** Self phase of traversal. */
 	public static final Phase self = Phase.SELF;
+	
+	/** Right phase of traversal. */
 	public static final Phase right = Phase.RIGHT;
+	
+	/** Done phase of traversal. */
 	public static final Phase done = Phase.DONE;
 	
 	/** A moment in the computation of the traversal. */

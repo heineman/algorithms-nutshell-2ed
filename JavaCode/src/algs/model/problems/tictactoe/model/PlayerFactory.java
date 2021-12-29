@@ -15,9 +15,14 @@ public class PlayerFactory {
 	/** Known types. */
 	public static final String Random = "Random";
 	
-	/** Algorithms. */
+	// Algorithms.
+	/** Minimax algorithm */
 	public static final String MiniMax = "MiniMax";
+	
+	/** Negmax algorithm */
 	public static final String NegMax = "NegMax";
+	
+	/** AlphaBeta algorithm */
 	public static final String AlphaBeta = "AlphaBeta";
 	
 	/**

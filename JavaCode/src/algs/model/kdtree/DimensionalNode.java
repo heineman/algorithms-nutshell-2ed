@@ -7,19 +7,19 @@ import algs.model.nd.Hypercube;
 /**
  * Represents a node in the KD-tree that partitions the space by means of a plane that
  * splits the hyperspace into an "above" and a "below" based upon orientation.
- * <p>
- * Ancestors via the above son are those points which are "above" of the point 
+ * 
+ * <p>Ancestors via the above son are those points which are "above" of the point 
  * represented by this node. Ancestors via the below son are those points which
- * are "below" of the point represented by this node.
- * <p>
- * Each dimensional node stores a Region for which it is responsible. Note that only the
+ * are "below" of the point represented by this node.</p>
+ * 
+ * <p>Each dimensional node stores a Region for which it is responsible. Note that only the
  * Root is boundless in all directions (i.e., [-INF, +INF, -INF, +INF]. Thereafter, child
  * nodes are able to maintain their regions. When a dimensional node is inserted into the
  * tree, its SPACE is properly updated based upon the parent, and dimension to which it
- * is being added.
- * <p>
- * Because the original MultiPoint may have lots of dimensions, we store the values
- * here for much faster access then simply accessing values through its methods.
+ * is being added.</p>
+ * 
+ * <p>Because the original MultiPoint may have lots of dimensions, we store the values
+ * here for much faster access then simply accessing values through its methods.</p>
  * 
  * @author George Heineman
  * @version 1.0, 6/15/08
@@ -27,7 +27,10 @@ import algs.model.nd.Hypercube;
  */
 public class DimensionalNode {
 	
+	/** Number of times a double recursion occurred. */
 	public static int numDoubleRecursions = 0;  /* stats */
+	
+	/** Number of times a regular recursion occurred. */
 	public static int numRecursions = 0;        /* stats */
 
 	/** Dimensional-coordinate. */

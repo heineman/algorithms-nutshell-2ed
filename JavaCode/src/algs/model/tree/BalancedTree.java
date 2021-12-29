@@ -33,29 +33,29 @@ import java.util.Iterator;
  * algorithm as described in Cormen, Leiserson, and Rivest's
  * <I>Introduction to Algorithms</I> (Cormen et al, 2001). The source code
  * for the original may be found in http://download.java.net/openjdk/jdk6
- * <p>
- * The original copyright notice from Sun Microsystems has been included within
+ * 
+ * <p>The original copyright notice from Sun Microsystems has been included within
  * this class file even though we have only extracted several methods from that 
- * class.
- * <p>
- * Red-Black tree based implementation of binary tree. Ensures that the
+ * class.</p>
+ * 
+ * <p>Red-Black tree based implementation of binary tree. Ensures that the
  * entries will be stored using the natural key order for the class K or
  * by the comparator provided at creation time, depending on which 
- * constructor is used.
- * <p>
- * If special balanced trees require additional processing, then extend the
- * rotateLeft and rotateRight trees.
- * <p>
- * An interesting on-line Applet describing Red/Black trees in action can be
+ * constructor is used.</p>
+ * 
+ * <p>If special balanced trees require additional processing, then extend the
+ * rotateLeft and rotateRight trees.</p>
+ * 
+ * <p>An interesting on-line Applet describing Red/Black trees in action can be
  * found here [http://gauss.ececs.uc.edu/RedBlack/redblack.html]. Verified URL
- * August 2007.
- * <p>
- * IMPORTANT: This tree implementation by default assumes all keys are unique.
+ * August 2007.</p>
+ * 
+ * <p><b>IMPORTANT</b>: This tree implementation by default assumes all keys are unique.
  * When calling insert (K,V) on a key that is already present, the old value is 
  * replaced with the new V value (and that old value is returned as the return
  * value of insert). To change this default behavior, set the "allowDuplicates"
  * property to be true; this property can only be changed while the tree is
- * empty (to avoid nasty trouble if the assumption were to change).
+ * empty (to avoid nasty trouble if the assumption were to change).</p>
  * 
  * @param <K>     the base type of the keys stored by each node.
  * @param <V>     the base type of the values stored by the BinaryNode.
@@ -85,7 +85,7 @@ public class BalancedTree<K,V> {
      * Constructs a new, empty map, sorted according to the given comparator.
      * 
      * @param c the comparator that will be used to sort this map.  A
-     *        <tt>null</tt> value indicates that the keys' <i>natural
+     *        <pre>null</pre> value indicates that the keys' <i>natural
      *        ordering</i> should be used.
      */
     public BalancedTree(Comparator<? super K> c) {
@@ -163,29 +163,29 @@ public class BalancedTree<K,V> {
     }
     
     /**
-     * Returns the comparator used to order this map, or <tt>null</tt> if this
+     * Returns the comparator used to order this map, or <pre>null</pre> if this
      * map uses its keys' natural order.
      *
      * @return the comparator associated with this sorted map, or
-     *                <tt>null</tt> if it uses its keys' natural sort method.
+     *                <pre>null</pre> if it uses its keys' natural sort method.
      */
     public Comparator<? super K> comparator() {
         return comparator;
     }
 
     /**
-     * Returns value associated with given key, or <tt>null</tt> if the map
+     * Returns value associated with given key, or <pre>null</pre> if the map
      * does not contain an entry for the key.
      * <p>
      * If the tree allows duplicates, then the first one in the tree which matches
      * is returned.
      * 
      * @param k    target value for which associated value is retrieved.
-     * @return value associated with the given key, or <tt>null</tt> if the map
+     * @return value associated with the given key, or <pre>null</pre> if the map
      *                does not contain an entry for the key.
-     * @throws NullPointerException key is <tt>null</tt> and this map uses
+     * @throws NullPointerException key is <pre>null</pre> and this map uses
      *                  natural order, or its comparator does not tolerate
-     *                  <tt>null</tt> keys.
+     *                  <pre>null</pre> keys.
      */
     public V search(K k) {
     	BalancedBinaryNode<K,V> p = root;
@@ -206,18 +206,18 @@ public class BalancedTree<K,V> {
     
     
     /**
-     * Returns this map's entry for the given key, or <tt>null</tt> if the map
+     * Returns this map's entry for the given key, or <pre>null</pre> if the map
      * does not contain an entry for the key.
      * <p>
      * If the tree allows duplicates, then the first one in the tree which matches
      * is returned.
      * 
      * @param k   query key
-     * @return this map's entry for the given key, or <tt>null</tt> if the map
+     * @return this map's entry for the given key, or <pre>null</pre> if the map
      *                does not contain an entry for the key.
-     * @throws NullPointerException key is <tt>null</tt> and this map uses
+     * @throws NullPointerException key is <pre>null</pre> and this map uses
      *                  natural order, or its comparator does not tolerate *
-     *                  <tt>null</tt> keys.
+     *                  <pre>null</pre> keys.
      */
     public BalancedBinaryNode<K,V> getEntry(K k) {
     	BalancedBinaryNode<K,V> p = root;
@@ -239,7 +239,7 @@ public class BalancedTree<K,V> {
     /**
      * Returns the entry for the greatest key less than the specified key; if
      * no such entry exists (i.e., the least key in the Tree is greater than
-     * the specified key), returns <tt>null</tt>.
+     * the specified key), returns <pre>null</pre>.
      * @param key   key representing an existing node in the tree
      * @return      node that precedes node associated with target key
      */
@@ -281,7 +281,7 @@ public class BalancedTree<K,V> {
     /**
      * Returns the entry for the smallest key greater than the specified key; if
      * no such entry exists (i.e., the least key in the Tree is greater than
-     * the specified key), returns <tt>null</tt>.
+     * the specified key), returns <pre>null</pre>.
      * @param key   key representing an existing node in the tree
      * @return      node that succeeds node associated with target key
      */
@@ -328,15 +328,15 @@ public class BalancedTree<K,V> {
      * @param key key with which the specified value is to be associated.
      * @param value value to be associated with the specified key.
      *
-     * @return previous value associated with specified key, or <tt>null</tt>
-     *         if there was no mapping for key.  A <tt>null</tt> return can
-     *         also indicate that the map previously associated <tt>null</tt>
+     * @return previous value associated with specified key, or <pre>null</pre>
+     *         if there was no mapping for key.  A <pre>null</pre> return can
+     *         also indicate that the map previously associated <pre>null</pre>
      *         with the specified key.
      * @throws    ClassCastException key cannot be compared with the keys
      *            currently in the map.
-     * @throws NullPointerException key is <tt>null</tt> and this map uses
+     * @throws NullPointerException key is <pre>null</pre> and this map uses
      *         natural order, or its comparator does not tolerate
-     *         <tt>null</tt> keys.
+     *         <pre>null</pre> keys.
      */
     public V insert(K key, V value) {
     	BalancedBinaryNode<K,V> t = root;
@@ -386,9 +386,10 @@ public class BalancedTree<K,V> {
      * Subclass extensions of BalancedTree must override this method to
      * insert the appropriate node of the appropriate subclass.
      * 
-     * @param key
-     * @param value
-     * @param parent
+     * @param key      key to use for node
+     * @param value    value to associate with each node
+     * @param parent   parent of node
+     * @return         proper balanced node
      */
     protected BalancedBinaryNode<K,V> construct(K key, V value, BalancedBinaryNode<K,V> parent) {
     	return new BalancedBinaryNode<K,V>(key, value, parent);
@@ -401,16 +402,16 @@ public class BalancedTree<K,V> {
      * is returned.
      * 
      * @param  key key for which mapping should be removed
-     * @return previous value associated with specified key, or <tt>null</tt>
-     *         if there was no mapping for key.  A <tt>null</tt> return can
+     * @return previous value associated with specified key, or <pre>null</pre>
+     *         if there was no mapping for key.  A <pre>null</pre> return can
      *         also indicate that the map previously associated
-     *         <tt>null</tt> with the specified key.
+     *         <pre>null</pre> with the specified key.
      *
      * @throws    ClassCastException key cannot be compared with the keys
      *            currently in the map.
-     * @throws NullPointerException key is <tt>null</tt> and this map uses
+     * @throws NullPointerException key is <pre>null</pre> and this map uses
      *         natural order, or its comparator does not tolerate
-     *         <tt>null</tt> keys.
+     *         <pre>null</pre> keys.
      */
     public V remove(K key) {
     	BalancedBinaryNode<K,V> p = getEntry(key);
@@ -432,10 +433,10 @@ public class BalancedTree<K,V> {
     
     /**
      * Compares two keys using the correct comparison method for this BalancedTree.
-     * <p>
      * 
      * @param k1   base key 
      * @param k2   key to compare against k1
+     * @return     int value based on Comparable interface
      */
     @SuppressWarnings("unchecked")
 	protected int compare(K k1, K k2) {
@@ -556,7 +557,11 @@ public class BalancedTree<K,V> {
         return (p == null) ? null: p.right;
     }
 
-    /** From CLR **/
+    /**
+     * From CLR.
+     * 
+     * @param p  node
+     */
     protected void rotateLeft(BalancedBinaryNode<K,V> p) {
     	BalancedBinaryNode<K,V> r = p.right;
         p.right = r.left;
@@ -573,7 +578,11 @@ public class BalancedTree<K,V> {
         p.parent = r;
     }
 
-    /** From CLR **/
+    /**
+     * From CLR.
+     * 
+     * @param p  node
+     */
     protected void rotateRight(BalancedBinaryNode<K,V> p) {
     	BalancedBinaryNode<K,V> l = p.left;
         p.left = l.right;
@@ -589,7 +598,11 @@ public class BalancedTree<K,V> {
     }
 
 
-    /** From CLR **/
+    /**
+     * From CLR.
+     * 
+     * @param x   node 
+     */
     protected void fixAfterInsertion(BalancedBinaryNode<K,V> x) {
         x.color = BalancedBinaryNode.RED;
 
@@ -634,7 +647,9 @@ public class BalancedTree<K,V> {
     }
 
     /**
-     * Delete node p, and then rebalance the tree.
+     * From CLR.
+     * 
+     * @param p     node
      */
     protected void deleteEntry(BalancedBinaryNode<K,V> p) {
     	size--;
@@ -683,7 +698,6 @@ public class BalancedTree<K,V> {
         }
     }
 
-    /** From CLR **/
     private void fixAfterDeletion(BalancedBinaryNode<K,V> x) {
         while (x != root && colorOf(x) == BalancedBinaryNode.BLACK) {
             if (x == leftOf(parentOf(x))) {
@@ -798,7 +812,10 @@ public class BalancedTree<K,V> {
 		}
 	}
     
-    // Expose Iterator interface, though it is inefficient.
+    /**
+     * Expose Iterator interface, though it is inefficient.
+     * @return   inefficient iterator.
+     */
     public Iterator<V> iterator () {
     	return new BalancedTreeIterator(this);
     }

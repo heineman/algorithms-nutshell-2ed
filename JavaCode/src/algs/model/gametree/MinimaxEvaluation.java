@@ -104,5 +104,7 @@ public class MinimaxEvaluation implements IEvaluation {
 	}
 	
 	// statistical information to evaluate algorithms effectiveness.
+	
+	/** Number of states explored. */
 	public int numStates = 0;
 }

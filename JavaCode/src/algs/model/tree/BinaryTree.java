@@ -56,7 +56,7 @@ public class BinaryTree<T extends Comparable<T>> implements Iterable<T> {
 	/**
 	 * Helper method to properly set the root for the tree.
 	 * 
-	 * @param newRoot
+	 * @param newRoot    new root node to use for tree
 	 */
 	protected void setRoot (BinaryNode<T> newRoot) {
 		root = newRoot;

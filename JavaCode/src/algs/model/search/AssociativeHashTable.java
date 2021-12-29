@@ -10,8 +10,8 @@ import java.util.LinkedList;
  * @author George Heineman
  * @author Gary Pollice
  *
- * @param K   type of element to be stored as an entry in the hash table.
- * @param V   type of element to be a value associated with an entry in the hash table.
+ * @param <K>   type of element to be stored as an entry in the hash table.
+ * @param <V>   type of element to be a value associated with an entry in the hash table.
  * 
  * @version 1.0, 6/15/08
  * @since 1.0
