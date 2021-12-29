@@ -126,6 +126,7 @@ public class HashtableReport {
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
+	@Deprecated
 	public static HashtableReport report (Hashtable<String,Boolean> table) throws Exception {
 		// serialize and parse according to JDK 1.6 spec code. Note: This may change
 		// at any moment, so this code is intentionally deprecated. Access via 
