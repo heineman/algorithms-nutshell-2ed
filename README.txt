@@ -22,7 +22,7 @@ Examples" from the preface of the book. We quote:
   permission. Selling or distributing a CD-ROM of examples from O.Reilly
   books does require permission. Answering a question by citing this book
   and quoting example code does not require permission. Incorporating a
-  significant amount of example code from this book into your product.s
+  significant amount of example code from this book into your product's
   documentation does require permission.
 
   We appreciate, but do not require, attribution. An attribution usually
@@ -34,6 +34,7 @@ Examples" from the preface of the book. We quote:
 Within this repository you will find the following directories:
 
   README.txt         This file
+  Blogs              Code associated with blog entries posted for book
   Code               Implementation of algorithms using C/C++
   PerformanceTests   Tests to stress-test JavaCode
   Tests              JUnit tests cases for JavaCode
@@ -41,12 +42,12 @@ Within this repository you will find the following directories:
   Examples           Examples showing JavaCode in action
   Figures            Shows how to generate nearly all Book Figures
   JavaCode           Implementation of algorithms using Java
+  PythonCode         Implementation of algorithms using Python
   no_ant.sh          Shell script to compile JavaCode and package dist
   no_ant_build.bat   Windows batch file that packages dist 
   build.xml          Ant buildfile to compile, test, and package JavaCode
   VERSION.txt        Version information about this Development Kit
   Makefile           Makefile to compile C/C++ code using gcc/g++
-
 
 Primary Task
 ============
@@ -61,10 +62,13 @@ Primary Task
    introduced with the JDK 1.6; we also use "@Override" annotation tags for
    classes that implement an interface. Compiling the repository requires a
    JDK-1.6 compatible javac compiler. Download the latest JDK from
-   [http://java.sun.com/javase]
+   [https://java.com/download/]
 
-   All code examples have been tested using the latest JDK 1.8.0_74
-   release.
+   All code examples have been tested using:
+   
+     * The latest JDK 1.8 releases
+     * openjdk version "13" 2019-09-17 [https://jdk.java.net/java-se-ri/13]
+     * openjdk version "17" 2021-09-14 [https://jdk.java.net/java-se-ri/17]
 
    Make sure that $JAVA_HOME/bin is in your PATH so the proper java and
    javac executables can be located.
@@ -87,7 +91,7 @@ Primary Task
    If you don't have 'ant' available, you may be able to use the
    "no_ant.sh" script to compile all Java classes. Read that file for
    instructions on its use. If you are on a Microsoft XP Windows machine,
-   you can launch the "no_ant.bat" batch file and it will provide
+   you can launch the "no_ant_build.bat" batch file and it will provide
    instructions on how to build the code (provided you have an available
    JDK of version 1.6 or higher).
 
@@ -164,7 +168,6 @@ And to show a code example, type:
 
 Some figures and examples require resources that are stored on the
 disk. Please use the Makefiles to generate these figures.
-
 
 We also provide a number of example programs showing the algorithms in
 practice. For examples, review the information found in
